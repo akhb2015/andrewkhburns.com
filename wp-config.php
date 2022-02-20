@@ -20,9 +20,9 @@
 
 // Define Environments
 $environments = array(
-    'development' => 'andrewkhburns.com',
-    'stage' => 'stage.andrewkhburns.com',
-    'production' => 'prod.andrewkhburns.com'
+   // 'development' => '127.0.0.1',
+   // 'stage' => 'stage.andrewkhburns.com',
+   // 'production' => 'andrewkhburns.com'
 );
 
 $server_name = $_SERVER['HTTP_HOST'];
@@ -35,8 +35,20 @@ foreach( $environments as $key => $env ) {
     }
 }
 
+define( 'DB_NAME', 'akhb' );
+        define( 'DB_USER', 'root' );
+        define( 'DB_PASSWORD', 'root' );
+        define( 'DB_HOST', 'localhost' );
+        define( 'WP_SITEURL', 'https://andrewkhburns.com.test' );
+        define( 'WP_HOME', 'https://andrewkhburns.com.test' );
+        define( 'WP_CONTENT_URL', 'https://andrewkhburns.com.test/wp-content' );
+        define( 'WP_DEBUG', TRUE );
+        define( 'WP_CACHE', FALSE );
+
+//echo 'ENV = ' . ENVIRONMENT;
+
 // If no environment is set default to production
-if( !defined( 'ENVIRONMENT' ) ) define( 'ENVIRONMENT', 'development' );
+//if( !defined( 'ENVIRONMENT' ) ) define( 'ENVIRONMENT', 'development' );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -44,12 +56,12 @@ switch( ENVIRONMENT ) {
  
     case 'development':
 
-    	define( 'DB_NAME', 'akhb' );
-		define( 'DB_USER', 'admin' );
-		define( 'DB_PASSWORD', 'Mud$hark1968!' );
-		define( 'DB_HOST', 'database-1.cycbf9hqesz9.us-west-2.rds.amazonaws.com' );
-        define( 'WP_SITEURL', 'https://www.andrewkhburns.com' );
-        define( 'WP_HOME', 'https://www.andrewkhburns.com/' );
+        define( 'DB_NAME', 'akhb' );
+        define( 'DB_USER', 'root' );
+        define( 'DB_PASSWORD', 'root' );
+        define( 'DB_HOST', 'localhost' );
+        define( 'WP_SITEURL', 'http://andrewkhburns.com.test/' );
+        define( 'WP_HOME', 'http://andrewkhburns.com.test/' );
         define( 'WP_DEBUG', TRUE );
         define( 'WP_CACHE', FALSE );
         break;
@@ -61,21 +73,21 @@ switch( ENVIRONMENT ) {
         define( 'DB_PASSWORD', 'PASSWORD' );
         define( 'DB_HOST', '127.0.0.1' );
         define( 'WP_SITEURL', 'https://stage.andrewkhburns.com' );
-		define( 'WP_HOME', 'https://stage.andrewkhburns.com/' );
-		define( 'WP_DEBUG', TRUE );
-		define( 'WP_CACHE', TRUE );
+        define( 'WP_HOME', 'https://stage.andrewkhburns.com/' );
+        define( 'WP_DEBUG', TRUE );
+        define( 'WP_CACHE', TRUE );
         break;
  
     case 'production':
  
-        define( 'DB_NAME', 'DBNAME' );
-        define( 'DB_USER', 'DBUSER' );
-        define( 'DB_PASSWORD', 'PASSWORD' );
-        define( 'DB_HOST', '127.0.0.1' );
-        define( 'WP_SITEURL', 'https://prod.andrewkhburns.com' );
-		define( 'WP_HOME', 'https://prod.andrewkhburns.com/' );
+        define( 'DB_NAME', 'akhb' );
+        define( 'DB_USER', 'admin' );
+        define( 'DB_PASSWORD', 'Mud$hark1968!' );
+        define( 'DB_HOST', 'database-1.cycbf9hqesz9.us-west-2.rds.amazonaws.com' );
+        define( 'WP_SITEURL', 'https://www.andrewkhburns.com' );
+        define( 'WP_HOME', 'https://www.andrewkhburns.com/' );
         define( 'WP_DEBUG', FALSE );
-        define( 'WP_CACHE', TRUE );
+        define( 'WP_CACHE', FALSE );
         break;
 }
 
@@ -131,6 +143,8 @@ define('SES_PASSWORD', 'BBXSNj1Em6VVDKZliHDPcqEgwd/6+9d0210ACUZiWC0W');
 //Cuttly API key
 define('CUTTLY_API_KEY', 'bae03ca5b167c33313d01b522327d8adfa6ed');
 
+define('WP_ALLOW_MULTISITE', true);
+
 
 /**#@-*/
 
@@ -174,9 +188,9 @@ define( 'WP_AUTO_UPDATE_CORE', false );
 /** S3 Keys */
 /*
 define( 'AS3CF_SETTINGS', serialize( array(
-	'provider'          => $eb_settings['AS3CF_PROVIDER'],
-	'access-key-id'     => $eb_settings['AS3CF_ACCESS_KEY_ID'],
-	'secret-access-key' => $eb_settings['AS3CF_SECRET_ACCESS_KEY']
+    'provider'          => $eb_settings['AS3CF_PROVIDER'],
+    'access-key-id'     => $eb_settings['AS3CF_ACCESS_KEY_ID'],
+    'secret-access-key' => $eb_settings['AS3CF_SECRET_ACCESS_KEY']
 ) ) );
 */
 
@@ -184,7 +198,7 @@ define( 'AS3CF_SETTINGS', serialize( array(
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+    define( 'ABSPATH', __DIR__ . '/' );
 }
 
 /** Sets up WordPress vars and included files. */
