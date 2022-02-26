@@ -20,9 +20,9 @@
 
 // Define Environments
 $environments = array(
-   // 'development' => '127.0.0.1',
-   // 'stage' => 'stage.andrewkhburns.com',
-   // 'production' => 'andrewkhburns.com'
+    'development' => 'andrewkhburns.com.test',
+    'stage' => 'stage.andrewkhburns.com',
+    'production' => 'andrewkhburns.com'
 );
 
 $server_name = $_SERVER['HTTP_HOST'];
@@ -35,20 +35,8 @@ foreach( $environments as $key => $env ) {
     }
 }
 
-define( 'DB_NAME', 'akhb' );
-        define( 'DB_USER', 'root' );
-        define( 'DB_PASSWORD', 'root' );
-        define( 'DB_HOST', 'localhost' );
-        define( 'WP_SITEURL', 'https://andrewkhburns.com.test' );
-        define( 'WP_HOME', 'https://andrewkhburns.com.test' );
-        define( 'WP_CONTENT_URL', 'https://andrewkhburns.com.test/wp-content' );
-        define( 'WP_DEBUG', TRUE );
-        define( 'WP_CACHE', FALSE );
-
-//echo 'ENV = ' . ENVIRONMENT;
-
 // If no environment is set default to production
-//if( !defined( 'ENVIRONMENT' ) ) define( 'ENVIRONMENT', 'development' );
+if( !defined( 'ENVIRONMENT' ) ) define( 'ENVIRONMENT', 'production' );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -60,8 +48,9 @@ switch( ENVIRONMENT ) {
         define( 'DB_USER', 'root' );
         define( 'DB_PASSWORD', 'root' );
         define( 'DB_HOST', 'localhost' );
-        define( 'WP_SITEURL', 'http://andrewkhburns.com.test/' );
-        define( 'WP_HOME', 'http://andrewkhburns.com.test/' );
+        define( 'WP_SITEURL', 'http://andrewkhburns.com.test' );
+        define( 'WP_HOME', 'http://andrewkhburns.com.test' );
+        define( 'WP_CONTENT_URL', 'http://andrewkhburns.com.test/wp-content' );
         define( 'WP_DEBUG', TRUE );
         define( 'WP_CACHE', FALSE );
         break;
