@@ -22,7 +22,7 @@
 $environments = array(
     'development' => 'andrewkhburns.com.test',
     'stage' => 'stage.andrewkhburns.com',
-    'production' => 'andrewkhburns.com'
+    'production' => 'www.andrewkhburns.com'
 );
 
 $server_name = $_SERVER['HTTP_HOST'];
