@@ -72,7 +72,7 @@ if( isset( $_REQUEST['password'] ) && $_REQUEST['checkemail'] == 'changed' && st
 							</div>
 						<?php endif; ?>
 
-						<form name="loginform" id="loginform" class="needs-validation" novalidate action="https://www.andrewkhburns.com/wp-login.php" method="post">
+						<form name="loginform" id="loginform" class="needs-validation" novalidate action="<?php echo get_home_url(); ?>/wp-login.php" method="post">
 							<div class="form-group">
 								<!-- <label for="user_login">Username or Email Address</label> -->
 								<input type="text" name="log" id="user_login" class="input form-control" placeholder="Email"  autocapitalize="off" required />
@@ -98,13 +98,13 @@ if( isset( $_REQUEST['password'] ) && $_REQUEST['checkemail'] == 'changed' && st
 							<p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever" checked /> <label for="rememberme">Remember Me</label></p>
 							<p class="submit">
 								<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
-								<input type="hidden" name="redirect_to" value="http://www.andrewkhburns.com/" />
+								<input type="hidden" name="redirect_to" value="<?php echo get_home_url(); ?>" />
 								<input type="hidden" name="testcookie" value="1" />
 							</p>
 						</form>
 
 						<p id="nav">
-							<strong><a href="http://www.andrewkhburns.com/wp-login.php?action=lostpassword">Forget your password?</a></strong>
+							<strong><a href="<?php echo get_home_url(); ?>/wp-login.php?action=lostpassword">Forget your password?</a></strong>
 						</p>
 
 					</div>

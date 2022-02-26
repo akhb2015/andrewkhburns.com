@@ -16,7 +16,7 @@ if( is_user_logged_in() ){
 	$wpnonce = wp_create_nonce( 'log-out' );
 
 	$login_link = '<p class="nav">Signed In</p>';
-	$reg_link = '<a href="http://www.andrewkhburns.com/wp-login.php?action=logout&_wpnonce=' . $wpnonce . '" class="dropdown-item">Sign Out</a>';
+	$reg_link = '<a href="' . get_home_url() . '/wp-login.php?action=logout&_wpnonce=' . $wpnonce . '" class="dropdown-item">Sign Out</a>';
 }else{
 	$login_link = '<a href="/login/" class="dropdown-item">Sign in</a>';
 	$reg_link = '<a href="/create-account/" class="dropdown-item">Sign up</a>';
@@ -93,7 +93,7 @@ $user_id = $user->ID;
 		    </ul>
 		    <?php //get_search_form(); ?>
 		    <?php if( is_user_logged_in() ): ?>
-		    	<a href="https://www.andrewkhburns.com/wp-admin/profile.php" class="profile-link" title="Edit my profile" aria-label="Edit my profile"><i class="fa fa-user" style="color:#fff;margin-right:20px"></i></a>
+		    	<a href="<?php echo get_home_url() ?> '/wp-admin/profile.php" class="profile-link" title="Edit my profile" aria-label="Edit my profile"><i class="fa fa-user" style="color:#fff;margin-right:20px"></i></a>
 		    <?php else : ?>
 			    <ul class="navbar-nav ml-auto">
 			    	<li class="nav-item">
