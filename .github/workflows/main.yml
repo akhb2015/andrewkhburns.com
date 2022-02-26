@@ -36,7 +36,7 @@ jobs:
 
     - name: Sync
       env:
-        dest: 'ssh-user@ec2-52-89-177-127.us-west-2.compute.amazonaws.com:/var/www/html/'
+        dest: 'ec2-user@ec2-52-89-177-127.us-west-2.compute.amazonaws.com:/var/www/html/'
       run: |
         echo "${{secrets.DEPLOY_KEY}}" > deploy_key
         chmod 600 ./deploy_key
