@@ -24,8 +24,8 @@ jobs:
       run: |
         aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32    
       env:
-        AWS_ACCESS_KEY_ID: AKIAIG3SAOPHKVJFTZJA
-        AWS_SECRET_ACCESS_KEY: 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
+        AWS_ACCESS_KEY_ID: 'AKIAIG3SAOPHKVJFTZJA'
+        AWS_SECRET_ACCESS_KEY: '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'
         AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
       - name: Checkout the files
         uses: actions/checkout@v2
