@@ -28,19 +28,16 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
         
-
-    - name: grab the files
-      uses: actions/checkout@master
-
-    - name: copy files via ssh key
-      uses: appleboy/scp-action@master
+    - name: Deploy to prod server
+      uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST_DNS }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.EC2_PRIVATE_PEM_KEY }}
-        source: '.'
-        target: ${{ secrets.TARGET_DIR }}
-
+        host: 52.89.177.127
+        username: ec2-user
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd /var/www/html/
+          git stash
+          git pull origin main
               
     - name: Remove Github Actions IP from security group
       run: |
