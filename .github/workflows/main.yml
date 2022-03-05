@@ -33,7 +33,7 @@ jobs:
     - name: copy file via ssh password
       uses: appleboy/scp-action@master
       with:
-        host: ${{ secrets.DNS_HOST }}
+        host: "52.89.177.127"
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.EC2_SSH_KEY }}
         source: "./*"
