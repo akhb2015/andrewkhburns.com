@@ -18,8 +18,7 @@ jobs:
     - name: Setting environment variables..
       run: |
         echo "AWS_DEFAULT_REGION=us-west-2" >> $GITHUB_ENV
-        echo "AWS_SG_NAME=launch-wizard-1" >> $GITHUB_ENV
-        
+        echo "AWS_SG_NAME=launch-wizard-1" >> $GITHUB_ENV  
     - name: Add Github Actions IP to Security group
       run: |
         aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32    
@@ -29,8 +28,7 @@ jobs:
         AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
 
 
-      - name: Checkout the files
-        uses: actions/checkout@v2
+
 
 
     - name: Deploy to Server 1
