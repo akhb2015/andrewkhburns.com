@@ -35,9 +35,9 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
             SSH_PRIVATE_KEY: ${{secrets.EC2_PRIVATE_PEM_KEY}}
-            REMOTE_HOST: '52.89.177.127'
-            REMOTE_USER: 'ec2-user'
-            TARGET: '/var/www/html/'
+            REMOTE_HOST: 52.89.177.127
+            REMOTE_USER: ec2-user
+            TARGET: /var/www/html/
               
     - name: Remove Github Actions IP from security group
       run: |
