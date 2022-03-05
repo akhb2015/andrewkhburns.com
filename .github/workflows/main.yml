@@ -29,7 +29,8 @@ jobs:
         AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
 
 
-
+      - name: Checkout the files
+        uses: actions/checkout@v2
 
 
     - name: Deploy to Server 1
