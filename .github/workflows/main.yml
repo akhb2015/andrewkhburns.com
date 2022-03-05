@@ -28,16 +28,16 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
         
-    - name: Deploy to prod server
-      uses: appleboy/ssh-action@master
-      with:
-        host: 52.89.177.127
-        username: ec2-user
-        key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
-          cd /var/www/html/
-          #git stash
-          #git pull origin main
+      - name: Checkout the files
+        uses: actions/checkout@v2
+
+      - name: Deploy to EC2
+        uses: easingthemes/ssh-deploy@main
+        env:
+            SSH_PRIVATE_KEY: ${{secrets.EC2_PRIVATE_PEM_KEY}}
+            REMOTE_HOST: 52.89.177.127
+            REMOTE_USER: ec2-user
+            TARGET: /var/www/html/
               
     - name: Remove Github Actions IP from security group
       run: |
