@@ -29,15 +29,15 @@ jobs:
         AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
         
     - name: Deploy to prod server
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@main
       with:
         host: 52.89.177.127
         username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           cd /var/www/html/
-          git stash
-          git pull origin main
+          #git stash
+          #git pull origin main
               
     - name: Remove Github Actions IP from security group
       run: |
