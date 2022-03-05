@@ -29,16 +29,14 @@ jobs:
         AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
         
 
-    - name: Checkout the files
-      uses: actions/checkout@v2
+    - name: copy file via ssh key
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOST_DNS }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.EC2_PRIVATE_PEM_KEY }}
+        target: ${{ secrets.TARGET_DIR }}
 
-    - name: Deploy to Server 1
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_PEM_KEY }}
-        REMOTE_HOST: ${{ secrets.HOST_DNS }}
-        REMOTE_USER: ${{ secrets.USERNAME }}
-        TARGET: ${{ secrets.TARGET_DIR }}
               
     - name: Remove Github Actions IP from security group
       run: |
