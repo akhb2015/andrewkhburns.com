@@ -35,7 +35,7 @@ jobs:
       uses: easingthemes/ssh-deploy@main
       env:
         SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-        REMOTE_HOST: "52.89.177.127"
+        REMOTE_HOST: "ec2-52-89-177-127.us-west-2.compute.amazonaws.com"
         REMOTE_USER: ${{ secrets.USERNAME }}
         TARGET: "/var/www/html/"
 
