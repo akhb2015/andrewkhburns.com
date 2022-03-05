@@ -54,7 +54,7 @@ $user_id = $user->ID;
 		</div><!-- .site-branding -->
 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		  <a class="navbar-brand" href="<?php echo get_home_url(); ?>">A88K>>H>>B</a>
+		  <a class="navbar-brand" href="<?php echo get_home_url(); ?>">A777K>>H>>B</a>
 		  <button class="navbar-toggler collapsed border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		  	<!--<span class="navbar-toggler-icon"></span>
 		    <div class="close-icon py-1">&times;</div>-->

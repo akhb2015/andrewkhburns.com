@@ -27,17 +27,20 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
-        
-      - name: Checkout the files
-        uses: actions/checkout@v2
 
-      - name: Deploy to EC2
+
+
+
+
+    - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
         env:
-            SSH_PRIVATE_KEY: ${{secrets.EC2_PRIVATE_PEM_KEY}}
-            REMOTE_HOST: 52.89.177.127
-            REMOTE_USER: ec2-user
-            TARGET: /var/www/html/
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: 52.89.177.127
+          REMOTE_USER: ec2-user
+          TARGET: /var/www/html/
+
+
               
     - name: Remove Github Actions IP from security group
       run: |
