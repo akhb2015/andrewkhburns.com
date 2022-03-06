@@ -10,9 +10,6 @@ jobs:
   deploy:
     name: Deploy to EC2 on main branch push
     runs-on: ubuntu-latest
-
-    permissions: read-all|write-all
-    
     steps:
     - name: Get Github action IP
       id: ip
@@ -40,6 +37,7 @@ jobs:
       run: |
         echo "${{secrets.EC2_SSH_KEY}}" > deploy_key
         chmod 600 ./deploy_key
+        chmod -R 700 ${{env.dest}}
         rsync -chav -q --delete \
           -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
           --exclude /deploy_key \
