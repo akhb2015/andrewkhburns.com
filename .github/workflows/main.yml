@@ -37,7 +37,7 @@ jobs:
       run: |
         echo "${{secrets.EC2_SSH_KEY}}" > deploy_key
         chmod 600 ./deploy_key
-        rsync -chav --omit-dir-times -og --delete \
+        rsync -chav --no-perms --no-owner --no-group --delete \
           -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
           --exclude /deploy_key \
           --exclude /.git/ \
