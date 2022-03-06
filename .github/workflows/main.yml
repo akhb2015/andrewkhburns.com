@@ -10,6 +10,9 @@ jobs:
   deploy:
     name: Deploy to EC2 on main branch push
     runs-on: ubuntu-latest
+
+    permissions: read-all|write-all
+    
     steps:
     - name: Get Github action IP
       id: ip
