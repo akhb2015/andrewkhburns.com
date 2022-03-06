@@ -31,13 +31,16 @@ jobs:
     - name: Checkout the files
       uses: actions/checkout@v2
 
-    - name: Deploy to Server 1
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-        REMOTE_HOST: "ec2-52-89-177-127.us-west-2.compute.amazonaws.com"
-        REMOTE_USER: ${{ secrets.USERNAME }}
-        TARGET: "/var/www/html/"
+    - name: rsync deployments
+      uses: burnett01/rsync-deployments@5.2
+      with:
+        switches: -avzr --delete
+        path: src/
+        remote_path: /var/www/html/
+        remote_host: "ec2-52-89-177-127.us-west-2.compute.amazonaws.com"
+        remote_user: ${{ secrets.USERNAME }}
+        remote_key: ${{ secrets.EC2_SSH_KEY }}
+
 
     - name: Remove Github Actions IP from security group
       run: |
