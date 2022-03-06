@@ -33,7 +33,7 @@ jobs:
 
     - name: Deploy to Server 1
       env:
-        dest: 'ec2-user@ec2-52-89-177-127.us-west-2.compute.amazonaws.com:/var/www/html'
+        dest: 'ec2-user@ec2-52-89-177-127.us-west-2.compute.amazonaws.com:/var/www/html/'
       run: |
         echo "${{secrets.EC2_SSH_KEY}}" > deploy_key
         chmod 600 ./deploy_key
