@@ -42,6 +42,7 @@ wp_mail( $to, $subject, $body, $headers );
 		<div class="row">
 			<div class="col-md-12">
 				<p>Powered by <strong>AWS</strong>: EC2, RDS, SES, Route 53 and S3. Made with <a href="https://www.wordpress.org" target="_blank">Wordpress</a>, Bootstrap, jQuery and <i class="fas fa-heart"></i></p>
+				<p>CI/CD workflow via GitHub</p>
 				<p>Custom theme: <strong>akhb</strong></p>
 				<p><strong>No WP Plugins!</strong></p>
 
