@@ -8,8 +8,6 @@
 // Body class
 if ( is_front_page() ) {
 	$body_class = 'home bg-light';
-} else {
-	$body_class = get_post_meta( get_the_ID(), 'body_class', true );
 }
 
 if( is_user_logged_in() ){
@@ -18,8 +16,8 @@ if( is_user_logged_in() ){
 	$login_link = '<p class="nav">Signed In</p>';
 	$reg_link = '<a href="' . get_home_url() . '/wp-login.php?action=logout&_wpnonce=' . $wpnonce . '" class="dropdown-item">Sign Out</a>';
 }else{
-	$login_link = '<a href="/login/" class="dropdown-item">Sign in</a>';
-	$reg_link = '<a href="/create-account/" class="dropdown-item">Sign up</a>';
+	$login_link = '<a href="' . get_home_url() . '/login/" class="dropdown-item">Sign in</a>';
+	$reg_link = '<a href="' .  get_home_url() . '/create-account/" class="dropdown-item">Sign up</a>';
 }
 
 $user = wp_get_current_user();
@@ -44,7 +42,7 @@ $user_id = $user->ID;
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( $body_class ); ?>>
+<body <?php body_class(); ?>>
 
 <?php wp_body_open(); ?>
 
@@ -97,7 +95,7 @@ $user_id = $user->ID;
 		    <?php else : ?>
 			    <ul class="navbar-nav ml-auto">
 			    	<li class="nav-item">
-				    	<a href="/login/" class="nav-link">Sign in <i class="fas fa-sign-in-alt" style="color:#fff;font-size:1.5rem;margin-left:6px;vertical-align:bottom"></i></a>
+				    	<a href="<?php echo get_home_url() . '/login/'; ?>" class="nav-link">Sign in <i class="fas fa-sign-in-alt" style="color:#fff;font-size:1.5rem;margin-left:6px;vertical-align:bottom"></i></a>
 				    </li>
 				</ul>
 		    <?php endif; ?>

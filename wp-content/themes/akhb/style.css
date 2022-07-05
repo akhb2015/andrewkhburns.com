@@ -433,7 +433,7 @@ td.text {
 }
 
 .masthead {
-    background: url("/wp-content/themes/akhb/images/pdx_skyline_cropped.jpg");
+    background: url("images/pdx_skyline_cropped.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     max-width: 100%;

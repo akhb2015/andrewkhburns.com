@@ -23,7 +23,7 @@ wp_mail( $to, $subject, $body, $headers );
 
 $pdo = Connection::getInstance()->getConnection();
 
-$query=$pdo->prepare( "UPDATE wp_user_movies SET rating = :rating WHERE id = :movieid" );
+$query=$pdo->prepare( "UPDATE Zwv_user_movies SET rating = :rating WHERE id = :movieid" );
 $query->execute( array( ':rating' => $rating, ':movieid' => $movieid ) );
 
 $query->closeCursor();

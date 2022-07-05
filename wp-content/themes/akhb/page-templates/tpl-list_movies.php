@@ -31,7 +31,7 @@ if( isset( $_GET['title'] ) ) $title = $_GET['title'];
 		global $wpdb;
 
 		$query = $wpdb->prepare(
-		    "SELECT * from wp_user_movies WHERE userid = %d AND watched = %d ORDER BY movie_title ASC", $userid, 0
+		    "SELECT * from Zwv_user_movies WHERE userid = %d AND watched = %d ORDER BY movie_title ASC", $userid, 0
 		);
 
 		$movie_results = $wpdb->get_results( $query );

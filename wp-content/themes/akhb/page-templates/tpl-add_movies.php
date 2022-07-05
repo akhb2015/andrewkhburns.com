@@ -32,7 +32,7 @@ if ( $_POST ) {
 	$movie_title = sanitize_text_field( $_POST['movie_title'] );
 	$userid = get_current_user_id();
 
-	$wpdb->insert( 'wp_user_movies', array(
+	$wpdb->insert( 'Zwv_user_movies', array(
 	    'genre' => $genre,
 	    'movie_title' => $movie_title,
 	    'userid' => $userid,
@@ -54,9 +54,9 @@ if ( $_POST ) {
 				<div class="project-button-wrapper">
 					<button type="button" id="formButton" class="new-project-button">Add a Movie</button>
 					<br><br>
-					<button class="current-projects-button" id="" onclick="window.location.href='/list-movies'">My to-see list</button>
+					<button class="current-projects-button" id="" onclick="window.location.href='<?php echo get_home_url() . '/list-movies/'; ?>'">My to-see list</button>
 					<br><br>
-					<button class="current-projects-button" id="" onclick="window.location.href='/list-watched-movies'">Watched Movies</button>
+					<button class="current-projects-button" id="" onclick="window.location.href=''<?php echo get_home_url() . '/list-watched-movies/'; ?>'">Watched Movies</button>
 				</div>
 			</div>
 

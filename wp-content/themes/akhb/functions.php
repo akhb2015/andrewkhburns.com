@@ -548,6 +548,21 @@ add_filter('utmdc_shorten_object', function( $shortener ){
 	return new UtmDotCodes\Cuttly( CUTTLY_API_KEY );
 });
 
+//Page Custom Body Class
+function add_custom_body_class( $classes ) {
+    global $post;
+    if ( isset( $post ) ) {
+        $classes[] = $post->post_name;
+    }
+    $new_class = get_field( 'custom_body_class', $post->ID );
+    if( !empty( $new_class ) ) {
+        $classes[] = $new_class;
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'add_custom_body_class' );
+
+
 
 //SES for email
 function use_amazon_ses( $phpmailer ) {

@@ -19,7 +19,7 @@ body.login {
 /**Custom Login Form**/
 
 body.login #my-login-form {
-	background-color:#f7f3a6;
+	background-color:#f7f3a6 !important;
 	display:block;
 	border:2px solid silver;
 	margin:0 auto;
