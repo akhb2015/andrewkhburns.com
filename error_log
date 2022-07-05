@@ -1,0 +1,127 @@
+[04-Jul-2022 21:23:54 UTC] PHP Warning:  Use of undefined constant YOUTUBE_API_KEY - assumed 'YOUTUBE_API_KEY' (this will throw an Error in a future version of PHP) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 26
+[04-Jul-2022 21:23:55 UTC] PHP Warning:  file_get_contents(https://www.googleapis.com/youtube/v3/search?order=date&amp;part=snippet&amp;maxResults=12&amp;q=hedgehog&amp;type=video&amp;key=YOUTUBE_API_KEY): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 30
+[04-Jul-2022 21:25:25 UTC] PHP Warning:  Use of undefined constant YOUTUBE_API_KEY - assumed 'YOUTUBE_API_KEY' (this will throw an Error in a future version of PHP) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 26
+[04-Jul-2022 21:25:25 UTC] PHP Warning:  file_get_contents(https://www.googleapis.com/youtube/v3/search?order=date&amp;part=snippet&amp;maxResults=12&amp;q=grateful+dead&amp;type=video&amp;key=YOUTUBE_API_KEY): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 30
+[04-Jul-2022 21:34:01 UTC] PHP Warning:  Use of undefined constant YOUTUBE_API_KEY - assumed 'YOUTUBE_API_KEY' (this will throw an Error in a future version of PHP) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 26
+[04-Jul-2022 21:34:01 UTC] PHP Warning:  file_get_contents(https://www.googleapis.com/youtube/v3/search?order=date&amp;part=snippet&amp;maxResults=12&amp;q=koala&amp;type=video&amp;key=YOUTUBE_API_KEY): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 30
+[04-Jul-2022 21:35:38 UTC] PHP Warning:  Use of undefined constant YOUTUBE_API_KEY - assumed 'YOUTUBE_API_KEY' (this will throw an Error in a future version of PHP) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 26
+[04-Jul-2022 21:35:38 UTC] PHP Warning:  file_get_contents(https://www.googleapis.com/youtube/v3/search?order=date&amp;part=snippet&amp;maxResults=12&amp;q=grateful+dead&amp;type=video&amp;key=YOUTUBE_API_KEY): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 30
+[04-Jul-2022 22:22:33 UTC] PHP Warning:  Use of undefined constant YOUTUBE_API_KEY - assumed 'YOUTUBE_API_KEY' (this will throw an Error in a future version of PHP) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 26
+[04-Jul-2022 22:22:33 UTC] PHP Warning:  file_get_contents(https://www.googleapis.com/youtube/v3/search?order=date&amp;part=snippet&amp;maxResults=12&amp;q=hedgehog&amp;type=video&amp;key=YOUTUBE_API_KEY): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 30
+[04-Jul-2022 22:47:13 UTC] PHP Fatal error:  Uncaught Error: Function name must be a string in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php:564
+Stack trace:
+#0 /home3/ndrewkhb/public_html/wp-includes/class-wp-hook.php(309): add_custom_body_class(Array)
+#1 /home3/ndrewkhb/public_html/wp-includes/plugin.php(191): WP_Hook->apply_filters(Array, Array)
+#2 /home3/ndrewkhb/public_html/wp-includes/post-template.php(836): apply_filters('body_class', Array, Array)
+#3 /home3/ndrewkhb/public_html/wp-includes/post-template.php(595): get_body_class(Array)
+#4 /home3/ndrewkhb/public_html/wp-content/themes/akhb/header.php(47): body_class('monkey-pox')
+#5 /home3/ndrewkhb/public_html/wp-includes/template.php(770): require_once('/home3/ndrewkhb...')
+#6 /home3/ndrewkhb/public_html/wp-includes/template.php(716): load_template('/home3/ndrewkhb...', true, Array)
+#7 /home3/ndrewkhb/public_html/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#8 /home3/ndrewkhb/public_html/wp-content/themes/akhb/page.php(15): get_header()
+#9 /ho in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:47:26 UTC] PHP Fatal error:  Uncaught Error: Function name must be a string in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php:564
+Stack trace:
+#0 /home3/ndrewkhb/public_html/wp-includes/class-wp-hook.php(309): add_custom_body_class(Array)
+#1 /home3/ndrewkhb/public_html/wp-includes/plugin.php(191): WP_Hook->apply_filters(Array, Array)
+#2 /home3/ndrewkhb/public_html/wp-includes/post-template.php(836): apply_filters('body_class', Array, Array)
+#3 /home3/ndrewkhb/public_html/wp-includes/post-template.php(595): get_body_class(Array)
+#4 /home3/ndrewkhb/public_html/wp-content/themes/akhb/header.php(47): body_class('home bg-light')
+#5 /home3/ndrewkhb/public_html/wp-includes/template.php(770): require_once('/home3/ndrewkhb...')
+#6 /home3/ndrewkhb/public_html/wp-includes/template.php(716): load_template('/home3/ndrewkhb...', true, Array)
+#7 /home3/ndrewkhb/public_html/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#8 /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-homepage_te in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:48:14 UTC] PHP Notice:  Undefined variable: the_field in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:48:14 UTC] PHP Fatal error:  Uncaught Error: Function name must be a string in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php:564
+Stack trace:
+#0 /home3/ndrewkhb/public_html/wp-includes/class-wp-hook.php(309): add_custom_body_class(Array)
+#1 /home3/ndrewkhb/public_html/wp-includes/plugin.php(191): WP_Hook->apply_filters(Array, Array)
+#2 /home3/ndrewkhb/public_html/wp-includes/post-template.php(836): apply_filters('body_class', Array, Array)
+#3 /home3/ndrewkhb/public_html/wp-includes/post-template.php(595): get_body_class(Array)
+#4 /home3/ndrewkhb/public_html/wp-content/themes/akhb/header.php(47): body_class('home bg-light')
+#5 /home3/ndrewkhb/public_html/wp-includes/template.php(770): require_once('/home3/ndrewkhb...')
+#6 /home3/ndrewkhb/public_html/wp-includes/template.php(716): load_template('/home3/ndrewkhb...', true, Array)
+#7 /home3/ndrewkhb/public_html/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#8 /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-homepage_te in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:49:07 UTC] PHP Notice:  Undefined variable: the_field in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:49:07 UTC] PHP Fatal error:  Uncaught Error: Function name must be a string in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php:564
+Stack trace:
+#0 /home3/ndrewkhb/public_html/wp-includes/class-wp-hook.php(309): add_custom_body_class(Array)
+#1 /home3/ndrewkhb/public_html/wp-includes/plugin.php(191): WP_Hook->apply_filters(Array, Array)
+#2 /home3/ndrewkhb/public_html/wp-includes/post-template.php(836): apply_filters('body_class', Array, Array)
+#3 /home3/ndrewkhb/public_html/wp-includes/post-template.php(595): get_body_class(Array)
+#4 /home3/ndrewkhb/public_html/wp-content/themes/akhb/header.php(47): body_class('monkey-pox')
+#5 /home3/ndrewkhb/public_html/wp-includes/template.php(770): require_once('/home3/ndrewkhb...')
+#6 /home3/ndrewkhb/public_html/wp-includes/template.php(716): load_template('/home3/ndrewkhb...', true, Array)
+#7 /home3/ndrewkhb/public_html/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#8 /home3/ndrewkhb/public_html/wp-content/themes/akhb/page.php(15): get_header()
+#9 /ho in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:51:23 UTC] PHP Notice:  Undefined variable: the_field in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:51:23 UTC] PHP Fatal error:  Uncaught Error: Function name must be a string in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php:564
+Stack trace:
+#0 /home3/ndrewkhb/public_html/wp-includes/class-wp-hook.php(309): add_custom_body_class(Array)
+#1 /home3/ndrewkhb/public_html/wp-includes/plugin.php(191): WP_Hook->apply_filters(Array, Array)
+#2 /home3/ndrewkhb/public_html/wp-includes/post-template.php(836): apply_filters('body_class', Array, Array)
+#3 /home3/ndrewkhb/public_html/wp-includes/post-template.php(595): get_body_class(Array)
+#4 /home3/ndrewkhb/public_html/wp-content/themes/akhb/header.php(47): body_class('home bg-light')
+#5 /home3/ndrewkhb/public_html/wp-includes/template.php(770): require_once('/home3/ndrewkhb...')
+#6 /home3/ndrewkhb/public_html/wp-includes/template.php(716): load_template('/home3/ndrewkhb...', true, Array)
+#7 /home3/ndrewkhb/public_html/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#8 /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-homepage_te in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:51:25 UTC] PHP Notice:  Undefined variable: the_field in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:51:25 UTC] PHP Fatal error:  Uncaught Error: Function name must be a string in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php:564
+Stack trace:
+#0 /home3/ndrewkhb/public_html/wp-includes/class-wp-hook.php(309): add_custom_body_class(Array)
+#1 /home3/ndrewkhb/public_html/wp-includes/plugin.php(191): WP_Hook->apply_filters(Array, Array)
+#2 /home3/ndrewkhb/public_html/wp-includes/post-template.php(836): apply_filters('body_class', Array, Array)
+#3 /home3/ndrewkhb/public_html/wp-includes/post-template.php(595): get_body_class(Array)
+#4 /home3/ndrewkhb/public_html/wp-content/themes/akhb/header.php(47): body_class('home bg-light')
+#5 /home3/ndrewkhb/public_html/wp-includes/template.php(770): require_once('/home3/ndrewkhb...')
+#6 /home3/ndrewkhb/public_html/wp-includes/template.php(716): load_template('/home3/ndrewkhb...', true, Array)
+#7 /home3/ndrewkhb/public_html/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#8 /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-homepage_te in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:52:20 UTC] PHP Notice:  Undefined variable: the_field in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:52:20 UTC] PHP Fatal error:  Uncaught Error: Function name must be a string in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php:564
+Stack trace:
+#0 /home3/ndrewkhb/public_html/wp-includes/class-wp-hook.php(309): add_custom_body_class(Array)
+#1 /home3/ndrewkhb/public_html/wp-includes/plugin.php(191): WP_Hook->apply_filters(Array, Array)
+#2 /home3/ndrewkhb/public_html/wp-includes/post-template.php(836): apply_filters('body_class', Array, Array)
+#3 /home3/ndrewkhb/public_html/wp-includes/post-template.php(595): get_body_class(Array)
+#4 /home3/ndrewkhb/public_html/wp-content/themes/akhb/header.php(47): body_class('home bg-light')
+#5 /home3/ndrewkhb/public_html/wp-includes/template.php(770): require_once('/home3/ndrewkhb...')
+#6 /home3/ndrewkhb/public_html/wp-includes/template.php(716): load_template('/home3/ndrewkhb...', true, Array)
+#7 /home3/ndrewkhb/public_html/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#8 /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-homepage_te in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:52:22 UTC] PHP Notice:  Undefined variable: the_field in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 22:52:22 UTC] PHP Fatal error:  Uncaught Error: Function name must be a string in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php:564
+Stack trace:
+#0 /home3/ndrewkhb/public_html/wp-includes/class-wp-hook.php(309): add_custom_body_class(Array)
+#1 /home3/ndrewkhb/public_html/wp-includes/plugin.php(191): WP_Hook->apply_filters(Array, Array)
+#2 /home3/ndrewkhb/public_html/wp-includes/post-template.php(836): apply_filters('body_class', Array, Array)
+#3 /home3/ndrewkhb/public_html/wp-includes/post-template.php(595): get_body_class(Array)
+#4 /home3/ndrewkhb/public_html/wp-content/themes/akhb/header.php(47): body_class('home bg-light')
+#5 /home3/ndrewkhb/public_html/wp-includes/template.php(770): require_once('/home3/ndrewkhb...')
+#6 /home3/ndrewkhb/public_html/wp-includes/template.php(716): load_template('/home3/ndrewkhb...', true, Array)
+#7 /home3/ndrewkhb/public_html/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#8 /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-homepage_te in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 564
+[04-Jul-2022 23:04:00 UTC] PHP Warning:  Use of undefined constant YOUTUBE_API_KEY - assumed 'YOUTUBE_API_KEY' (this will throw an Error in a future version of PHP) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 26
+[04-Jul-2022 23:04:00 UTC] PHP Warning:  file_get_contents(https://www.googleapis.com/youtube/v3/search?order=date&amp;part=snippet&amp;maxResults=12&amp;q=grateful+dead&amp;type=video&amp;key=YOUTUBE_API_KEY): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 30
+[05-Jul-2022 01:26:18 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 557
+[05-Jul-2022 01:26:18 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/functions.php on line 557
+[05-Jul-2022 01:41:42 UTC] WordPress database error Table 'ndrewkhb_WPJDJ.wp_user_movies' doesn't exist for query SELECT * from wp_user_movies WHERE userid = 1 AND watched = 0 ORDER BY movie_title ASC made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/akhb/page-templates/tpl-list_movies.php')
+[05-Jul-2022 01:42:09 UTC] WordPress database error Table 'ndrewkhb_WPJDJ.wp_user_movies' doesn't exist for query SHOW FULL COLUMNS FROM `wp_user_movies` made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/akhb/page-templates/tpl-add_movies.php')
+[05-Jul-2022 01:42:17 UTC] WordPress database error Table 'ndrewkhb_WPJDJ.wp_user_movies' doesn't exist for query SELECT * from wp_user_movies WHERE userid = 1 AND watched = 0 ORDER BY movie_title ASC made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/akhb/page-templates/tpl-list_movies.php')
+[05-Jul-2022 01:48:20 UTC] WordPress database error Table 'ndrewkhb_WPJDJ.wp_user_movies' doesn't exist for query SHOW FULL COLUMNS FROM `wp_user_movies` made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/akhb/page-templates/tpl-add_movies.php')
+[05-Jul-2022 01:48:24 UTC] WordPress database error Table 'ndrewkhb_WPJDJ.wp_user_movies' doesn't exist for query SELECT * from wp_user_movies WHERE userid = 1 AND watched = 0 ORDER BY movie_title ASC made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/akhb/page-templates/tpl-list_movies.php')
+[05-Jul-2022 01:49:03 UTC] WordPress database error Unknown column 'userid' in 'field list' for query INSERT INTO `Zwv_user_movies` (`genre`, `movie_title`, `userid`, `watched`) VALUES ('Sci Fi', 'Blade Runner', '1', '0') made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/akhb/page-templates/tpl-add_movies.php')
+[05-Jul-2022 01:49:07 UTC] WordPress database error Table 'ndrewkhb_WPJDJ.wp_user_movies' doesn't exist for query SELECT * from wp_user_movies WHERE userid = 1 AND watched = 0 ORDER BY movie_title ASC made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/akhb/page-templates/tpl-list_movies.php')
+[05-Jul-2022 01:50:00 UTC] WordPress database error Table 'ndrewkhb_WPJDJ.wp_user_movies' doesn't exist for query SELECT * from wp_user_movies WHERE userid = 1 AND watched = 0 ORDER BY movie_title ASC made by require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/akhb/page-templates/tpl-list_movies.php')
+[05-Jul-2022 19:28:41 UTC] PHP Warning:  Use of undefined constant YOUTUBE_API_KEY - assumed 'YOUTUBE_API_KEY' (this will throw an Error in a future version of PHP) in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 26
+[05-Jul-2022 19:28:41 UTC] PHP Warning:  file_get_contents(https://www.googleapis.com/youtube/v3/search?order=date&amp;part=snippet&amp;maxResults=12&amp;q=grateful+dead&amp;type=video&amp;key=YOUTUBE_API_KEY): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home3/ndrewkhb/public_html/wp-content/themes/akhb/page-templates/tpl-video_search.php on line 30

@@ -1,0 +1,95 @@
+/**
+ * Styles for the sign in page
+ *
+ *
+ * @author      Andy Burns
+ * @copyright   2021
+ */
+
+/*------------------------------------------------------------------------------
+ * Content
+ -----------------------------------------------------------------------------*/
+/*
+body.login {
+	background: url(https://ononesoft.cachefly.net/wp-content/themes/on1/images/login/bg.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+*/
+
+/**Custom Login Form**/
+
+body.login #my-login-form {
+	background-color:#f7f3a6 !important;
+	display:block;
+	border:2px solid silver;
+	margin:0 auto;
+	padding:24px;
+	width:400px;
+}
+
+body.login #my-login-form label[for=user_login],
+body.login #my-login-form label[for=user_pass] {
+	display:block;
+}
+
+body.login #my-login-form input#user_login,
+body.login #my-login-form input#user_pass {
+	height:40px;
+	width:100%
+}
+
+body.login #my-login-form input#rememberme{
+	
+}
+
+body.login #my-login-form p.forgetmenot {
+	margin-top:20px;
+}
+
+body.login #my-login-form input#wp-submit{
+	background-color:#1c72fc;
+	border: 2px solid #1c72fc;
+  	border-radius: 8px;
+	color:#fff;
+	padding:10px 0;
+	width:100%;
+}
+
+body.login #my-login-form .bg-red, body.login .bg-red {
+	background-color:red;
+}
+body.login #my-login-form .bg-purple, body.login .bg-purple {
+	background-color:#b90ccc;
+}
+
+body.login .create-account-link {
+	text-align:center;
+}
+
+body.login #my-login-form .form-control:focus { border-color: #0a7efa; }
+
+body.login #my-login-form .form-control.is-valid, body.login #loginform.was-validated .form-control:valid {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2321ce6e' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+	border-color: #21ce6e;
+}
+body.login #my-login-form .form-control.is-invalid, body.login #loginform.was-validated .form-control:invalid {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff3d57' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23ff3d57' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
+	border-color: #ff3d57;
+}
+
+body.login #my-login-form .form-control.is-valid:focus, body.login #loginform.was-validated .form-control:valid:focus, body.login #loginform .form-control.is-invalid:focus, body.login #loginform.was-validated .form-control:invalid:focus { box-shadow: none; }
+body.login #my-login-form .form-check-input { margin-top: -0.25rem; }
+body.login #my-login-form .login-submit { margin-bottom: 0; }
+body.login #site-main .lost-pass { border-top: 1px solid #eaeaea; }
+
+/*------------------------------------------------------------------------------
+ * Mobile
+ -----------------------------------------------------------------------------*/
+/* Phones & small screens */
+@media only screen and (min-width: 320px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
+	body.login #my-login-form {
+        	width:98%;
+        }
+}
+
+
