@@ -8,47 +8,5 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to EC2 on main branch push
+    name: Deploy to GitHub on main branch push
     runs-on: ubuntu-latest
-    steps:
-    - name: Get Github action IP
-      id: ip
-      uses: haythem/public-ip@v1.2
-
-    - name: Setting environment variables..
-      run: |
-        echo "AWS_DEFAULT_REGION=us-west-2" >> $GITHUB_ENV
-        echo "AWS_SG_NAME=launch-wizard-1" >> $GITHUB_ENV
-        
-    - name: Add Github Actions IP to Security group
-      run: |
-        aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32    
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
-
-    - name: Checkout the files
-      uses: actions/checkout@v2
-
-    - name: Deploy to Server 1
-      env:
-        dest: 'ec2-user@ec2-52-89-177-127.us-west-2.compute.amazonaws.com:/var/www/html/'
-      run: |
-        echo "${{secrets.EC2_SSH_KEY}}" > deploy_key
-        chmod 600 ./deploy_key
-        rsync -chav -q -O -o -g -a --omit-dir-times --no-times --no-perms --temp-dir='/tmp' --delete \
-          -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
-          --exclude /deploy_key \
-          --exclude /.git/ \
-          --exclude /.github/ \
-          ./ ${{env.dest}}
-
-    - name: Remove Github Actions IP from security group
-      run: |
-        aws ec2 revoke-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ env.AWS_DEFAULT_REGION }}
-      if: always()
