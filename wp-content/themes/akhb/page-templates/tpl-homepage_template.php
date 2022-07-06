@@ -51,13 +51,13 @@ wp_mail( $to, $subject, $body, $headers );
 
 					if( is_user_logged_in() ){
 						echo '<p>Thanks for logging in!</p>';
-						echo '<p>Feel free to <a href="https://www.andrewkhburns.com/wp-admin/profile.php">Edit your Profile</a> or you can <a href="https://www.andrewkhburns.com/wp-login.php?action=logout&_wpnonce=' . $wpnonce . '">Log Out</a>.</p>';
+						echo '<p>Feel free to <a href="' . get_home_url() . '/wp-admin/profile.php">Edit your Profile</a> or you can <a href="' . get_home_url() . '/wp-login.php?action=logout&_wpnonce=' . $wpnonce . '">Log Out</a>.</p>';
 					}else{
 						echo '<p>You\'re welcome to <a href="/login/">sign in</a>.</p>';
-						echo '<p>No account? <a href="https://www.andrewkhburns.com/create-account/">Create one here</a>.</p>';
+						echo '<p>No account? <a href="' .  get_home_url() . '/create-account/">Create one here</a>.</p>';
 					}
 
-				?>
+				?><a href="<?php echo home_url( 'create-account' ); ?>">
 
 			</div>
 		</div>
