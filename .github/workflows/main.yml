@@ -20,4 +20,4 @@ jobs:
         server: ftp.andrewkhburns.com
         username: ${{ secrets.BLUEHOST_USERNAME }}
         password: ${{ secrets.BLUEHOST_PASSWORD }}
-        server-dir: /home3/ndrewkhb/public_html/
+        server-dir: home3/ndrewkhb/public_html/
