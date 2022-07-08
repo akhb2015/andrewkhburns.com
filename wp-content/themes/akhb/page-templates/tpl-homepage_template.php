@@ -44,7 +44,7 @@ wp_mail( $to, $subject, $body, $headers );
 				<p>Powered by <strong>Bluehost</strong>.  Made with <a href="https://www.wordpress.org" target="_blank">Wordpress</a> and <i class="fas fa-heart"></i></p>
 				<p>CI/CD workflow via GitHub Actions</p>
 				<p>Custom theme: <strong>akhb</strong></p>
-				<p>More text for testing...right here and now</p>
+				<p>More text for testinggggg</p>
 
 				<?php
 
