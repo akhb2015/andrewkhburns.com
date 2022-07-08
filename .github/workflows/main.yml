@@ -10,13 +10,14 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-     steps:
-      - uses: actions/checkout@v2
-      # Here is the deployment action
-      - name: Upload from public_html via FTP
-        uses: airvzxf/ftp-deployment-action@latest
-        with:
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
         server: ftp.andrewkhburns.com
         username: ${{ secrets.BLUEHOST_USERNAME }}
         password: ${{ secrets.BLUEHOST_PASSWORD }}
-        remote_dir: /home3/ndrewkhb/public_html/
+        server-dir: home3/ndrewkhb/public_html/
