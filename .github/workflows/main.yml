@@ -22,7 +22,7 @@ jobs:
         echo "${{secrets.BLUEHOST_PRIVATE_SSH_KEY}}" > deploy_key
         chmod 600 ./deploy_key
         rsync -chav -q -O -o -g -a --omit-dir-times --no-times --no-perms --temp-dir='/tmp' --delete \
-          -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no -p Mud$hark1968!' \
+          -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
           --exclude /deploy_key \
           --exclude /.git/ \
           --exclude /.github/ \
