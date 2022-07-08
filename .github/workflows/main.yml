@@ -7,17 +7,23 @@ on:
       - main
 
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deploy:
+    name: Deploy to Bluehost on main branch push
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
+
+    - name: Checkout the files
       uses: actions/checkout@v2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
-      with:
-        server: ftp.andrewkhburns.com
-        username: ${{ secrets.BLUEHOST_USERNAME }}
-        password: ${{ secrets.BLUEHOST_PASSWORD }}
-        server-dir: home3/ndrewkhb/public_html/
+
+    - name: Deploy to Server
+      env:
+        dest: 'ndrewkhb@andrewkhburns.com:/home3/ndrewkhb/public_html/'
+      run: |
+        echo "${{secrets.BLUEHOST_PRIVATE_SSH_KEY}}" > deploy_key
+        chmod 600 ./deploy_key
+        rsync -chav -q -O -o -g -a --omit-dir-times --no-times --no-perms --temp-dir='/tmp' --delete \
+          -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+          --exclude /deploy_key \
+          --exclude /.git/ \
+          --exclude /.github/ \
+          ./ ${{env.dest}}
