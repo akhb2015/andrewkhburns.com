@@ -18,7 +18,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: andrewkhburns.com
+        server: ftp.andrewkhburns.com
         username: ${{ secrets.BLUEHOST_USERNAME }}
         password: ${{ secrets.BLUEHOST_PASSWORD }}
         server-dir: home3/ndrewkhb/public_html/
