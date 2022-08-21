@@ -460,7 +460,7 @@ h1.masthead-text {
     top: 40%;
     transform: translate(-50%, -50%);
     text-align: center;
-    width: 100%;
+    max-width: 100%;
 }
 
 .my-name {
