@@ -537,13 +537,10 @@ h1.masthead-text {
         height: 240px
     }
     h1.masthead-text {
-        display: block;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 400;
-        line-height: 1.5rem;
-    }
-    h1.masthead-text.first {
-        padding-top: 50px;
+        line-height: 10px !important;
+        padding-top: 70px;
     }
 }
 
@@ -624,6 +621,7 @@ button.accept-cookie {
 
 @media all and (min-width:0px) and (max-width: 479px) {
     .cookie-disclaimer {
+        height: 80px;
         bottom: 16px;
         height: 90px;
     }
