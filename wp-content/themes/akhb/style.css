@@ -637,7 +637,7 @@ button.accept-cookie {
     margin-top: -2px;
 }
 
-@media only screen and (min-width: 80px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-width: 80px) and (max-width: 799px) and (-webkit-min-device-pixel-ratio: 2) {
     .cookie-disclaimer {
         height: 100px;
         width: 100%;
