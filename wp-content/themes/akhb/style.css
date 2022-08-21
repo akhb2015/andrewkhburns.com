@@ -634,7 +634,7 @@ p.nav {
 }
 
 .fa-times {
-    color: #fff;
+    color: #fff !important;
 }
 
 button.accept-cookie {
