@@ -44,10 +44,9 @@ wp_mail( $to, $subject, $body, $headers );
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<p>Powered by <strong>Bluehost</strong>.  Made with <a href="https://www.wordpress.org" target="_blank">Wordpress</a> and <i class="fas fa-heart"></i></p>
+				<p>Powered by <strong>Bluehost</strong>. Made with <a href="https://www.wordpress.org" target="_blank">Wordpress</a> and <i class="fas fa-heart"></i></p>
 				<p>CI/CD workflow via GitHub Actions</p>
 				<p>Custom theme: <strong>akhb</strong></p>
-				<p>More text for testing, yo!!!!</p>
 
 				<?php
 
