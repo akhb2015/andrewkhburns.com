@@ -91,7 +91,7 @@ $user_id = $user->ID;
 		    </ul>
 		    <?php //get_search_form(); ?>
 		    <?php if( is_user_logged_in() ): ?>
-		    	<a href="<?php echo get_home_url() ?> '/wp-admin/profile.php" class="profile-link" title="Edit my profile" aria-label="Edit my profile"><i class="fa fa-user" style="color:#fff;margin-right:20px"></i></a>
+		    	<a href="<?php echo get_home_url() ?>/wp-admin/profile.php" class="profile-link" title="Edit my profile" aria-label="Edit my profile"><i class="fa fa-user" style="color:#fff;margin-right:20px"></i></a>
 		    <?php else : ?>
 			    <ul class="navbar-nav ml-auto">
 			    	<li class="nav-item">
