@@ -637,17 +637,14 @@ p.nav {
     color: #fff !important;
 }
 
-button.accept-cookie {
-    margin-top: -2px;
-}
+button.accept-cookie {}
 
-@media only screen and (min-width: 80px) and (max-width: 799px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-width: 299px) and (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2) {
     .cookie-disclaimer {
-        height: 100px;
-        width: 100%;
+        height: 94px;
     }
     .cookie-disclaimer p {
-        line-height: 1.5rem
+        line-height: 20px;
     }
 }
 
