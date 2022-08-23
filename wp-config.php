@@ -38,10 +38,18 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 
 
-define('WP_SITEURL',       'http://localhost:8888/andrewkhburns.com');
-define('WP_HOME',          'http://localhost:8888/andrewkhburns.com');
-define('WP_CONTENT_URL',   'http://localhost:8888/andrewkhburns.com/wp-content');
+if ( $_SERVER['HTTP_HOST'] == 'localhost:8888' ) {
 
+    define('WP_SITEURL',       'http://localhost:8888/andrewkhburns.com');
+    define('WP_HOME',          'http://localhost:8888/andrewkhburns.com');
+    define('WP_CONTENT_URL',   'http://localhost:8888/andrewkhburns.com/wp-content');
+    
+}else{
+
+    define('WP_SITEURL',       'http://www.andrewkhburns.com');
+    define('WP_HOME',          'http://www.andrewkhburns.com');
+    define('WP_CONTENT_URL',   'http://www.andrewkhburns.com/wp-content');
+}
 
 /**#@+
  * Authentication unique keys and salts.
@@ -69,6 +77,11 @@ define('NONCE_SALT', '8f1e2055f254694fa2e8de58d90be8d22ab0b5171bf93029aa94434ce2
 define('YOUTUBE_API_KEY', 'AIzaSyBC3dwFcKdIPAZipC-o1_q_X0fpFgmDahk');
 
 define('WP_ALLOW_MULTISITE', true);
+
+/*SMTP settingds*/
+//define( 'WPMS_ON', true );
+
+//define( 'WPMS_SMTP_PASS', 'Mud$hark1968!' );
 
 
 /**
