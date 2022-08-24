@@ -460,7 +460,6 @@ add_action( 'login_form_rp', 'akhb_do_password_reset' );
 add_action( 'login_form_resetpass', 'akhb_do_password_reset' );
 
 
-
 //WP cookies blocked bug
 setcookie(TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN, false, true);
 if ( SITECOOKIEPATH != COOKIEPATH ) setcookie(TEST_COOKIE, 'WP Cookie check', 0, SITECOOKIEPATH, COOKIE_DOMAIN, false, true, 'LAX');
@@ -541,12 +540,6 @@ function imdb_api_call( $searchterm ) {
 	}
 }
 
-//Custom shortener used by utm-dot-codes plugin
-//CUTTLY_API_KEY defined in wp-config.php
-add_filter('utmdc_shorten_object', function( $shortener ){
-	include_once 'inc/class-cuttly.php';
-	return new UtmDotCodes\Cuttly( CUTTLY_API_KEY );
-});
 
 //Page Custom Body Class
 function add_custom_body_class( $classes ) {
@@ -561,22 +554,6 @@ function add_custom_body_class( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'add_custom_body_class' );
-
-
-
-//SES for email
-function use_amazon_ses( $phpmailer ) {
-    $phpmailer->isSMTP();
-    //$phpmailer->SMTPDebug = 2;
-    $phpmailer->SMTPAuth = true;
-    $phpmailer->Username = SES_USERNAME;
-    $phpmailer->Password = SES_PASSWORD;
-    $phpmailer->Host = 'email-smtp.us-west-2.amazonaws.com';
-    $phpmailer->Port = 587;
-    $phpmailer->SMTPSecure = 'tls';
-}
-
-add_action( 'phpmailer_init', 'use_amazon_ses' );
 
 
 // Function to change email address

@@ -1,4 +1,3 @@
-
 <?php
 
 /** Account Creation Form
@@ -101,7 +100,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 		if ( !empty( $user_id ) ) {
 			wp_set_current_user( $user_id );
 		    wp_set_auth_cookie( $user_id );
-		    wp_redirect( home_url() );
+		    wp_safe_redirect( home_url() );
 		    exit();
 		}
 	}

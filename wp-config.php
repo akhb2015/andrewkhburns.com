@@ -46,9 +46,9 @@ if ( $_SERVER['HTTP_HOST'] == 'localhost:8888' ) {
     
 }else{
 
-    define('WP_SITEURL',       'http://www.andrewkhburns.com');
-    define('WP_HOME',          'http://www.andrewkhburns.com');
-    define('WP_CONTENT_URL',   'http://www.andrewkhburns.com/wp-content');
+    define('WP_SITEURL',       'https://www.andrewkhburns.com');
+    define('WP_HOME',          'https://www.andrewkhburns.com');
+    define('WP_CONTENT_URL',   'https://www.andrewkhburns.com/wp-content');
 }
 
 /**#@+
