@@ -20,7 +20,7 @@ body.login {
 /**Custom Login Form**/
 
 body.create-account #my-reg-form {
-    background-image: linear-gradient(rgba(138, 137, 150), rgba(181, 180, 194)) !important;
+    background-image: linear-gradient(rgba(138, 137, 150), rgba(181, 180, 194));
     display: block;
     margin: 0 auto;
     padding: 24px;

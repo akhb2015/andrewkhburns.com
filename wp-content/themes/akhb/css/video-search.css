@@ -11,7 +11,7 @@
  -----------------------------------------------------------------------------*/
 
 body.youtube #videosearch {
-    background-image: linear-gradient(rgba(138, 137, 150), rgba(181, 180, 194)) !important;
+    background-image: linear-gradient(rgba(138, 137, 150), rgba(181, 180, 194));
     display: block;
     padding: 24px;
     margin: 0 auto;
