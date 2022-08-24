@@ -7,6 +7,8 @@ Version: 1.0.0
 /* Document
    ========================================================================== */
 
+/*Global reset*/
+
 *, *::after, *::before {
     box-sizing: inherit;
     margin: 0;
