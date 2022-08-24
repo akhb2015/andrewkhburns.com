@@ -200,8 +200,32 @@ function akhb_scripts() {
 
 	// Theme defaults
 	wp_enqueue_script( 'akhb', get_theme_file_uri( 'js/global.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'js/global.js' ) ), true );
+
+	wp_enqueue_script( 'font-awesome-kit', 'https://kit.fontawesome.com/563291e03f.js', [], null, true );
 }
 add_action( 'wp_enqueue_scripts', 'akhb_scripts' );
+
+//security headers
+add_action( 'init', function() {
+  $headers = [
+    'Content-Security-Policy' => 'upgrade-insecure-requests',
+    'Permissions-Policy' => 'geolocation=(self)',
+    'Referrer-Policy' => 'no-referrer-when-downgrade',
+    'X-Content-Type-Options' => 'nosniff',
+    'X-Frame-Options' => 'sameorigin',
+    'X-XSS-Protection' => '1; mode=block',
+    'Access-Control-Allow-Origin:' => '*'
+  ];
+
+  foreach ($headers as $header => $value) {
+    header(sprintf(
+      '%s: %s',
+      $header,
+      $value
+    ));
+  }
+});
+
 
 /**
  * PDO connection class.
