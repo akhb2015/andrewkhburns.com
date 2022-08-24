@@ -9,96 +9,118 @@
 /*------------------------------------------------------------------------------
  * Content
  -----------------------------------------------------------------------------*/
+
 body.youtube #videosearch {
-    background-color:#f7f3a6;
-    display:block;
-    border:2px solid silver;
-    padding:24px;
-    margin:0 auto;
-    width:400px;
+    background-image: linear-gradient(rgba(138, 137, 150), rgba(181, 180, 194)) !important;
+    display: block;
+    padding: 24px;
+    margin: 0 auto;
+    width: 400px;
 }
 
 body.youtube #videosearch label[for=searchterm] {
-    display:block;
+    display: block;
 }
 
 body.youtube #videosearch input#searchterm {
-    height:40px;
-    width:100%
+    height: 40px;
+    width: 100%
 }
 
-body.youtube #videosearch input#wp-submit{
-    background-color:#1c72fc;
+body.youtube #videosearch input#wp-submit {
+    background-color: #1c72fc;
     border: 2px solid #1c72fc;
     border-radius: 8px;
-    color:#fff;
-    padding:10px 0;
-    width:100%;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+}
+
+body.youtube #videosearch input#wp-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+body.youtube #videosearch input#wp-submit:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 8px rgba(0, 0, 0, .2);
 }
 
 body.youtube #videosearch .bg-red, body.login .bg-red {
-    background-color:red;
+    background-color: red;
 }
+
 body.youtube #videosearch .bg-purple, body.login .bg-purple {
-    background-color:#b90ccc;
+    background-color: #b90ccc;
 }
 
 body.login .create-account-link {
-    text-align:center;
+    text-align: center;
 }
 
-body.youtube #videosearch .form-control:focus { border-color: #0a7efa; }
+body.youtube #videosearch .form-control:focus {
+    border-color: #0a7efa;
+}
 
 body.youtube #videosearch .form-control.is-valid, body.youtube #videosearch.was-validated .form-control:valid {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2321ce6e' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
     border-color: #21ce6e;
 }
+
 body.youtube #videosearch .form-control.is-invalid, body.youtube #videosearch.was-validated .form-control:invalid {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff3d57' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23ff3d57' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
     border-color: #ff3d57;
 }
 
-body.youtube #videosearch .form-control.is-valid:focus, body.youtube #videosearch .form-control:valid:focus, body.login #loginform .form-control.is-invalid:focus, body.login #loginform.was-validated .form-control:invalid:focus { box-shadow: none; }
-body.youtube #videosearch .form-check-input { margin-top: -0.25rem; }
-body.youtube #videosearch .login-submit { margin-bottom: 0; }
+body.youtube #videosearch .form-control.is-valid:focus, body.youtube #videosearch .form-control:valid:focus, body.login #loginform .form-control.is-invalid:focus, body.login #loginform.was-validated .form-control:invalid:focus {
+    box-shadow: none;
+}
 
-body.youtube img.video-thumb{
-    padding:10px;
-    border:2px solid silver;
-    border-radius:8px;
-    width:280px;
-    height:158px;
-    margin:0 0 -16px 0;
+body.youtube #videosearch .form-check-input {
+    margin-top: -0.25rem;
+}
+
+body.youtube #videosearch .login-submit {
+    margin-bottom: 0;
+}
+
+body.youtube img.video-thumb {
+    padding: 10px;
+    border: 2px solid silver;
+    border-radius: 8px;
+    width: 280px;
+    height: 158px;
+    margin: 0 0 -16px 0;
 }
 
 body.youtube h3 {
-   text-align:center;
+    text-align: center;
 }
 
 body.youtube .video-title-wrapper p {
-    margin:20px 40px 30px 40px;
-    text-align:center;
+    margin: 20px 40px 30px 40px;
+    text-align: center;
 }
 
 body.youtube .modal-dialog {
-  max-width: 800px;
-  margin: 30px auto;
+    max-width: 800px;
+    margin: 30px auto;
 }
 
 body.youtube .modal-body {
-  position:relative;
-  padding:0px;
+    position: relative;
+    padding: 0px;
 }
 
 body.youtube .close {
-  position:absolute;
-  right:-40px;
-  top:-30px;
-  z-index:999;
-  font-size:2rem;
-  font-weight: normal;
-  color:#fff;
-  opacity:1;
+    position: absolute;
+    right: -40px;
+    top: -30px;
+    z-index: 999;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+    opacity: 1;
 }
 
 /*------------------------------------------------------------------------------
@@ -106,15 +128,14 @@ body.youtube .close {
  -----------------------------------------------------------------------------*/
 
 /* Phones & small screens */
+
 @media only screen and (min-width: 320px) and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 2) {
-
     body.youtube #videosearch {
-        width:98%;
+        width: 98%;
     }
-
     body.youtube img.video-thumb {
-        padding:4px;
-        width:240px;
-        height:140px;
+        padding: 4px;
+        width: 240px;
+        height: 140px;
     }
 }
