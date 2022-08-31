@@ -3,7 +3,7 @@ namespace Bluehost\WP\Data;
 
 use Bluehost\AccessToken;
 use Bluehost\SiteMeta;
-use Endurance\WP\Module\Data\Helpers\Transient;
+use NewfoldLabs\WP\Module\Data\Helpers\Transient;
 
 /**
  * Helper class for gathering and formatting customer data
@@ -11,42 +11,149 @@ use Endurance\WP\Module\Data\Helpers\Transient;
 class Customer {
 
     /**
+     * Normalized, weekly-cached.
+     *
+     * @var string
+     */
+    private const TRANSIENT = 'bh_cdata';
+
+    /**
+     * Retry throttle.
+     *
+     * @var string
+     */
+    private const THROTTLE = 'bh_cdata_pause';
+
+    /**
+     * Provided option.
+     *
+     * @var string
+     */
+    private const PROVIDED_GUAPI = 'bh_cdata_guapi';
+
+    /**
+     * Provided option.
+     *
+     * @var string
+     */
+    private const PROVIDED_MOLE = 'bh_cdata_mole';
+
+    /**
+     * The number of failed connection attempts.
+     *
+     * @var integer
+     */
+    private const RETRY_COUNT = 'bh_cdata_retry_count';
+
+    /**
      * Prepare customer data
      *
      * @return array of customer data
      */
     public static function collect() {
-        $bh_cdata = Transient::get( 'bh_cdata' );
+        $bh_cdata = Transient::get( self::TRANSIENT );
+
+        if ( $bh_cdata &&
+             is_array( $bh_cdata ) &&
+            ( 
+                ! array_key_exists( 'signup_date', $bh_cdata ) ||
+                ! array_key_exists( 'plan_subtype', $bh_cdata ) 
+            )
+        ) {
+            $bh_cdata = false;
+            Transient::delete( self::TRANSIENT );
+        }
 
         if ( ! $bh_cdata ) {
             $guapi    = self::get_account_info();
-            $mole     = array( 'meta' => self::get_onboarding_info() );
-            $bh_cdata = array_merge( $guapi, $mole );
-            Transient::set( 'bh_cdata', $bh_cdata, WEEK_IN_SECONDS );            
+            $mole     = self::get_onboarding_info();
+            if ( empty( $guapi ) ) {
+                return false;
+            }
+            $bh_cdata = array_merge( $guapi, array( 'meta' => $mole ) );
+            Transient::set( self::TRANSIENT, $bh_cdata, WEEK_IN_SECONDS );
         }
 
         return $bh_cdata;
     }
 
     /**
+     * Prepopulate with provided data.
+     *
+     * @param string $path of desired API endpoint
+     * @return object|false of response data in json format
+     */
+    public static function provided( $path ) {
+        $provided = false;
+        switch( $path ) {
+            case '/onboarding-info':
+            case '/hosting-account-info':
+                $key = self::get_cdata_key_by_path( $path );
+                $provided = \get_option( $key );
+                if (
+                    ! empty( $provided )
+                    && is_string( $provided )
+                    && is_object( $decoded = json_decode( $provided ) )
+                ) {
+                    $provided = $decoded;
+                    \delete_option( $key );
+                }
+            break;
+        }
+
+        return $provided;
+    }
+
+    /**
+     * Map usersite path to cdata key.
+     *
+     * @param string $path
+     * @return string
+     */
+    private static function get_cdata_key_by_path( $path ) {
+        switch( $path ) {
+            case '/hosting-account-info':
+                return self::PROVIDED_GUAPI;
+            case '/onboarding-info':
+                return self::PROVIDED_MOLE;
+        }
+    }
+
+    /**
      * Connect to API with token via AccessToken Class in Bluehost Plugin
-     * 
+     *
      * @param string $path of desired API endpoint
      * @return object of response data in json format
      */
     public static function connect( $path ) {
-        
+
         if ( ! $path ) {
+            return;
+        }
+
+        $provided = self::provided( $path );
+
+        if ( false !== $provided ) {
+            return $provided;
+        }
+
+        if ( self::is_throttled() ) {
             return;
         }
 
         // refresh token if needed
         AccessToken::maybe_refresh_token();
-        
+
         // construct request
         $token         = AccessToken::get_token();
         $user_id       = AccessToken::get_user();
         $domain        = SiteMeta::get_domain();
+
+        if ( empty( $token ) || empty( $user_id ) || empty( $domain ) ) {
+            self::throttle();
+            return;
+        }
+
         $api_endpoint  = 'https://my.bluehost.com/api/users/'.$user_id.'/usersite/'.$domain;
         $args          = array( 'headers' => array( 'X-SiteAPI-Token' => $token ) );
         $url           = $api_endpoint . $path;
@@ -55,23 +162,69 @@ class Customer {
 
         // exit on errors
         if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) != 200 ) {
+            self::throttle();
             return;
         }
 
+        self::clear_throttle();
         return json_decode( wp_remote_retrieve_body( $response ) );
     }
 
 
     /**
+     * Checks if a request should be throttled.
+     *
+     * @return bool
+     */
+    public static function is_throttled() {
+        $throttle = Transient::get( self::THROTTLE );
+        $retry_count = (int) \get_option( self::RETRY_COUNT, 0 );
+
+        if ( false !== $throttle || $retry_count >= 10 ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Updates the throttle when there is a failure.
+     */
+    public static function throttle() {
+        $retry_count = (int) \get_option( self::RETRY_COUNT, 0 ) + 1;
+
+        if ( $retry_count <= 5 ) {
+            $timeout = MINUTE_IN_SECONDS * $retry_count;
+        } elseif ( $retry_count < 10 ) {
+            $timeout = HOUR_IN_SECONDS * $retry_count;
+        } else {
+            $timeout = WEEK_IN_SECONDS;
+            $retry_count = 0;
+        }
+
+        Transient::set(  self::THROTTLE, 1, $timeout );
+        \update_option( self::RETRY_COUNT, $retry_count );
+    }
+
+
+    /**
+     * Clears the retry count option.
+     */
+    public static function clear_throttle() {
+        \delete_option( self::RETRY_COUNT );
+    }
+
+
+    /**
      * Connect to the hosting info (guapi) endpoint and format response into hiive friendly data
-     * 
+     *
      * @return array of relevant data
      */
     public static function get_account_info(){
 
         $info     = array();
         $response = self::connect( '/hosting-account-info' );
-        
+
         // exit if response is not object
         if ( ! is_object( $response ) ) {
             return $info;
@@ -79,7 +232,7 @@ class Customer {
 
         // transfer relevant data to $info array
         $info['customer_id']  = AccessToken::get_user();
-        
+
         if (
             isset( $response->affiliate ) &&
             is_object( $response->affiliate ) &&
@@ -104,24 +257,32 @@ class Customer {
             }
         }
 
-        
-        if (
-            isset( $response->plan ) &&
-            is_object( $response->plan ) &&
+
+        if ( isset( $response->plan ) && is_object( $response->plan ) ) {
+
             // using property_exists in case of null value
-            property_exists( $response->plan, 'term' ) &&
-            property_exists( $response->plan, 'type' ) &&
-            property_exists( $response->plan, 'subtype' )
-        ) {
-            $info['plan_term']    = $response->plan->term;
-            $info['plan_type']    = $response->plan->type;
-            $info['plan_subtype'] = $response->plan->subtype;
+            if ( property_exists( $response->plan, 'term' ) ) {
+                $info['plan_term'] = $response->plan->term;
+            }
+
+            if ( property_exists( $response->plan, 'type' ) ) {
+                $info['plan_type'] = $response->plan->type;
+            }
+
+            if ( property_exists( $response->plan, 'subtype' ) ) {
+                $info['plan_subtype'] = $response->plan->subtype;
+            }
+
+            if ( property_exists( $response->plan, 'username' ) ) {
+                $info['username'] = $response->plan->username;
+            }
+
         }
-        
+
         return $info;
     }
 
-    
+
     /**
      * Connect to the onboarding info (mole) endpoint and format response into hiive friendly data
      *
@@ -138,7 +299,7 @@ class Customer {
         }
 
         // transfer existing relevant data to $info array
-        if ( 
+        if (
             isset( $response->description ) &&
             is_object( $response->description )
         ) {
@@ -156,9 +317,9 @@ class Customer {
                 }
             }
         }
-        
 
-        if ( 
+
+        if (
             isset( $response->site_intentions ) &&
             is_object( $response->site_intentions )
         ) {
@@ -196,7 +357,7 @@ class Customer {
 
     /**
      * Normalize blog
-     * 
+     *
      * For now this is just 0 or 20 values, but in the future we can update based on other factors and treat as a blog score
      */
     public static function normalize_blog( $blog ){
@@ -213,7 +374,7 @@ class Customer {
 
     /**
      * Normalize store
-     * 
+     *
      * For now this is just 0 or 20 values, but in the future we can update based on other factors and treat as a store score
      */
     public static function normalize_store( $store ){
@@ -235,9 +396,9 @@ class Customer {
      *  1 When selected comfort level is second closest to "A little" and "Continue" is clicked
      *  2 When selected comfort level is second closest to "Very" and "Continue" is clicked
      *  3 When selected comfort level is closest to "Very" and "Continue" is clicked
-     * 
+     *
      * @param string $comfort value returned from api for comfort_creating_sites
-     * @return integer representing normalized comfort level 
+     * @return integer representing normalized comfort level
      */
     public static function normalize_comfort( $comfort ){
 
@@ -266,7 +427,7 @@ class Customer {
      * diy_with_help When "A little Help" is clicked
      * do_it_for_me When "Built for you" is clicked
      * skip When "Skip this step" is clicked
-     * 
+     *
      * @param string $help value returned from api for help_needed
      * @return integer representing normalized help level
      */

@@ -170,7 +170,7 @@ function akhb_styles() {
 	}
 
 	// Theme defaults
-	wp_enqueue_style( 'akhb', get_theme_file_uri( 'style.css' ), null, filemtime( get_theme_file_path( 'style.css' ) ) );
+	wp_enqueue_style( 'akhb', get_theme_file_uri( 'css/style.css' ), null, filemtime( get_theme_file_path( 'css/style.css' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'akhb_styles' );
 

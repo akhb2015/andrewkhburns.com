@@ -1,9 +1,10 @@
 {
 	const purchase = (e) => {
 		let modalWindow = e.target.closest('.ctb-modal-content');
+		let ctbId = e.target.getAttribute('data-ctb-id');
 		e.target.closest('.ctb-actions').innerHTML = '<div class="ctb-loader"></div>';
 		window.fetch(
-			`${ window.nfdNotifications.restApiUrl }bluehost/v1/ctb/${ e.target.getAttribute('data-ctb-id') }`,
+			`${ window.nfdNotifications.restApiUrl }bluehost/v1/ctb/${ ctbId }`,
 			{
 				credentials: 'same-origin',
 				method: 'POST',
@@ -19,6 +20,9 @@
 		}).then( data => {
 			if (data.content) {
 				modalWindow.innerHTML = data.content;
+				if (purchaseStatus){
+					dismissNotice(ctbId);
+				}
 			} else {
 				displayError(modalWindow, "purchase");
 			}
@@ -45,14 +49,20 @@
 				modalWindow.innerHTML = data.content;
 			} else {
 				displayError(modalWindow, 'load');
+				//remove ctb attributes from button so the user can click the link
+				removeCtbAttrs(e);
 			}
 		});
 	}
 
+	const removeCtbAttrs = (e) => {
+		let ctbButton = e.target;
+		ctbButton.removeAttribute('data-action');
+		ctbButton.removeAttribute('data-ctb-id');
+	}
+
 	const openModal = (e) => {
-		let el = document.createElement('div');
-		el.setAttribute('id', 'ctb-modal-container');
-		el.innerHTML = `
+		let modalContent = `
 		<div class="ctb-modal">
 			<div class="ctb-modal-overlay" data-a11y-dialog-destroy></div>
 			<div role="document" class="ctb-modal-content">
@@ -60,33 +70,28 @@
 			</div>
 		</div>
 		`;
-		e.target.insertAdjacentElement('afterend', el);
+		let ctbContainer = document.getElementById('nfd-ctb-container');
+		if (ctbContainer) {
+			ctbContainer.innerHTML = modalContent
+		} else {
+			ctbContainer = document.createElement('div');
+			ctbContainer.setAttribute('id', 'nfd-ctb-container');
+			ctbContainer.innerHTML = modalContent;
+			ctbContainer.target.insertAdjacentElement('afterend', nfd-ctb-container);
+		}
 
-		ctbmodal = new A11yDialog(el);
+		ctbmodal = new A11yDialog(ctbContainer);
 		ctbmodal.show();
+		document.querySelector('body').classList.add('noscroll');
 
 		purchaseStatus = false;
-
-		document.querySelector('body').classList.toggle('noscroll');
-
-		el.addEventListener('click', function(event) {
-			if (event.target.dataset.action === 'purchase-ctb') {
-				purchase(event);
-			}
-			if (event.target.hasAttribute('data-a11y-dialog-destroy')) {
-				document.querySelector('body').classList.toggle('noscroll');
-				closeModal(event.target);
-			}
-		});
-
-		return el;
+		
+		return ctbContainer;
 	}
-
+	
 	const closeModal = (e) => {
 		ctbmodal.destroy();
-		if (purchaseStatus){
-			dismissNotice(e);
-		}
+		document.querySelector('body').classList.remove('noscroll');
 	}
 
 	const displayError = (modalWindow, error) => {
@@ -97,13 +102,13 @@
 		</div>`;
 	}
 
-	const dismissNotice = (e) => {
-		const notice = e.closest('.bluehost-notice');
+	const dismissNotice = (ctbId) => {
+		const ctbTrigger = document.querySelector('[data-ctb-id="' + ctbId + '"]')
+		const notice = ctbTrigger.closest('.bluehost-notice');
 		if (notice) {
-			const id = notice.getAttribute('data-id');
 			notice.parentNode.removeChild(notice);
 			window.fetch(
-				`${ window.nfdNotifications.restApiUrl }bluehost/v1/notifications/${ id }`,
+				`${ window.nfdNotifications.restApiUrl }bluehost/v1/notifications/${ notice.dataset.id }`,
 				{
 					credentials: 'same-origin',
 					method: 'DELETE',
@@ -119,9 +124,20 @@
 	window.addEventListener(
 		'load',
 		() => {
-			document.getElementById('wpbody').addEventListener('click', function(event) {
+			document.getElementById('wpwrap').addEventListener('click', function(event) {
 				if (event.target.dataset.action === 'load-nfd-ctb') {
-					loadCtb(event);
+					if ( window.nfdConnected ) { // has token and customer id
+						event.preventDefault();
+						loadCtb(event);
+					} else {
+						// do nothing, fallback to href
+					}
+				}
+				if (event.target.dataset.action === 'purchase-ctb') {
+					purchase(event);
+				}
+				if (event.target.hasAttribute('data-a11y-dialog-destroy')) {
+					closeModal(event.target);
 				}
 			});
 		}
