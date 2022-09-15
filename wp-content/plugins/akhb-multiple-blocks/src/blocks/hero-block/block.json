@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "create-block/hero-block",
+    "version": "0.1.0",
+    "title": "Hero with slanted bottom edge",
+    "category": "common",
+    "icon": "superhero-alt",
+    "description": "Example static block scaffolded with Create Block tool.",
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"]
+    },
+    "attributes": {
+        "heroHeading": {
+            "type": "string",
+            "source": "html",
+            "selector": ".wp-block-create-block-hero-block h1"
+        },
+        "tagline": {
+            "type": "string",
+            "source": "html",
+            "selector": ".wp-block-create-block-hero-block p"
+        },
+        "heroHeadingColor": {
+            "type": "string"
+        },
+        "taglineColor": {
+            "type": "string"
+        },
+        "heroImage": {
+            "type": "string",
+            "default": ""
+        },
+        "alignContent": {
+            "type": "string",
+            "default": "center"
+        }
+    },
+    "textdomain": "hero-block",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css"
+}

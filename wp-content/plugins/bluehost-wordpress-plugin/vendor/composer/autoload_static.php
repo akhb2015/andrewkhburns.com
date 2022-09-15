@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab
+class ComposerStaticInita037172fb5d3070641708ef970c68496
 {
     public static $files = array (
         '305f44d06b4b9b934b549f0b525c4bea' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/bootstrap.php',
@@ -33,6 +33,7 @@ class ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab
             'WP_Forge\\Options\\' => 17,
             'WP_Forge\\Helpers\\' => 17,
             'WP_Forge\\Fluent\\' => 16,
+            'WP_Forge\\Collection\\' => 20,
         ),
         'N' => 
         array (
@@ -47,7 +48,6 @@ class ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab
         ),
         'D' => 
         array (
-            'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Common\\Inflector\\' => 26,
         ),
         'B' => 
@@ -78,6 +78,10 @@ class ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab
         'WP_Forge\\Fluent\\' => 
         array (
             0 => __DIR__ . '/..' . '/wp-forge/fluent/includes',
+        ),
+        'WP_Forge\\Collection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wp-forge/collection',
         ),
         'Newfold\\Plugin\\' => 
         array (
@@ -110,10 +114,6 @@ class ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab
         'NewFoldLabs\\WP\\Module\\SSO\\' => 
         array (
             0 => __DIR__ . '/..' . '/newfold-labs/wp-module-sso/includes',
-        ),
-        'Doctrine\\Inflector\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector',
         ),
         'Doctrine\\Common\\Inflector\\' => 
         array (
@@ -161,47 +161,6 @@ class ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab
         'Bluehost\\WP\\Data\\Customer' => __DIR__ . '/..' . '/bluehost/bluehost-wp-customer-data/includes/Customer.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Doctrine\\Common\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',
-        'Doctrine\\Inflector\\CachedWordInflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/CachedWordInflector.php',
-        'Doctrine\\Inflector\\GenericLanguageInflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/GenericLanguageInflectorFactory.php',
-        'Doctrine\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Inflector.php',
-        'Doctrine\\Inflector\\InflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/InflectorFactory.php',
-        'Doctrine\\Inflector\\Language' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Language.php',
-        'Doctrine\\Inflector\\LanguageInflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/LanguageInflectorFactory.php',
-        'Doctrine\\Inflector\\NoopWordInflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/NoopWordInflector.php',
-        'Doctrine\\Inflector\\Rules\\English\\Inflectible' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/English/Inflectible.php',
-        'Doctrine\\Inflector\\Rules\\English\\InflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/English/InflectorFactory.php',
-        'Doctrine\\Inflector\\Rules\\English\\Rules' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/English/Rules.php',
-        'Doctrine\\Inflector\\Rules\\English\\Uninflected' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/English/Uninflected.php',
-        'Doctrine\\Inflector\\Rules\\French\\Inflectible' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/French/Inflectible.php',
-        'Doctrine\\Inflector\\Rules\\French\\InflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/French/InflectorFactory.php',
-        'Doctrine\\Inflector\\Rules\\French\\Rules' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/French/Rules.php',
-        'Doctrine\\Inflector\\Rules\\French\\Uninflected' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/French/Uninflected.php',
-        'Doctrine\\Inflector\\Rules\\NorwegianBokmal\\Inflectible' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/NorwegianBokmal/Inflectible.php',
-        'Doctrine\\Inflector\\Rules\\NorwegianBokmal\\InflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/NorwegianBokmal/InflectorFactory.php',
-        'Doctrine\\Inflector\\Rules\\NorwegianBokmal\\Rules' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/NorwegianBokmal/Rules.php',
-        'Doctrine\\Inflector\\Rules\\NorwegianBokmal\\Uninflected' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/NorwegianBokmal/Uninflected.php',
-        'Doctrine\\Inflector\\Rules\\Pattern' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Pattern.php',
-        'Doctrine\\Inflector\\Rules\\Patterns' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Patterns.php',
-        'Doctrine\\Inflector\\Rules\\Portuguese\\Inflectible' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Portuguese/Inflectible.php',
-        'Doctrine\\Inflector\\Rules\\Portuguese\\InflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Portuguese/InflectorFactory.php',
-        'Doctrine\\Inflector\\Rules\\Portuguese\\Rules' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Portuguese/Rules.php',
-        'Doctrine\\Inflector\\Rules\\Portuguese\\Uninflected' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Portuguese/Uninflected.php',
-        'Doctrine\\Inflector\\Rules\\Ruleset' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Ruleset.php',
-        'Doctrine\\Inflector\\Rules\\Spanish\\Inflectible' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Spanish/Inflectible.php',
-        'Doctrine\\Inflector\\Rules\\Spanish\\InflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Spanish/InflectorFactory.php',
-        'Doctrine\\Inflector\\Rules\\Spanish\\Rules' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Spanish/Rules.php',
-        'Doctrine\\Inflector\\Rules\\Spanish\\Uninflected' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Spanish/Uninflected.php',
-        'Doctrine\\Inflector\\Rules\\Substitution' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Substitution.php',
-        'Doctrine\\Inflector\\Rules\\Substitutions' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Substitutions.php',
-        'Doctrine\\Inflector\\Rules\\Transformation' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Transformation.php',
-        'Doctrine\\Inflector\\Rules\\Transformations' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Transformations.php',
-        'Doctrine\\Inflector\\Rules\\Turkish\\Inflectible' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Turkish/Inflectible.php',
-        'Doctrine\\Inflector\\Rules\\Turkish\\InflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Turkish/InflectorFactory.php',
-        'Doctrine\\Inflector\\Rules\\Turkish\\Rules' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Turkish/Rules.php',
-        'Doctrine\\Inflector\\Rules\\Turkish\\Uninflected' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Turkish/Uninflected.php',
-        'Doctrine\\Inflector\\Rules\\Word' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Rules/Word.php',
-        'Doctrine\\Inflector\\RulesetInflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/RulesetInflector.php',
-        'Doctrine\\Inflector\\WordInflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/WordInflector.php',
         'Endurance_Collection' => __DIR__ . '/..' . '/bluehost/endurance-wp-module-loader/includes/Collection.php',
         'Endurance_ModuleManager' => __DIR__ . '/..' . '/bluehost/endurance-wp-module-loader/includes/ModuleManager.php',
         'Endurance_ModuleRegistry' => __DIR__ . '/..' . '/bluehost/endurance-wp-module-loader/includes/ModuleRegistry.php',
@@ -329,6 +288,7 @@ class ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab
         'Newfold\\Plugin\\Tours\\BlockEditorRestController' => __DIR__ . '/../..' . '/inc/Tours/BlockEditorRestController.php',
         'Newfold\\Plugin\\Tours\\Customizer' => __DIR__ . '/../..' . '/inc/Tours/Customizer.php',
         'Newfold\\Plugin\\Tours\\Shared' => __DIR__ . '/../..' . '/inc/Tours/Shared.php',
+        'WP_Forge\\Collection\\Collection' => __DIR__ . '/..' . '/wp-forge/collection/Collection.php',
         'WP_Forge\\Fluent\\Fluent' => __DIR__ . '/..' . '/wp-forge/fluent/includes/Fluent.php',
         'WP_Forge\\Helpers\\Arr' => __DIR__ . '/..' . '/wp-forge/helpers/includes/Arr.php',
         'WP_Forge\\Helpers\\Pluralizer' => __DIR__ . '/..' . '/wp-forge/helpers/includes/Pluralizer.php',
@@ -344,10 +304,10 @@ class ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitc516f2b3a8883c3c448b19bddc66acab::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita037172fb5d3070641708ef970c68496::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita037172fb5d3070641708ef970c68496::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita037172fb5d3070641708ef970c68496::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInita037172fb5d3070641708ef970c68496::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,0 +1,92 @@
+.btn {
+
+    &:link, &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 14px 40px;
+        display: inline-block;
+        margin-top: 40px;
+        border-radius: 200px;
+        transition: all .2s;
+        position: relative;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(var(--wp--preset--color--black), .2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 8px rgba(var(--wp--preset--color--black), .2);
+    }
+
+    &--white {
+        background-color: var(--wp--preset--color--white);
+        color: var(--wp--preset--color--dark-gray);
+
+        &::after {
+            background-color: var(--wp--preset--color--white);
+        }
+    }
+
+    &--animated {
+        animation: moveInButton .6s ease-out .25s;
+        animation-fill-mode: backwards;
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 200px;
+        top: 0;
+        position: absolute;
+        left: 0;
+        z-index: -1;
+        transition: all .3s;
+    }
+}
+
+.btn-text {
+
+    &:link, &:visited {
+        color: var(--wp--preset--color--font-black);
+        font-size: var(--wp--preset--font-size--default);
+        text-transform: uppercase;
+        text-decoration: none;
+        display: inline-block;
+        border-bottom: 1px solid var(--wp--preset--color--retro-green);
+        transition: all .2s;
+        position: relative;
+        padding: 3px;
+        transition: all .3s;
+    }
+
+    &:hover {
+        background-color: var(--wp--preset--color--retro-green);
+        color: var(--wp--preset--color--white);
+        box-shadow: 0 1rem 2rem rgba( var(--wp--preset--color--black) .15);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 1rem 1rem rgba( var(--wp--preset--color--black), .15);
+        transform: translateY(0);
+    }
+}
+
+/*
+
+HTML markup:
+
+<a href="#" class="btn btn--white btn--animated">Button Text</a>
+
+
+*/

@@ -1,7 +1,7 @@
 <?php
 /**
  * bluehost-wordpress-plugin
- * Build: d6dc549357a820604db9
+ * Build: 32577ff5d2d808e88e3e
  */
 
 /**
@@ -9,7 +9,7 @@
  */
  wp_register_script(
      'bwp-manifest-app',
-     trailingslashit( BLUEHOST_PLUGIN_URL ) . 'build/' . 'manifest~app-6b19276bdf660caff3f7.js',
+     trailingslashit( BLUEHOST_PLUGIN_URL ) . 'build/' . 'manifest~app-ee34eed1ddaa38a5cdb9.js',
      apply_filters( 'bwp_manifest_app_js_deps', array('lodash', 'react', 'react-dom', 'wp-a11y', 'wp-api-fetch', 'wp-components', 'wp-compose', 'wp-data', 'wp-dom-ready', 'wp-element', 'wp-i18n', 'wp-keycodes', 'wp-polyfill', 'wp-url', ) ),
      false,
      true
@@ -39,7 +39,7 @@
  }
  wp_register_script(
      'bwp-app',
-     trailingslashit( BLUEHOST_PLUGIN_URL ) . 'build/' . 'app-7d818d8c327ac79829c4.js',
+     trailingslashit( BLUEHOST_PLUGIN_URL ) . 'build/' . 'app-2f60ca3f25c0b245b36b.js',
      apply_filters( 'bwp_app_js_deps', array('bwp-vendors-app', ) ),
      false,
      true
@@ -54,7 +54,7 @@
  }
 wp_register_style(
     'bwp-app',
-     trailingslashit( BLUEHOST_PLUGIN_URL ) . 'build/' . 'app-7d818d8c327ac79829c4.css',
+     trailingslashit( BLUEHOST_PLUGIN_URL ) . 'build/' . 'app-2f60ca3f25c0b245b36b.css',
     apply_filters( 'bwp_app_css_deps', array() ),
     false
 );

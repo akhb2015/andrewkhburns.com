@@ -1,0 +1,28 @@
+header {
+    background-color: var(--wp--preset--color--retro-orange);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 1rem 2rem;
+
+    &#primary-menu li {
+        display: inline-block;
+        margin-right: 3rem;
+
+        &.menu-item a:hover {
+            color: var(--wp--preset--color--black);
+            font-weight: 700;
+        }
+    }
+
+    .current-menu-item a {
+        color: #000;
+        font-weight: 700;
+    }
+}
+
+
+nav li ul.sub-menu {
+    display: none;
+}
