@@ -1,0 +1,184 @@
+.card {
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	position:relative;
+	height: 23.2rem;
+	max-width: 40rem;
+	margin:0 auto;
+	
+	&__side {
+		background-color: var(--wp--preset--color--retro-yellow);
+		height: 23.2rem;
+		box-shadow: 0 1rem 2rem rgba(var(--wp--preset--color--black), .5);
+		transition: all .8s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		border-radius: 3px;
+		overflow: hidden;
+
+		&--back {
+			transform: rotateY(180deg);
+
+			&-1 {
+				background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+			}
+
+			&-2 {
+				background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+			}
+
+			&-3 {
+				background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+			}
+		}
+	}
+
+	&:hover &__side--front {
+		transform: rotateY(-180deg);
+	}
+
+	&:hover &__side--back {
+		transform: rotateY(0);
+	}
+
+	&__picture {
+		background-size: cover;
+		height: 23rem;
+		background-blend-mode: screen;
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100% );
+		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100% );
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+
+
+		&--1 {
+			background-image: url(../../../../uploads/2022/09/guitar-768x512.jpg), linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+		}
+		&--2 {
+			background-image: url(../../../../uploads/2022/09/burger-768x512.jpg), linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+		}
+		&--3 {
+			background-image: url(../../../../uploads/2022/09/pug-lying-down-768x513.jpg), linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+		}
+	}
+
+	&__heading {
+		font-size:2.8rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		color: $color-white;
+		text-align: left;
+		position: absolute;
+		top: 12rem;
+		left: 2rem;
+		width: 75%;
+	}
+
+	&__heading-span {
+		padding: 1rem 1.5rem;
+		-webkit-box-decoration-break: clone;
+		
+		&--1 {
+			background-image: linear-gradient(to right bottom, 
+				rgba($color-secondary-light, .85), 
+				rgba( $color-secondary-dark, .85));
+		}
+
+		&--2 {
+			background-image: linear-gradient(to right bottom, 
+				rgba($color-primary-light, .85), 
+				rgba( $color-primary-dark, .85));
+		}
+
+		&--3 {
+			background-image: linear-gradient(to right bottom, 
+				rgba($color-tertiary-light, .85), 
+				rgba( $color-tertiary-dark, .85));
+		}
+	}
+
+	&__details {
+
+		ul {
+			list-style: none;
+			width:80%;
+			margin: 0 auto;
+
+			li {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 1rem;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid $color-gray-light;
+				}
+			}
+		}
+	}
+
+	&__cta {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		text-align: center;
+		transform: translate(-50%, -50%);
+		width:90%;
+	}
+
+	&__price-box {
+		text-align: center;
+		color: var(--wp--preset--color--white);
+		margin-bottom: 8rem;
+	}
+
+	&__price-only {
+		padding-top:3rem;
+		font-size: 1.8rem;
+	}
+
+	&__price-value {
+		font-size: 6rem;
+		font-weight: 100;
+	}
+}
+
+
+/*
+The HTML markup:
+
+
+<div class="card">
+	<div class="card__side card__side--front">
+	    <div class="card__picture card__picture--3">
+	       &nbsp;
+	    </div>
+	    <h4 class="card__heading">
+	        <span class="card__heading-span card__heading-span--3">
+	            The Snow Adventurer
+	        </span>
+	    </h4>
+	    <div class="card__details">
+	        <ul>
+	            <li>3 day tours</li>
+	            <li>Up to 30 people</li>
+	            <li>2 tour guides</li>
+	            <li>Sleep in cozy hotels</li>
+	            <li>Difficulty: easy</li>
+	        </ul>
+	    </div>
+	</div>
+	<div class="card__side card__side--back card__side--back-3">
+	    <div class="card__cta">
+	        <div class="card__price-box">
+	            <p class="card__price-only">Only</p>
+	            <p class="card__price-value">$297</p>
+	            <a href="#" class="btn btn--white">Book Now</a>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+*/

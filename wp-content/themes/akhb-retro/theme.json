@@ -19,7 +19,7 @@
     "settings": {
         "custom": {
             "spacing": {
-                "baseline": "3rem"
+                "baseline": "4rem"
             }
         },
         "color": {
@@ -95,7 +95,7 @@
                 "name": "Large"
             }, {
                 "slug": "extra-large",
-                "size": "3rem",
+                "size": "5rem",
                 "name": "Extra large"
             }]
         },

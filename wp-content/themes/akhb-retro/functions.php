@@ -134,6 +134,8 @@ function akhb_retro_scripts() {
     wp_enqueue_style('site-styles', get_template_directory_uri() . '/css/style.css', [], time() );
 
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap', false );
+
+    wp_enqueue_script( 'font-awesome-kit', 'https://kit.fontawesome.com/563291e03f.js', [], null, true );
 }
 add_action( 'wp_enqueue_scripts', 'akhb_retro_scripts' );
 

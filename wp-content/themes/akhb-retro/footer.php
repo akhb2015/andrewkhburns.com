@@ -1,5 +1,4 @@
 	<footer id="colophon" class="site-footer">
-		<h2>footer.php</h2>
 		<div class="footer-menu-class">
 			<nav id="footer-navigation" class="footer-navigation">
 				<?php

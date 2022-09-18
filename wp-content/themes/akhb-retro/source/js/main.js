@@ -1,5 +1,7 @@
 console.log('source/main.js');
 
+import './navMenu'
+
 
 //import other js files from source, js/, source/js/components/ and source/js/blocks/ 
 

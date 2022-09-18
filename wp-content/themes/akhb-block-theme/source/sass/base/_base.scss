@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    //defines what 1 rem is
+    font-size: 62.5%
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.site-main {
+    padding: var(--wp--custom--spacing--baseline);
+}

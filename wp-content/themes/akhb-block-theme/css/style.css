@@ -1,0 +1,374 @@
+/*!*********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./wp-content/themes/akhb-retro/source/sass/main.scss ***!
+  \*********************************************************************************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.site-main {
+  padding: var(--wp--custom--spacing--baseline);
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+body {
+  font-family: var(--wp--preset--font-family--system-fonts);
+  font-weight: 400;
+  font-size: var(--wp--preset--font-size--default);
+  color: var(--wp--preset--color--font-black);
+}
+body h1 {
+  line-height: 4rem;
+}
+body h2 {
+  line-height: 2.6rem;
+}
+
+.button-shadow {
+  box-shadow: 10px 10px 2px 1px rgba(0, 0, 255, 0.2);
+}
+.button-shadow:hover {
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 40px;
+  display: inline-block;
+  margin-top: 40px;
+  border-radius: 200px;
+  transition: all 0.2s;
+  position: relative;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(var(--wp--preset--color--black), 0.2);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 8px rgba(var(--wp--preset--color--black), 0.2);
+}
+.btn--white {
+  background-color: var(--wp--preset--color--white);
+  color: var(--wp--preset--color--dark-gray);
+}
+.btn--white::after {
+  background-color: var(--wp--preset--color--white);
+}
+.btn--animated {
+  animation: moveInButton 0.6s ease-out 0.25s;
+  animation-fill-mode: backwards;
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 200px;
+  top: 0;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s;
+}
+
+.btn-text:link, .btn-text:visited {
+  color: var(--wp--preset--color--font-black);
+  font-size: var(--wp--preset--font-size--default);
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid var(--wp--preset--color--retro-green);
+  transition: all 0.2s;
+  position: relative;
+  padding: 3px;
+  transition: all 0.3s;
+}
+.btn-text:hover {
+  background-color: var(--wp--preset--color--retro-green);
+  color: var(--wp--preset--color--white);
+  box-shadow: 0 1rem 2rem rgba(var(--wp--preset--color--black) 0.15);
+  transform: translateY(-2px);
+}
+.btn-text:active {
+  box-shadow: 0 1rem 1rem rgba(var(--wp--preset--color--black), 0.15);
+  transform: translateY(0);
+}
+
+/*
+
+HTML markup:
+
+<a href="#" class="btn btn--white btn--animated">Button Text</a>
+
+
+*/
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 23.2rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.card__side {
+  background-color: var(--wp--preset--color--retro-yellow);
+  height: 23.2rem;
+  box-shadow: 0 1rem 2rem rgba(var(--wp--preset--color--black), 0.5);
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.card__side--back {
+  transform: rotateY(180deg);
+}
+.card__side--back-1 {
+  background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+}
+.card__side--back-2 {
+  background-image: linear-gradient(to right bottom, black, #28b485);
+}
+.card__side--back-3 {
+  background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
+}
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+.card__picture {
+  background-size: cover;
+  height: 23rem;
+  background-blend-mode: screen;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.card__picture--1 {
+  background-image: url(../img/guitar-768x512.jpg), linear-gradient(to right bottom, #ffb900, #ff7730);
+}
+.card__picture--2 {
+  background-image: url(../img/burger-768x512.jpg), linear-gradient(to right bottom, black, #28b485);
+}
+.card__picture--3 {
+  background-image: url(../img/pug-lying-down-768x513.jpg), linear-gradient(to right bottom, #2998ff, #5643fa);
+}
+.card__heading {
+  font-size: 2.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: left;
+  position: absolute;
+  top: 12rem;
+  left: 2rem;
+  width: 75%;
+}
+.card__heading-span {
+  padding: 1rem 1.5rem;
+  -webkit-box-decoration-break: clone;
+}
+.card__heading-span--1 {
+  background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85));
+}
+.card__heading-span--2 {
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.85), rgba(40, 180, 133, 0.85));
+}
+.card__heading-span--3 {
+  background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), rgba(86, 67, 250, 0.85));
+}
+.card__details ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+.card__details ul li {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.card__details ul li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.card__cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+.card__price-box {
+  text-align: center;
+  color: var(--wp--preset--color--white);
+  margin-bottom: 8rem;
+}
+.card__price-only {
+  padding-top: 3rem;
+  font-size: 1.8rem;
+}
+.card__price-value {
+  font-size: 6rem;
+  font-weight: 100;
+}
+
+/*
+The HTML markup:
+
+
+<div class="card">
+	<div class="card__side card__side--front">
+	    <div class="card__picture card__picture--3">
+	       &nbsp;
+	    </div>
+	    <h4 class="card__heading">
+	        <span class="card__heading-span card__heading-span--3">
+	            The Snow Adventurer
+	        </span>
+	    </h4>
+	    <div class="card__details">
+	        <ul>
+	            <li>3 day tours</li>
+	            <li>Up to 30 people</li>
+	            <li>2 tour guides</li>
+	            <li>Sleep in cozy hotels</li>
+	            <li>Difficulty: easy</li>
+	        </ul>
+	    </div>
+	</div>
+	<div class="card__side card__side--back card__side--back-3">
+	    <div class="card__cta">
+	        <div class="card__price-box">
+	            <p class="card__price-only">Only</p>
+	            <p class="card__price-value">$297</p>
+	            <a href="#" class="btn btn--white">Book Now</a>
+	        </div>
+	    </div>
+	</div>
+</div>
+
+*/
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.8);
+  transition: all 0.3s;
+}
+.feature-box__icon {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  background-image: linear-gradient(to right, black, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.feature-box:hover {
+  transform: translateY(-1.5rem) scale(1.03);
+}
+/*
+
+The HTML markup:
+(needs icon-font.css to use the icons)
+
+<div class="feature-box">
+    <i class="feature-box__icon icon-basic-compass"></i>
+    <h3 class="heading-tertiary u-margin-bottom-small">
+        Meet Nature
+    </h3>
+    <p class="feature-box__text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Odio ducimus ut repellat tenetur ullam ea inventore.
+    </p>
+</div>
+
+*/
+header {
+  background-color: var(--wp--preset--color--retro-orange);
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 1rem 2rem;
+}
+nav ul#primary-menu li {
+  display: inline-block;
+  margin-right: 3rem;
+}
+nav ul#primary-menu li.menu-item a:hover {
+  color: var(--wp--preset--color--black);
+  font-weight: 700;
+}
+nav ul .current-menu-item a {
+  color: #000;
+  font-weight: 700;
+}
+
+nav li ul.sub-menu {
+  display: none;
+}
+
+footer {
+  background-color: var(--wp--preset--color--retro-green);
+}
+footer ul#menu-footer-menu li {
+  display: inline-block;
+  margin-right: 3rem;
+}
