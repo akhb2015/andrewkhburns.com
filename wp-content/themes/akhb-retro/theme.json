@@ -28,6 +28,8 @@
             "customDuotone": false,
             "customGradient": false,
             "defaultGradients": false,
+            "background": true,
+            "text": true,
             "link": false,
             "palette": [{
                 "slug": "white",
@@ -68,14 +70,12 @@
             "textDecoration": false,
             "fontFamilies": [{
                 "fontFamily": "\"Montserrat\",sans-serif",
-                "slug": "system-fonts",
-                "name": "System Fonts"
-            }, {
-                "fontFamily": "Montserrat, sans-serif",
-                "slug": "montserrat"
+                "slug": "montserrat",
+                "name": "Montserrat"
             }, {
                 "fontFamily": "Cambria, Georgia, serif",
-                "slug": "cambria-georgia"
+                "slug": "cambria-georgia",
+                "name": "Cambria"
             }],
             "fontSizes": [{
                 "slug": "extra-small",
@@ -154,7 +154,7 @@
         },
         "typography": {
             "fontSize": "var(--wp--preset--font-size--default)",
-            "fontFamily": "var(--wp--preset--font-family--system-fonts)",
+            "fontFamily": "var(--wp--preset--font-family--montserrat)",
             "lineHeight": "2.2rem"
         }
     }
