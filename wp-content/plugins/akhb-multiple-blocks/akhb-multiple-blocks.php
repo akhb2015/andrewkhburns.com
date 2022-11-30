@@ -24,16 +24,18 @@
 //Prevent direct execution
 if( !defined( 'ABSPATH' ) ) exit;
 
+//path
+define( 'AKHB_BLOCK_PLUGIN_DIR', plugin_dir_path(__FILE__) );
 
-function create_block_multiple_blocks_block_init() {
 
-    $blocks = array(
-        'buy-box',
-        'hero-block'
-    );
+//includes
+$rootFiles = glob( AKHB_BLOCK_PLUGIN_DIR . 'includes/*.php' );
+$subDirectoryFiles = glob( AKHB_BLOCK_PLUGIN_DIR . 'includes/**/*.php' );
+$allFiles = array_merge( $rootFiles, $subDirectoryFiles );
 
-    foreach( $blocks as $block ) {
-	   register_block_type( __DIR__ . '/build/blocks/' . $block );
-    }
+foreach( $allFiles as $filename ) {
+    include_once( $filename );
 }
-add_action( 'init', 'create_block_multiple_blocks_block_init' );
+
+//hooks
+add_action( 'init', 'akhb_register_blocks' );

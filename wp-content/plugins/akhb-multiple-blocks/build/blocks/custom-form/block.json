@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/custom-form",
+  "title": "Custom Form",
+  "category": "widgets",
+  "description": "Adds a custom form",
+  "keywords": [
+    "form"
+  ],
+  "version": 1,
+  "textdomain": "akhb",
+  "editorScript": "file:./index.js",
+  "viewScript": "",
+  "script": "",
+  "attributes": {
+    "bgColor": {
+      "type": "string",
+      "default": "#f87171"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#fff"
+    }
+  },
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

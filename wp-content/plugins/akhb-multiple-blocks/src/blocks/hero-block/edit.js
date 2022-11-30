@@ -32,6 +32,7 @@ import './editor.scss';
  */
 export default function Edit({ attributes, setAttributes }) {
 
+    //always add blockProps to the root element that gets returned
     const blockProps = useBlockProps();
 
     const { heroHeading, tagline, heroImage, heroHeadingColor, taglineColor, alignContent } = attributes; 
@@ -62,7 +63,7 @@ export default function Edit({ attributes, setAttributes }) {
 
         return(
             <>
-            <InspectorControls { ...blockProps }>
+            <InspectorControls>
                 <PanelBody title='Color Options'>
                     <div className="components-base-control">
                         <div className="components-base-control__field">

@@ -1,1 +1,17 @@
-.wp-block-create-block-buy-box{border:2px solid #000;border-radius:6px;max-width:400px;padding:20px 20px 34px}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/blocks/buy-box/style.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-create-block-buy-box {
+  max-width: 400px;
+  border: 2px solid black;
+  padding: 20px 20px 34px 20px;
+  border-radius: 6px;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

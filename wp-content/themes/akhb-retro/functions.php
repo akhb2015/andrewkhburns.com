@@ -129,7 +129,7 @@ add_action( 'widgets_init', 'akhb_retro_widgets_init' );
  */
 function akhb_retro_scripts() {
 
-	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array( 'jquery' ), time(), false );
+	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array( 'jquery' ), time(), true );
 
     wp_enqueue_style('site-styles', get_template_directory_uri() . '/css/style.css', [], time() );
 
