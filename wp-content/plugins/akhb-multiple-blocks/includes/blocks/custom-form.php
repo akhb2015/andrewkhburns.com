@@ -27,20 +27,23 @@ function akhb_form_render_cb( $atts ) {
         <div style="<?php echo $styleAttr; ?>" class="wp-block-akhb-form">
             <h1>Your Info</h1>
             <form method="post" id="myForm">
-                <input type="text" name="firstname" id="firstname" placeholder="Enter your first name" />
-                <div class="firstname form-error"></div>
-
-                <input type="text" name="lastname" id="lastname" placeholder="Enter your last name" />
-                <div class="lastname form-error"></div>
-
-                <input type="email" name="email" id="email" placeholder="Enter your email" />
-                <div class="email form-error"></div>
+                <div class="form-field">
+                    <input type="text" name="firstname" id="firstname" placeholder="Enter your first name" />
+                    <small></small>
+                </div>
+                <div class="form-field">
+                    <input type="text" name="lastname" id="lastname" placeholder="Enter your last name" />
+                    <small></small>
+                </div>
+                <div class="form-field">
+                    <input type="email" name="email" id="email" placeholder="Enter your email" />
+                    <small></small>
+                </div>
 
                 <div class="btn-wrapper">
                     <button type="submit" style="<?php echo $styleAttr ?>">Search</button>
                 </div>
             </form>
-            <div id="show-error"></div>
         </div>
 
     <?php

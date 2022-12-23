@@ -1,36 +1,48 @@
 const form = document.querySelector('#myForm');
-// To display the error message
-const errorDiv = document.querySelector('.form-error.firstname');
-// To validate the term
-const term = document.querySelector('#term');
 
 const firstname = document.querySelector('#firstname');
+const lastname = document.querySelector('#lastname');
+const email = document.querySelector('#email');
+
+const formField = input.parentElement;
+
+const error = formField.querySelector('small');
+
+
+
+//following this tutorial:
+//https://www.javascripttutorial.net/javascript-dom/javascript-form-validation/
+
+
+
+const isRequired = value => value === '' ? false : true;
+
+const isEmailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+const showError = (input, message) => {
+    // get the form-field element
+    const formField = input.parentElement;
+    // add the error class
+    formField.classList.remove('success');
+    formField.classList.add('error');
+
+    // show the error message
+    const error = formField.querySelector('small');
+    error.textContent = message;
+};
 
 
 // 👇️ if you can't add an `id` to the form
 // const form = document.querySelector('form');
 
-Array.from(form.elements).forEach(element => {
-  console.log(element);
-  
-});
 
 
 form.addEventListener('submit', (error) => {
-// All validation checks are run in this method.
-    let incorrectInput = '';
 
-    if(firstname.value === '') {
-        incorrectInput = 'Please enter your first name.\n';
-    }
-
-    if (incorrectInput !== "") {
-        // Change the error div tag to display the error message(s)
-        //document.getElementsByName('term')[0].placeholder = incorrectInput;
-        errorDiv.innerText = incorrectInput; 
-        // Change the color of the text to red
-        errorDiv.style.color = 'blue'; 
-        // Prevent the form button from submitting again, before fixing the issues
-        error.preventDefault(); 
-    } 
+    // Prevent the form button from submitting again, before fixing the issues
+    error.preventDefault(); 
+    
 })

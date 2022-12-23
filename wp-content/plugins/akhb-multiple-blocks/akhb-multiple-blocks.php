@@ -37,5 +37,6 @@ foreach( $allFiles as $filename ) {
     include_once( $filename );
 }
 
+
 //hooks
 add_action( 'init', 'akhb_register_blocks' );
