@@ -94,6 +94,10 @@
                 "size": "2rem",
                 "name": "Large"
             }, {
+                "slug": "larger",
+                "size": "3rem",
+                "name": "Larger"
+            }, {
                 "slug": "extra-large",
                 "size": "5rem",
                 "name": "Extra large"

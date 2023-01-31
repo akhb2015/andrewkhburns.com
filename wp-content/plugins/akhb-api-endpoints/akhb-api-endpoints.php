@@ -19,7 +19,6 @@ if( !defined( 'ABSPATH' ) ) exit;
 //path
 define( 'AKHB_API_ENDPOINTS_PLUGIN_DIR', plugin_dir_path(__FILE__) );
 
-
 //includes
 $rootFiles = glob( AKHB_API_ENDPOINTS_PLUGIN_DIR . 'includes/*.php' );
 $subDirectoryFiles = glob( AKHB_API_ENDPOINTS_PLUGIN_DIR . 'includes/**/*.php' );

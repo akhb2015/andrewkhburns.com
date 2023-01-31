@@ -13,8 +13,6 @@
 			endwhile; // End of the loop.
 		?>
 
-		<p class="normal">Template: page.php</p>
-
 	</main><!-- #main -->
 
 <?php

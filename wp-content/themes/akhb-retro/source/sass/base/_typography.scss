@@ -11,3 +11,9 @@ body {
         line-height: 2.6rem;
     }
 }
+
+@media screen and ( max-width: 580px ) {
+    .mobile-line-height {
+        line-height: 5.2rem;
+    }
+}

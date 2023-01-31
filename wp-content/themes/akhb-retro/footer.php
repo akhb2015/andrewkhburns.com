@@ -8,6 +8,9 @@
 				?>
 			</nav>
 		</div><!-- .site-info -->
+		<div class="copyright">
+			<p class="copyright"><?php echo date('Y') . ' Copyright Andy Burns'; ?></p>
+		</div>
 	</footer><!-- #colophon -->
 
 </div><!-- #page -->

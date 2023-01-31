@@ -76,6 +76,11 @@ body h2 {
   line-height: 2.6rem;
 }
 
+@media screen and (max-width: 580px) {
+  .mobile-line-height {
+    line-height: 5.2rem;
+  }
+}
 .button-shadow {
   box-shadow: 10px 10px 2px 1px rgba(0, 0, 255, 0.2);
 }
@@ -359,6 +364,7 @@ header {
 }
 header .fa-linkedin {
   font-size: 3rem;
+  color: var(--wp--preset--color--white);
 }
 header .site-branding {
   position: absolute;
@@ -436,7 +442,7 @@ header nav li ul.sub-menu {
 }
 .site-navigation-fixed ul {
   background-color: var(--wp--preset--color--black);
-  border-bottom: 1px solid var(--wp--preset--color--retro-red);
+  border-bottom: 1px solid var(--wp--preset--color--retro-yellow);
   transition: min-height 0.3s ease-in-out;
   -moz-transition: min-height 0.3s ease-in-out;
   -webkit-transition: min-height 0.3s ease-in-out;
@@ -450,7 +456,7 @@ header nav li ul.sub-menu {
   color: rgb(255, 255, 255) !important;
 }
 .site-navigation-fixed ul li.menu-item a:hover {
-  color: var(--wp--preset--color--retro-red) !important;
+  color: var(--wp--preset--color--retro-yellow) !important;
 }
 
 .hero-heading h1 {
@@ -515,7 +521,7 @@ header nav li ul.sub-menu {
     display: none;
   }
   #nav-icon3 {
-    width: 40px;
+    width: 36px;
     position: relative;
     margin: 44px auto 10px auto;
     -webkit-transform: rotate(0deg);
@@ -531,9 +537,9 @@ header nav li ul.sub-menu {
   #nav-icon3 span {
     display: block;
     position: absolute;
-    height: 6px;
+    height: 2px;
     width: 100%;
-    background: #d3531a;
+    background: var(--wp--preset--color--retro-yellow);
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -551,10 +557,10 @@ header nav li ul.sub-menu {
     top: 0px;
   }
   #nav-icon3 span:nth-child(2), #nav-icon3 span:nth-child(3) {
-    top: 12px;
+    top: 10px;
   }
   #nav-icon3 span:nth-child(4) {
-    top: 24px;
+    top: 20px;
   }
   #nav-icon3.open span:nth-child(1) {
     top: 18px;
@@ -578,6 +584,9 @@ header nav li ul.sub-menu {
     width: 0%;
     left: 50%;
   }
+  .hero-heading h1 {
+    font-size: var(--wp--preset--font-size--larger);
+  }
 }
 @media screen and (max-width: 330px) {
   .hero-heading h1 {
@@ -586,7 +595,7 @@ header nav li ul.sub-menu {
 }
 footer {
   background-color: var(--wp--preset--color--black);
-  height: 24rem;
+  height: 12rem;
 }
 footer ul#menu-footer-menu li {
   display: inline-block;
@@ -595,4 +604,16 @@ footer ul#menu-footer-menu li {
 }
 footer ul#menu-footer-menu li:not(:last-child) {
   margin-right: 3rem;
+}
+footer .copyright p {
+  color: var(--wp--preset--color--white);
+  font-size: var(--wp--preset--font-size--small);
+  margin-top: 3rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 580px) {
+  p.copyright {
+    margin-top: 18rem !important;
+  }
 }

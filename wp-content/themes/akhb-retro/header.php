@@ -19,7 +19,7 @@
 				<p><a href="<?php echo home_url(); ?>">LOGO</a></p>
 			</div>
 			<div class="social-media">
-				<p><i class="fa-brands fa-linkedin"></i></p>
+				<p><a href="https://www.linkedin.com/in/andy-burns-web-developer/"><i class="fa-brands fa-linkedin"></i></a></p>
 			</div>
 			<div class="hamburger">
 				<div id="nav-icon3">
