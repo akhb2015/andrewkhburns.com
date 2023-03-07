@@ -16,7 +16,7 @@
 
 		<header id="masthead" class="site-header">
 			<div class="site-branding">
-				<p><a href="<?php echo home_url(); ?>">LOGO</a></p>
+				<p><a href="<?php echo home_url(); ?>"><i class="fa-solid fa-laptop-code"></i></a></p>
 			</div>
 			<div class="social-media">
 				<p><a href="https://www.linkedin.com/in/andy-burns-web-developer/"><i class="fa-brands fa-linkedin"></i></a></p>

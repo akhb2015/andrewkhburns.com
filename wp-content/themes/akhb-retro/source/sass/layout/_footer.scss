@@ -1,6 +1,6 @@
 footer {
     background-color: var(--wp--preset--color--black);
-    height: 12rem;
+    height: 8rem;
 
     ul#menu-footer-menu li{
         display:inline-block;
@@ -18,14 +18,16 @@ footer {
             color: var(--wp--preset--color--white);
             font-size: var(--wp--preset--font-size--small);
             margin-top:3rem;
+            padding: 2rem;
             text-align: center;
         }
     }
 
 }
 
-@media screen and ( max-width: 580px ) {
-     p.copyright {
-        margin-top:18rem !important;
+@media screen and ( max-width: 480px ) {
+
+    footer {
+        height:6rem;
     }
 }

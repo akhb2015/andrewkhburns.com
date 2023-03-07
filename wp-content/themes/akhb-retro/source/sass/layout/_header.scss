@@ -7,6 +7,11 @@ header {
     color: var(--wp--preset--color--white);
    }
 
+   .fa-laptop-code {
+    font-size: 3rem;
+    color: var(--wp--preset--color--white);
+   }
+
    .site-branding {
         position: absolute;
         top: 1.5rem;
@@ -148,6 +153,8 @@ header {
     }
 
     .hero-heading {
+
+        height: 17rem;
         h1 {
             padding: 6rem 2rem 2rem 2rem;
             text-align: center;
