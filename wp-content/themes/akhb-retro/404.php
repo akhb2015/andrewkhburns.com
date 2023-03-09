@@ -12,18 +12,20 @@ get_header();
 			</header><!-- .page-header -->
 
 			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'akhb-retro' ); ?></p>
+				<p><?php esc_html_e( 'It looks like nothing was found at this location.', 'akhb-retro' ); ?></p>
+				<br><br>
 
 					<?php
-					get_search_form();
+					//get_search_form();
 
-					the_widget( 'WP_Widget_Recent_Posts' );
+					//the_widget( 'WP_Widget_Recent_Posts' );
 					?>
-
+					<!--
 					<div class="widget widget_categories">
 						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'akhb-retro' ); ?></h2>
 						<ul>
 							<?php
+							/*
 							wp_list_categories(
 								array(
 									'orderby'    => 'count',
@@ -33,17 +35,12 @@ get_header();
 									'number'     => 10,
 								)
 							);
+							*/
 							?>
 						</ul>
-					</div><!-- .widget -->
+					</div>-->
 
-					<?php
-					/* translators: %1$s: smiley */
-					$akhb_retro_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'akhb-retro' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$akhb_retro_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
+					<!-- .widget -->
 
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->

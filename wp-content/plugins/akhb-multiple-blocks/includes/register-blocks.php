@@ -7,6 +7,9 @@
             ['name' => 'hero-block'],
             ['name' => 'custom-form', 'options' => [
                 'render_callback' => 'akhb_form_render_cb' //for server-side rendering of blocks
+            ]],
+            ['name' => 'login-gate', 'options' => [
+                'render_callback' => 'akhb_login_gate_cb' //for server-side rendering of blocks
             ]]
         );
 

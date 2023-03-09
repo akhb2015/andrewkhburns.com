@@ -1,7 +1,8 @@
 //console.log('source/main.js');
 
 import './navMenu'
-import './form-validation'
+//import './form-validation'
+import './cookie-disclaimer'
 
 //import other js files from source, js/, source/js/components/ and source/js/blocks/ 
 

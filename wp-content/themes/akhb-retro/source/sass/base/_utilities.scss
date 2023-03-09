@@ -6,8 +6,70 @@
 	}
 }
 
+.center {
+	display:block;
+	margin:0 auto;
+}
+
+img {
+	width:100%;
+	height:auto;
+}
+
 .form-error {
 	margin:1.2rem 0;
 	font-weight: bold;
 	text-align:left;
+}
+
+.tumbleweed-center {
+	display:block;
+	margin:0 auto;
+}
+
+.error-404 .page-header {
+	margin-top:10rem;
+
+	h1.page-title {
+		padding-bottom:3rem;
+	}
+}
+
+.cookie-disclaimer {
+	display:none;
+    background: #010f8c;
+    color: #FFF;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 60px;
+    position: fixed;
+
+    .container {
+    	text-align: center;
+    	padding: 14px 0;
+    }
+
+    .cookie-close {
+	    float: right;
+	    padding: 10px;
+	    cursor: pointer;
+	}
+}
+
+
+.fa-times {
+    color: #fff !important;
+}
+
+button.accept-cookie {}
+
+@media only screen and (min-width: 299px) and (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2) {
+    .cookie-disclaimer {
+        height:108px;
+    }
+    .cookie-disclaimer p {
+        line-height: 20px;
+    }
 }
