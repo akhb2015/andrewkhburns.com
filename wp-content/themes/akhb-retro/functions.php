@@ -163,3 +163,50 @@ function akhb_login_check( $content ) {
 }
 
 add_filter('the_content','akhb_login_check');
+
+
+/**
+ * Add a sensible starter set of security headers
+ */
+add_action( 'init', function() {
+  $headers = [
+    'Content-Security-Policy' => 'upgrade-insecure-requests',
+    'Permissions-Policy' => 'geolocation=(self)',
+    'Referrer-Policy' => 'no-referrer-when-downgrade',
+    'X-Content-Type-Options' => 'nosniff',
+    'X-Frame-Options' => 'sameorigin',
+    'X-XSS-Protection' => '1; mode=block',
+    'Strict-Transport-Security' => 'max-age=31536000; includeSubDomains'
+  ];
+
+  foreach ($headers as $header => $value) {
+    header(sprintf(
+      '%s: %s',
+      $header,
+      $value
+    ));
+  }
+});
+
+/**
+ * Gently prevent user enumeration by redirecting likely author crawl requests.
+ *
+ * Any request with author query string will be sent to the homepage.
+ * 301 header not included to avoid accidentally impacting SEO with errant user query strings.
+ *
+ * Note: This could be added to wp-redirects.php instead for better performance if available on the site.
+ */
+add_action('parse_request', function($wp) {
+  $isAuthorEnumeration = (
+    !isset($wp->query_vars['rest_route']) &&
+    !!preg_match('/author=([0-9]*)/i', $_SERVER['QUERY_STRING'])
+  );
+  $isRestApiAuthorEnumeration = (
+    !!isset($wp->query_vars['rest_route']) &&
+    (!!preg_match('/wp-json\/v2\/users\/?/i', $wp->request) || !!preg_match('/wp-json\/wp\/v2\/users\/?/i', $wp->request))
+  );
+  if (!is_admin() && !is_user_logged_in() && ($isAuthorEnumeration || $isRestApiAuthorEnumeration)) {
+    header(sprintf('Location: %s', get_home_url()));
+    exit;
+  }
+}, 9);

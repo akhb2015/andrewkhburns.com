@@ -7,6 +7,8 @@ import './cookie-disclaimer'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+AOS.init();
+
 //import other js files from source, js/, source/js/components/ and source/js/blocks/ 
 
 /*
