@@ -37,6 +37,7 @@
         "webpack-cli": "^4.10.0"
     },
     "dependencies": {
+        "aos": "^3.0.0-beta.6",
         "jquery": "^3.6.1"
     }
 }

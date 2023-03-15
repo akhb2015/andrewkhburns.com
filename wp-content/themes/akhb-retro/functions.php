@@ -139,9 +139,8 @@ function akhb_retro_scripts() {
 
     wp_enqueue_script( 'font-awesome-kit', 'https://kit.fontawesome.com/563291e03f.js', [], null, true );
 
-    wp_enqueue_style( 'aos-styles', 'https://unpkg.com/aos@2.3.1/dist/aos.css', false );
-
-    wp_enqueue_script( 'aos-scripts', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], null, false );
+    //wp_enqueue_style( 'aos-styles', 'https://unpkg.com/aos@2.3.1/dist/aos.css', false );
+    //wp_enqueue_script( 'aos-scripts', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], null, false );
 
 }
 add_action( 'wp_enqueue_scripts', 'akhb_retro_scripts' );

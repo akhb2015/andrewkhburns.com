@@ -4,6 +4,9 @@ import './navMenu'
 //import './form-validation'
 import './cookie-disclaimer'
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 //import other js files from source, js/, source/js/components/ and source/js/blocks/ 
 
 /*
