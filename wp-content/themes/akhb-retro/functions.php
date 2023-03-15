@@ -151,7 +151,10 @@ add_action( 'wp_enqueue_scripts', 'akhb_retro_scripts' );
  */
 require get_template_directory() . '/inc/template-functions.php';
 
+
 //login check
+//this was moved into a custom Gutenberg block
+/*
 function akhb_login_check( $content ) {
 	if( is_page('blah') ) {
 		if( !is_user_logged_in() ){
@@ -163,6 +166,7 @@ function akhb_login_check( $content ) {
 }
 
 add_filter('the_content','akhb_login_check');
+*/
 
 
 /**
