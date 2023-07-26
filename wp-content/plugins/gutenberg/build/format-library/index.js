@@ -148,14 +148,17 @@ const code_code = {
       start,
       text
     } = value;
-    const characterBefore = text.slice(start - 1, start); // Quick check the text for the necessary character.
+    const characterBefore = text[start - 1]; // Quick check the text for the necessary character.
 
     if (characterBefore !== BACKTICK) {
       return value;
     }
 
-    const textBefore = text.slice(0, start - 1);
-    const indexBefore = textBefore.lastIndexOf(BACKTICK);
+    if (start - 2 < 0) {
+      return value;
+    }
+
+    const indexBefore = text.lastIndexOf(BACKTICK, start - 2);
 
     if (indexBefore === -1) {
       return value;
@@ -270,7 +273,6 @@ function InlineUI(_ref) {
   const [width, setWidth] = (0,external_wp_element_namespaceObject.useState)(style === null || style === void 0 ? void 0 : style.replace(/\D/g, ''));
   const popoverAnchor = (0,external_wp_richText_namespaceObject.useAnchor)({
     editableContentElement: contentRef.current,
-    value,
     settings: image_image
   });
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Popover, {
@@ -293,18 +295,21 @@ function InlineUI(_ref) {
       });
       event.preventDefault();
     }
-  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.TextControl, {
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.__experimentalHStack, {
+    alignment: "bottom",
+    spacing: "0"
+  }, (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.__experimentalNumberControl, {
     className: "block-editor-format-toolbar__image-container-value",
-    type: "number",
     label: (0,external_wp_i18n_namespaceObject.__)('Width'),
     value: width,
     min: 1,
     onChange: newWidth => setWidth(newWidth)
   }), (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Button, {
+    className: "block-editor-format-toolbar__image-container-button",
     icon: keyboard_return,
     label: (0,external_wp_i18n_namespaceObject.__)('Apply'),
     type: "submit"
-  })));
+  }))));
 }
 
 function Edit(_ref2) {
@@ -744,7 +749,7 @@ function getKey(_id) {
  * Builds a unique link control key for the given object reference.
  *
  * @param {Object} instance an unique object reference specific to this link control instance.
- * @return {string} the unique key to use for this link control.
+ * @return {string | undefined} the unique key to use for this link control.
  */
 
 
@@ -890,15 +895,31 @@ function InlineLinkUI(_ref) {
           text: newText
         }); // Apply the new Link format to this new text value.
 
-        newValue = (0,external_wp_richText_namespaceObject.applyFormat)(newValue, linkFormat, 0, newText.length); // Update the original (full) RichTextValue replacing the
+        newValue = (0,external_wp_richText_namespaceObject.applyFormat)(newValue, linkFormat, 0, newText.length); // Get the boundaries of the active link format.
+
+        const boundary = getFormatBoundary(value, {
+          type: 'core/link'
+        }); // Split the value at the start of the active link format.
+        // Passing "start" as the 3rd parameter is required to ensure
+        // the second half of the split value is split at the format's
+        // start boundary and avoids relying on the value's "end" property
+        // which may not correspond correctly.
+
+        const [valBefore, valAfter] = (0,external_wp_richText_namespaceObject.split)(value, boundary.start, boundary.start); // Update the original (full) RichTextValue replacing the
         // target text with the *new* RichTextValue containing:
         // 1. The new text content.
         // 2. The new link format.
+        // As "replace" will operate on the first match only, it is
+        // run only against the second half of the value which was
+        // split at the active format's boundary. This avoids a bug
+        // with incorrectly targetted replacements.
+        // See: https://github.com/WordPress/gutenberg/issues/41771.
         // Note original formats will be lost when applying this change.
         // That is expected behaviour.
         // See: https://github.com/WordPress/gutenberg/pull/33849#issuecomment-936134179.
 
-        newValue = (0,external_wp_richText_namespaceObject.replace)(value, richTextText, newValue);
+        const newValAfter = (0,external_wp_richText_namespaceObject.replace)(valAfter, richTextText, newValue);
+        newValue = (0,external_wp_richText_namespaceObject.concat)(valBefore, newValAfter);
       }
 
       newValue.start = newValue.end;
@@ -923,7 +944,6 @@ function InlineLinkUI(_ref) {
 
   const popoverAnchor = (0,external_wp_richText_namespaceObject.useAnchor)({
     editableContentElement: contentRef.current,
-    value,
     settings: build_module_link_link
   }); // Generate a string based key that is unique to this anchor reference.
   // This is used to force re-mount the LinkControl component to avoid
@@ -1464,7 +1484,6 @@ function InlineColorUI(_ref2) {
    */
   const popoverAnchor = (0,external_wp_blockEditor_namespaceObject.useCachedTruthy)((0,external_wp_richText_namespaceObject.useAnchor)({
     editableContentElement: contentRef.current,
-    value,
     settings: text_color_textColor
   }));
   return (0,external_wp_element_namespaceObject.createElement)(external_wp_components_namespaceObject.Popover, {

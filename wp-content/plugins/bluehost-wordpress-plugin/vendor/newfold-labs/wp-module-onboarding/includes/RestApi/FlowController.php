@@ -13,14 +13,16 @@ use NewfoldLabs\WP\Module\Onboarding\Data\Options;
 class FlowController {
 
 	/**
-	 * @var string
 	 * This is the REST API namespace that will be used for our custom API
+	 *
+	 * @var string
 	 */
 	protected $namespace = 'newfold-onboarding/v1';
 
 	/**
-	 * @var string
 	 * This is the REST endpoint
+	 *
+	 * @var string
 	 */
 	protected $rest_base = '/flow';
 
@@ -35,13 +37,24 @@ class FlowController {
 			$this->rest_base,
 			array(
 				array(
-					'methods'  => \WP_REST_Server::READABLE,
-					'callback' => array( $this, 'get_onboarding_flow_data' ),
+					'methods'             => \WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_onboarding_flow_data' ),
 					'permission_callback' => array( Permissions::class, 'rest_is_authorized_admin' ),
 				),
 				array(
 					'methods'             => \WP_REST_Server::EDITABLE,
 					'callback'            => array( $this, 'save_onboarding_flow_data' ),
+					'permission_callback' => array( Permissions::class, 'rest_is_authorized_admin' ),
+				),
+			)
+		);
+		\register_rest_route(
+			$this->namespace,
+			$this->rest_base . '/complete',
+			array(
+				array(
+					'methods'             => \WP_REST_Server::CREATABLE,
+					'callback'            => array( $this, 'complete' ),
 					'permission_callback' => array( Permissions::class, 'rest_is_authorized_admin' ),
 				),
 			)
@@ -57,7 +70,8 @@ class FlowController {
 	 */
 	public function get_onboarding_flow_data( \WP_REST_Request $request ) {
 		// check if data is available in the database if not then fetch the default dataset
-		if ( ! ( $result = $this->read_details_from_wp_options() ) ) {
+		$result = $this->read_details_from_wp_options();
+		if ( ! $result ) {
 			$result              = Flows::get_data();
 			$result['createdAt'] = time();
 			// update default data if flow type is ecommerce
@@ -90,7 +104,8 @@ class FlowController {
 			);
 		}
 
-		if ( ! ( $flow_data = $this->read_details_from_wp_options() ) ) {
+		$flow_data = $this->read_details_from_wp_options();
+		if ( ! $flow_data ) {
 			  $flow_data              = Flows::get_data();
 			  $flow_data['createdAt'] = time();
 			  // update default data if flow type is ecommerce
@@ -99,7 +114,8 @@ class FlowController {
 		}
 
 		foreach ( $params as $key => $param ) {
-			if ( $value = $this->array_search_key( $key, $flow_data ) === false ) {
+			$value = $this->array_search_key( $key, $flow_data );
+			if ( false === $value ) {
 				return new \WP_Error(
 					'wrong_param_provided',
 					"Wrong Parameter Provided : $key",
@@ -124,8 +140,10 @@ class FlowController {
 
 		if ( ( ! empty( $flow_data['data']['siteLogo'] ) ) && ! empty( $flow_data['data']['siteLogo']['id'] ) ) {
 				  \update_option( Options::get_option_name( 'site_icon', false ), $flow_data['data']['siteLogo']['id'] );
+				  \update_option( Options::get_option_name( 'site_logo', false ), $flow_data['data']['siteLogo']['id'] );
 		} else {
 			 \update_option( Options::get_option_name( 'site_icon', false ), 0 );
+			 \delete_option( Options::get_option_name( 'site_logo', false ) );
 		}
 
 		// save data to database
@@ -144,58 +162,106 @@ class FlowController {
 	}
 
 	/**
-	 * check the current flow type and update default data if flowtype is ecommerce.
+	 * Check the current flow type and update default data if flowtype is ecommerce.
 	 *
-	 * @param default flow data.
+	 * @param array $data default blueprint flow data.
 	 *
 	 * @return array
 	 */
-	public function update_default_data_for_ecommerce( $data ) {
+	private function update_default_data_for_ecommerce( $data ) {
 		// get current flow type
 		$flow_type = Data::current_flow();
-		if($flow_type == 'ecommerce') {
+		if ( 'ecommerce' === $flow_type ) {
 			// update default data with ecommerce data
 			$data['data']['topPriority']['priority1'] = 'selling';
-			$data['data']['siteType'] = array('label' => '', 'referTo' => 'business');
+			$data['data']['siteType']                 = array(
+				'label'   => '',
+				'referTo' => 'business',
+			);
 		}
 		return $data;
 	}
 
-	/*
+	/**
 	 * Read onboarding flow options from database
+	 *
+	 * @return array
 	 */
 	public function read_details_from_wp_options() {
 		return \get_option( Options::get_option_name( 'flow' ) );
 	}
 
-	/*
-	 * add onboarding flow options
+	/**
+	 * Add onboarding flow options
+	 *
+	 * @param array $data default blueprint flow data.
+	 *
+	 * @return array
 	 */
-	public function save_details_to_wp_options( $data ) {
+	private function save_details_to_wp_options( $data ) {
 		return \add_option( Options::get_option_name( 'flow' ), $data );
 	}
 
-	/*
-	 * update onboarding flow options
+	/**
+	 * Update onboarding flow options
+	 *
+	 * @param array $data default blueprint flow data.
+	 *
+	 * @return array
 	 */
-	public function update_wp_options_data_in_database( $data ) {
+	private function update_wp_options_data_in_database( $data ) {
 		return \update_option( Options::get_option_name( 'flow' ), $data );
 	}
 
-	/*
-	 * function to search for key in array recursively with case sensitive exact match
+	/**
+	 * Function to search for key in array recursively with case sensitive exact match
+	 *
+	 * @param array $needle_key specific key in flow data.
+	 * @param array $array WP Options Data.
+	 *
+	 * @return boolean
 	 */
-	public function array_search_key( $needle_key, $array ) {
+	private function array_search_key( $needle_key, $array ) {
 		foreach ( $array as $key => $value ) {
 			if ( strcmp( $key, $needle_key ) === 0 ) {
 				return true;
 			}
 			if ( is_array( $value ) ) {
-				if ( ( $result = $this->array_search_key( $needle_key, $value ) ) !== false ) {
+				$result = $this->array_search_key( $needle_key, $value );
+				if ( false !== $result ) {
 					return $result;
 				}
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * Flow completion API for child theme generation, verify child theme and publish site pages
+	 *
+	 * @return \WP_REST_Response
+	 */
+	public function complete() {
+		$site_pages_publish_request  = new \WP_REST_Request(
+			'POST',
+			'/newfold-onboarding/v1/site-pages/publish'
+		);
+		$site_pages_publish_response = \rest_do_request( $site_pages_publish_request );
+		if ( $site_pages_publish_response->is_error() ) {
+			return $site_pages_publish_response->as_error();
+		}
+		$child_theme_generation_request  = new \WP_REST_Request(
+			'POST',
+			'/newfold-onboarding/v1/themes/child/generate'
+		);
+		$child_theme_generation_response = \rest_do_request( $child_theme_generation_request );
+		if ( $child_theme_generation_response->is_error() ) {
+			return $child_theme_generation_response->as_error();
+		}
+
+		return new \WP_REST_Response(
+			array(),
+			201
+		);
 	}
 }

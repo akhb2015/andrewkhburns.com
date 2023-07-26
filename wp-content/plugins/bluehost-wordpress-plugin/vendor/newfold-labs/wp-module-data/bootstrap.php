@@ -3,6 +3,7 @@
 use NewfoldLabs\WP\Module\Data\Data;
 use NewfoldLabs\WP\Module\Data\Helpers\Encryption;
 use NewfoldLabs\WP\Module\Data\Helpers\Transient;
+use NewfoldLabs\WP\Module\Data\SiteCapabilities;
 use NewfoldLabs\WP\ModuleLoader\Container;
 
 use function NewfoldLabs\WP\ModuleLoader\register as registerModule;
@@ -12,7 +13,7 @@ if ( defined( 'NFD_DATA_MODULE_VERSION' ) ) {
 	exit;
 }
 
-define( 'NFD_DATA_MODULE_VERSION', '2.2.0' );
+define( 'NFD_DATA_MODULE_VERSION', '2.2.5' );
 
 /**
  * Register the data module
@@ -49,16 +50,39 @@ if ( function_exists( 'add_action' ) ) {
 		}
 	);
 
+	// Auto-decrypt token when fetched via WP-CLI
+	if ( defined( 'WP_CLI' ) && WP_CLI ) {
+		add_filter(
+			'option_nfd_data_token',
+			function ( $value ) {
+				$encryption = new Encryption();
+
+				return $encryption->decrypt( $value );
+			}
+		);
+	}
+
 	// Register activation hook
 	add_action(
 		'newfold_container_set',
 		function ( Container $container ) {
+
 			register_activation_hook(
 				$container->plugin()->file,
 				function () use ( $container ) {
 					Transient::set( 'nfd_plugin_activated', $container->plugin()->basename );
 				}
 			);
+
+			$container->set(
+				'capabilities',
+				$container->service(
+					function () {
+						return new SiteCapabilities();
+					}
+				)
+			);
+
 		}
 	);
 

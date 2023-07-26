@@ -4,16 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
+class ComposerStaticInit2af3e0f18f4de977a3f96517e8a943dd
 {
     public static $files = array (
         '305f44d06b4b9b934b549f0b525c4bea' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/bootstrap.php',
         '89c483fff8e47bfb3a84bf56b0ff5160' => __DIR__ . '/..' . '/wp-forge/helpers/includes/functions.php',
         'ac949ce40a981819ba132473518a9a31' => __DIR__ . '/..' . '/wp-cli/wp-config-transformer/src/WPConfigTransformer.php',
-        '2f504007b66898166b454912c82ea1be' => __DIR__ . '/..' . '/bluehost/bluehost-wp-customer-data/bootstrap.php',
         'f451a47b5b691954214859a2f4ec4451' => __DIR__ . '/..' . '/newfold-labs/wp-module-business-reviews/bootstrap.php',
         'e44df89631b0c72f7ea6a6eeb13c0410' => __DIR__ . '/..' . '/newfold-labs/wp-module-coming-soon/bootstrap.php',
         '4b39e1fa03970134407de860a52cecf7' => __DIR__ . '/..' . '/newfold-labs/wp-module-coming-soon/includes/coming-soon.php',
+        '9c54ad932ccabc51f5aa2777e1a30652' => __DIR__ . '/..' . '/newfold-labs/wp-module-customer-bluehost/bootstrap.php',
+        '9997c85d74d7ca08831db58f99dac67f' => __DIR__ . '/..' . '/newfold-labs/wp-module-customer-bluehost/includes/CustomerBluehost.php',
         '438e814f7ad74cb167165cdd71008bd1' => __DIR__ . '/..' . '/newfold-labs/wp-module-ecommerce/bootstrap.php',
         '95c011b0ec52c15dbf68dec5081b93ec' => __DIR__ . '/..' . '/newfold-labs/wp-module-loader/bootstrap.php',
         'd74aae4e35e57e9789b924ac610c283e' => __DIR__ . '/..' . '/newfold-labs/wp-module-loader/includes/functions.php',
@@ -50,6 +51,7 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
             'NewfoldLabs\\Container\\' => 22,
             'NewFoldLabs\\WP\\Module\\SSO\\' => 26,
             'NewFoldLabs\\WP\\Module\\Notifications\\' => 36,
+            'NewFoldLabs\\WP\\Module\\CustomerBluehost\\' => 39,
         ),
         'D' => 
         array (
@@ -57,7 +59,6 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
         ),
         'B' => 
         array (
-            'Bluehost\\WP\\Data\\' => 17,
             'Bluehost\\' => 9,
         ),
     );
@@ -131,13 +132,13 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
         array (
             0 => __DIR__ . '/..' . '/newfold-labs/wp-module-notifications/includes',
         ),
+        'NewFoldLabs\\WP\\Module\\CustomerBluehost\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/newfold-labs/wp-module-customer-bluehost/includes',
+        ),
         'Doctrine\\Common\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
-        ),
-        'Bluehost\\WP\\Data\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/bluehost/bluehost-wp-customer-data/includes',
         ),
         'Bluehost\\' => 
         array (
@@ -165,11 +166,11 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
         'Bluehost\\RestApi\\AdminErrorController' => __DIR__ . '/../..' . '/inc/RestApi/AdminErrorController.php',
         'Bluehost\\RestApi\\BluehostBlogController' => __DIR__ . '/../..' . '/inc/RestApi/BluehostBlogController.php',
         'Bluehost\\RestApi\\CachingController' => __DIR__ . '/../..' . '/inc/RestApi/CachingController.php',
+        'Bluehost\\RestApi\\CustomizeSiteController' => __DIR__ . '/../..' . '/inc/RestApi/CustomizeSiteController.php',
         'Bluehost\\RestApi\\SettingsController' => __DIR__ . '/../..' . '/inc/RestApi/SettingsController.php',
         'Bluehost\\RestApi\\StagingController' => __DIR__ . '/../..' . '/inc/RestApi/StagingController.php',
         'Bluehost\\SiteMeta' => __DIR__ . '/../..' . '/inc/SiteMeta.php',
         'Bluehost\\Staging' => __DIR__ . '/../..' . '/inc/Staging.php',
-        'Bluehost\\WP\\Data\\Customer' => __DIR__ . '/..' . '/bluehost/bluehost-wp-customer-data/includes/Customer.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Doctrine\\Common\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',
         'Mustache_Autoloader' => __DIR__ . '/..' . '/mustache/mustache/src/Mustache/Autoloader.php',
@@ -236,6 +237,7 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
         'NewfoldLabs\\WP\\Module\\Data\\HiiveConnection' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/HiiveConnection.php',
         'NewfoldLabs\\WP\\Module\\Data\\Listeners\\Admin' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Listeners/Admin.php',
         'NewfoldLabs\\WP\\Module\\Data\\Listeners\\BluehostPlugin' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Listeners/BluehostPlugin.php',
+        'NewfoldLabs\\WP\\Module\\Data\\Listeners\\Commerce' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Listeners/Commerce.php',
         'NewfoldLabs\\WP\\Module\\Data\\Listeners\\Content' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Listeners/Content.php',
         'NewfoldLabs\\WP\\Module\\Data\\Listeners\\Cron' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Listeners/Cron.php',
         'NewfoldLabs\\WP\\Module\\Data\\Listeners\\Jetpack' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Listeners/Jetpack.php',
@@ -245,7 +247,9 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
         'NewfoldLabs\\WP\\Module\\Data\\Listeners\\Theme' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Listeners/Theme.php',
         'NewfoldLabs\\WP\\Module\\Data\\Listeners\\Yith' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Listeners/Yith.php',
         'NewfoldLabs\\WP\\Module\\Data\\Logger' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/Logger.php',
+        'NewfoldLabs\\WP\\Module\\Data\\SiteCapabilities' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/SiteCapabilities.php',
         'NewfoldLabs\\WP\\Module\\Data\\SubscriberInterface' => __DIR__ . '/..' . '/newfold-labs/wp-module-data/src/SubscriberInterface.php',
+        'NewfoldLabs\\WP\\Module\\ECommerce\\Data\\Brands' => __DIR__ . '/..' . '/newfold-labs/wp-module-ecommerce/includes/Data/Brands.php',
         'NewfoldLabs\\WP\\Module\\ECommerce\\Data\\Plugins' => __DIR__ . '/..' . '/newfold-labs/wp-module-ecommerce/includes/Data/Plugins.php',
         'NewfoldLabs\\WP\\Module\\ECommerce\\ECommerce' => __DIR__ . '/..' . '/newfold-labs/wp-module-ecommerce/includes/ECommerce.php',
         'NewfoldLabs\\WP\\Module\\ECommerce\\Partials\\CaptiveFlow' => __DIR__ . '/..' . '/newfold-labs/wp-module-ecommerce/includes/Partials/CaptiveFlow.php',
@@ -261,8 +265,13 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
         'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Events' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Events.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Flows' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Flows.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Options' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Options.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Patterns' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Patterns.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Plugins' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Plugins.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Preview' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Preview.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\SiteFeatures' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/SiteFeatures.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Themes' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Themes.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Themes\\Colors' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Themes/Colors.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\Data\\Themes\\Fonts' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Data/Themes/Fonts.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\LoginRedirect' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/LoginRedirect.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Models\\PriorityQueue' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Models/PriorityQueue.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Models\\Theme' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Models/Theme.php',
@@ -272,22 +281,28 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\BaseHiiveController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/BaseHiiveController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\EventsController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/EventsController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\FlowController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/FlowController.php',
-        'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\PagesController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/PagesController.php',
-        'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\PatternsController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/PatternsController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\PluginsController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/PluginsController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\RestApi' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/RestApi.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\SettingsController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/SettingsController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\SiteImagesController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/SiteImagesController.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\SitePagesController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/SitePagesController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\Themes\\ApprovedThemesController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/Themes/ApprovedThemesController.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\Themes\\PatternsController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/Themes/PatternsController.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\Themes\\ThemeColorsController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/Themes/ThemeColorsController.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\Themes\\ThemeFontsController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/Themes/ThemeFontsController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\Themes\\ThemeGeneratorController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/Themes/ThemeGeneratorController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\Themes\\ThemeInstallerController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/Themes/ThemeInstallerController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\RestApi\\Themes\\ThemeVariationsController' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/RestApi/Themes/ThemeVariationsController.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Services\\PluginInstaller' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Services/PluginInstaller.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\Services\\PluginUninstaller' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Services/PluginUninstaller.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Services\\ThemeInstaller' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Services/ThemeInstaller.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\Services\\Webfonts' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Services/Webfonts.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\TaskManagers\\PluginInstallTaskManager' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/TaskManagers/PluginInstallTaskManager.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\TaskManagers\\PluginUninstallTaskManager' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/TaskManagers/PluginUninstallTaskManager.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\TaskManagers\\TaskManager' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/TaskManagers/TaskManager.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\TaskManagers\\ThemeInstallTaskManager' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/TaskManagers/ThemeInstallTaskManager.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Tasks\\PluginInstallTask' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Tasks/PluginInstallTask.php',
+        'NewfoldLabs\\WP\\Module\\Onboarding\\Tasks\\PluginUninstallTask' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Tasks/PluginUninstallTask.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Tasks\\Task' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Tasks/Task.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\Tasks\\ThemeInstallTask' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/Tasks/ThemeInstallTask.php',
         'NewfoldLabs\\WP\\Module\\Onboarding\\WP_Admin' => __DIR__ . '/..' . '/newfold-labs/wp-module-onboarding/includes/WP_Admin.php',
@@ -316,10 +331,10 @@ class ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitedb939b9e468fbd626c6dc2460b04ed0::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit2af3e0f18f4de977a3f96517e8a943dd::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit2af3e0f18f4de977a3f96517e8a943dd::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit2af3e0f18f4de977a3f96517e8a943dd::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit2af3e0f18f4de977a3f96517e8a943dd::$classMap;
 
         }, null, ClassLoader::class);
     }

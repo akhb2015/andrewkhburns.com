@@ -9,17 +9,16 @@
  * Build an array with CSS classes and inline styles defining the colors
  * which will be applied to the navigation markup in the front-end.
  *
- * @param  array $context    Navigation block context.
- * @param  array $attributes Block attributes.
+ * @param  array $context     Navigation block context.
+ * @param  array $attributes  Block attributes.
+ * @param  bool  $is_sub_menu Whether the block is a sub-menu.
  * @return array Colors CSS classes and inline styles.
  */
-function gutenberg_block_core_navigation_submenu_build_css_colors( $context, $attributes ) {
+function gutenberg_block_core_navigation_submenu_build_css_colors( $context, $attributes, $is_sub_menu = false ) {
 	$colors = array(
 		'css_classes'   => array(),
 		'inline_styles' => '',
 	);
-
-	$is_sub_menu = isset( $attributes['isTopLevelItem'] ) ? ( ! $attributes['isTopLevelItem'] ) : false;
 
 	// Text color.
 	$named_text_color  = null;
@@ -250,6 +249,15 @@ function gutenberg_render_block_core_navigation_submenu( $attributes, $content, 
 	}
 
 	if ( $has_submenu ) {
+		$colors      = gutenberg_block_core_navigation_submenu_build_css_colors( $block->context, $attributes, $has_submenu );
+		$classes     = array_merge(
+			array( 'wp-block-navigation__submenu-container' ),
+			$colors['css_classes']
+		);
+		$css_classes = trim( implode( ' ', $classes ) );
+
+		$style_attribute = $colors['inline_styles'];
+
 		$inner_blocks_html = '';
 		foreach ( $block->inner_blocks as $inner_block ) {
 			$inner_blocks_html .= $inner_block->render();
@@ -263,10 +271,19 @@ function gutenberg_render_block_core_navigation_submenu( $attributes, $content, 
 			$html = $tag_processor->get_updated_html();
 		}
 
+		$wrapper_attributes = get_block_wrapper_attributes(
+			array(
+				'class' => $css_classes,
+				'style' => $style_attribute,
+			)
+		);
+
 		$html .= sprintf(
-			'<ul class="wp-block-navigation__submenu-container">%s</ul>',
+			'<ul %s>%s</ul>',
+			$wrapper_attributes,
 			$inner_blocks_html
 		);
+
 	}
 
 	$html .= '</li>';
@@ -289,35 +306,3 @@ function gutenberg_register_block_core_navigation_submenu() {
 	);
 }
 add_action( 'init', 'gutenberg_register_block_core_navigation_submenu', 20 );
-
-/**
- * Disables display of block inspector tabs for the Navigation Submenu block.
- *
- * This is only a temporary measure until we have a TabPanel and mechanism that
- * will allow the Navigation Submenu to programmatically select a tab when
- * edited via a specific context.
- *
- * See:
- * - https://github.com/WordPress/gutenberg/issues/45951
- * - https://github.com/WordPress/gutenberg/pull/46321
- * - https://github.com/WordPress/gutenberg/pull/46271
- *
- * @param array $settings Default editor settings.
- * @return array Filtered editor settings.
- */
-function gutenberg_gutenberg_disable_tabs_for_navigation_submenu_block( $settings ) {
-	$current_tab_settings = _wp_array_get(
-		$settings,
-		array( '__experimentalBlockInspectorTabs' ),
-		array()
-	);
-
-	$settings['__experimentalBlockInspectorTabs'] = array_merge(
-		$current_tab_settings,
-		array( 'core/navigation-submenu' => false )
-	);
-
-	return $settings;
-}
-
-add_filter( 'block_editor_settings_all', 'gutenberg_gutenberg_disable_tabs_for_navigation_submenu_block' );

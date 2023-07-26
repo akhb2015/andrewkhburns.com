@@ -176,7 +176,7 @@ function isValidFocusableArea(element) {
  * Returns all focusable elements within a given context.
  *
  * @param {Element} context              Element in which to search.
- * @param {Object}  [options]
+ * @param {Object}  options
  * @param {boolean} [options.sequential] If set, only return elements that are
  *                                       sequentially focusable.
  *                                       Non-interactive elements with a
@@ -184,7 +184,7 @@ function isValidFocusableArea(element) {
  *                                       not sequentially focusable.
  *                                       https://html.spec.whatwg.org/multipage/interaction.html#the-tabindex-attribute
  *
- * @return {Element[]} Focusable elements.
+ * @return {HTMLElement[]} Focusable elements.
  */
 
 
@@ -387,17 +387,11 @@ function tabbable_find(context) {
  */
 
 function findPrevious(element) {
-  const focusables = find(element.ownerDocument.body);
-  const index = focusables.indexOf(element);
-
-  if (index === -1) {
-    return undefined;
-  } // Remove all focusables after and including `element`.
-
-
-  focusables.length = index;
-  const tabbable = filterTabbable(focusables);
-  return tabbable[tabbable.length - 1];
+  return filterTabbable(find(element.ownerDocument.body)).reverse().find(focusable => {
+    return (// eslint-disable-next-line no-bitwise
+      element.compareDocumentPosition(focusable) & element.DOCUMENT_POSITION_PRECEDING
+    );
+  });
 }
 /**
  * Given a focusable element, find the next tabbable element.
@@ -409,11 +403,11 @@ function findPrevious(element) {
  */
 
 function findNext(element) {
-  const focusables = find(element.ownerDocument.body);
-  const index = focusables.indexOf(element); // Remove all focusables before and including `element`.
-
-  const remaining = focusables.slice(index + 1);
-  return filterTabbable(remaining)[0];
+  return filterTabbable(find(element.ownerDocument.body)).find(focusable => {
+    return (// eslint-disable-next-line no-bitwise
+      element.compareDocumentPosition(focusable) & element.DOCUMENT_POSITION_FOLLOWING
+    );
+  });
 }
 
 ;// CONCATENATED MODULE: ./packages/dom/build-module/utils/assert-is-defined.js
@@ -518,7 +512,7 @@ function getRectangleFromRange(range) {
   //
   // See: https://stackoverflow.com/a/6847328/995445
 
-  if (!rect) {
+  if (!rect || rect.height === 0) {
     assertIsDefined(ownerDocument, 'ownerDocument');
     const padNode = ownerDocument.createTextNode('\u200b'); // Do not modify the live range.
 
@@ -736,7 +730,8 @@ function getComputedStyle(element) {
  */
 
 /**
- * Given a DOM node, finds the closest scrollable container node.
+ * Given a DOM node, finds the closest scrollable container node or the node
+ * itself, if scrollable.
  *
  * @param {Element | null} node Node from which to start.
  *

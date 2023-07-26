@@ -23,7 +23,7 @@ return array(
     'NewfoldLabs\\Container\\' => array($vendorDir . '/newfold-labs/container/includes'),
     'NewFoldLabs\\WP\\Module\\SSO\\' => array($vendorDir . '/newfold-labs/wp-module-sso/includes'),
     'NewFoldLabs\\WP\\Module\\Notifications\\' => array($vendorDir . '/newfold-labs/wp-module-notifications/includes'),
+    'NewFoldLabs\\WP\\Module\\CustomerBluehost\\' => array($vendorDir . '/newfold-labs/wp-module-customer-bluehost/includes'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector'),
-    'Bluehost\\WP\\Data\\' => array($vendorDir . '/bluehost/bluehost-wp-customer-data/includes'),
     'Bluehost\\' => array($baseDir . '/inc'),
 );

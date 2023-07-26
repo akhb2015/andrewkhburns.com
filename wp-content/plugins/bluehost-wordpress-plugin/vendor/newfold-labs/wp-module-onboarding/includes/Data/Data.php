@@ -2,7 +2,7 @@
 namespace NewfoldLabs\WP\Module\Onboarding\Data;
 
 use NewfoldLabs\WP\Module\Onboarding\Permissions;
-use Bluehost\WP\Data\Customer;
+use NewfoldLabs\WP\Module\CustomerBluehost\CustomerBluehost;
 
 /**
  * CRUD methods for Onboarding config for use in API, CLI and runtime.
@@ -15,13 +15,16 @@ final class Data {
 		return array(
 			'buildUrl'          => \NFD_ONBOARDING_BUILD_URL,
 			'siteUrl'           => \get_site_url(),
-			'restUrl'			=> \get_home_url() . '/index.php?rest_route=',
+			'restUrl'           => \get_home_url() . '/index.php?rest_route=',
 			'adminUrl'          => \admin_url(),
 			'currentBrand'      => self::current_brand(),
 			'currentPlan'       => self::current_plan(),
 			'currentFlow'       => self::current_flow(),
 			'pluginInstallHash' => Permissions::rest_get_plugin_install_hash(),
-			'previewSettings'   => self::preview_settings(),
+			'previewSettings'   => array(
+				'settings'        => Preview::get_settings(),
+				'stepPreviewData' => Themes::step_preview_data(),
+			),
 		);
 	}
 
@@ -39,7 +42,7 @@ final class Data {
 		if ( empty( $brand ) ) {
 			$brand = 'newfold';
 		}
-		$brand = \apply_filters( 'nfd_module_onboarding_brand', sanitize_title_with_dashes( str_replace('_', '-', $brand) ) );
+		$brand = \apply_filters( 'nfd_module_onboarding_brand', sanitize_title_with_dashes( str_replace( '_', '-', $brand ) ) );
 
 		$brands = Brands::get_brands();
 
@@ -55,19 +58,41 @@ final class Data {
 	public static function current_plan() {
 		$customer_data = self::customer_data();
 
-		if ( isset( $customer_data['plan_type'] ) && isset( $customer_data['plan_subtype'] ) ) {
+		$current_flow = Flows::get_flow_from_customer_data( $customer_data );
+		if ( false !== $current_flow ) {
 			 return array(
-				 'flow'    => Flows::get_flow_from_plan_subtype( $customer_data['plan_subtype'] ),
+				 'flow'    => $current_flow,
 				 'subtype' => $customer_data['plan_subtype'],
 				 'type'    => $customer_data['plan_type'],
 			 );
 		}
 
-		  return array(
-			  'flow'    => self::current_flow(),
-			  'subtype' => null,
-			  'type'    => null,
-		  );
+		$current_flow = Flows::get_flow_from_params();
+		if ( false !== $current_flow ) {
+			return array(
+				'flow'    => $current_flow,
+				'subtype' => Flows::is_commerce_priority() ? 'wc_priority' : null,
+				'type'    => null,
+			);
+		}
+
+		$current_flow = Flows::get_flow_from_plugins();
+		if ( false !== $current_flow ) {
+			switch ( $current_flow ) {
+				case 'ecommerce':
+					return array(
+						'flow'    => 'ecommerce',
+						'subtype' => 'wc_priority',
+						'type'    => null,
+					);
+			}
+		}
+
+		return array(
+			'flow'    => Flows::get_default_flow(),
+			'subtype' => null,
+			'type'    => null,
+		);
 	}
 
 	/**
@@ -76,34 +101,24 @@ final class Data {
 	 * @return string
 	 */
 	public static function current_flow() {
-		$flows = Flows::get_flows();
 
-		if ( isset( $_GET['flow'] ) ) {
-			   $current_flow_type = \sanitize_text_field( $_GET['flow'] );
+		$current_flow = Flows::get_flow_from_params();
+		if ( false !== $current_flow ) {
+			return $current_flow;
 		}
 
-		if ( ! empty( $current_flow_type ) && isset( $flows[ $current_flow_type ] ) ) {
-			return $current_flow_type;
+		$current_flow = Flows::get_flow_from_plugins();
+		if ( false !== $current_flow ) {
+			return $current_flow;
 		}
 
-		$current_flow_type = \get_option( 'nfd_onboarding_flow_preset', false );
-		if ( $current_flow_type && isset( $flows[ $current_flow_type ] ) ) {
-			return $current_flow_type;
+		$customer_data = self::customer_data();
+		$current_flow  = Flows::get_flow_from_customer_data( $customer_data );
+		if ( false !== $current_flow ) {
+			return $current_flow;
 		}
 
 		return Flows::get_default_flow();
-	}
-
-	public static function preview_settings() {
-		 $block_editor_context = new \WP_Block_Editor_Context( array( 'name' => 'core/edit-site' ) );
-		 $custom_settings      = array(
-			 'siteUrl' => \site_url(),
-		 );
-
-		 return array(
-			 'settings'     => \get_block_editor_settings( $custom_settings, $block_editor_context ),
-			 'globalStyles' => \wp_get_global_styles(),
-		 );
 	}
 
 	/**
@@ -112,9 +127,10 @@ final class Data {
 	 * @return array
 	 */
 	public static function customer_data() {
-		if ( class_exists( 'Bluehost\WP\Data\Customer' ) ) {
-			 return Customer::collect();
+		if ( class_exists( 'NewfoldLabs\WP\Module\CustomerBluehost\CustomerBluehost' ) ) {
+			 return CustomerBluehost::collect();
 		}
 		 return array();
 	}
+
 } // END \NewfoldLabs\WP\Module\Onboarding\Data()

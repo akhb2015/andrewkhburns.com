@@ -6,6 +6,12 @@ namespace NewfoldLabs\WP\Module\ECommerce\Data;
  */
 final class Plugins {
 
+	/**
+	 * @param $plugin
+	 * @return mixed
+	 *
+	 * To retrieve URL for slug downloads
+	 */
 	public static function get_slug_map( $plugin ) {
 		$map = array(
 			'yith_wcmap_panel'                     => array( 'https://hiive.cloud/workers/plugin-downloads/yith-woocommerce-customize-myaccount-page', 'yith-woocommerce-customize-myaccount-page-extended/init.php' ),
@@ -17,6 +23,7 @@ final class Plugins {
 			'yith_shippo_shipping_for_woocommerce' => array( 'https://hiive.cloud/workers/plugin-downloads/yith-shippo-shippings-for-woocommerce', 'yith-shippo-shippings-for-woocommerce-extended/init.php' ),
 			'yith_paypal_payments'                 => array( 'https://hiive.cloud/workers/plugin-downloads/yith-paypal-payments-for-woocommerce', 'yith-paypal-payments-for-woocommerce-extended/init.php' ),
 			'woocommerce'                          => array( 'ignore', 'woocommerce/woocommerce.php' ),
+			'nfd_slug_woo_razorpay'                          => array( 'https://hiive.cloud/workers/plugin-downloads/razorpay' ,'woo-razorpay/woo-razorpay.php'),
 		);
 		if ( in_array( $plugin, array_keys( $map ) ) ) {
 			$plugin = $map[ $plugin ];
