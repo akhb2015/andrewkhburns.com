@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/login-gate",
+  "title": "Login gate",
+  "category": "common",
+  "description": "Adds a check if user is logged in",
+  "keywords": [
+    "login"
+  ],
+  "version": 1,
+  "textdomain": "create-block",
+  "editorScript": "file:./index.js",
+  "viewScript": "",
+  "script": "",
+  "attributes": {
+    "message": {
+      "type": "string"
+    }
+  },
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
