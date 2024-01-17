@@ -1,0 +1,88 @@
+.JOIN-NETWORK :is(h1, h2, h3, h4, h5, h6)  {
+	color: var(--blue-three);
+}
+
+.JOIN-NETWORK .clients {
+	display: none;
+}
+
+.JOIN-NETWORK .error {
+	display: none;
+	font-size: 15rem;
+	margin-top: 5rem;
+	font-weight: 700;
+	color: #cc0000;
+}
+
+.JOIN-NETWORK .by-product {
+	display: none;
+}
+
+.JOIN-NETWORK .by-product .form label {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 15rem;
+	margin-bottom: 5rem;
+	padding: 0;
+}
+
+.JOIN-NETWORK .by-product .form .b-button {
+	margin-top: 30rem;
+}
+
+.JOIN-NETWORK .form {
+	background: var(--form-color);
+	border-radius: 20rem;
+	padding: 72rem;
+	margin: 50rem 0;
+}
+
+@media screen and (max-width: 960px) {
+	.JOIN-NETWORK .head {margin-top: 24rem;}
+	.JOIN-NETWORK .form {padding: 24rem; margin: 24rem 0;}
+}
+
+
+
+/* SELECT 2 */
+
+.JOIN-NETWORK .select2 {
+	display: block;
+}
+
+.JOIN-NETWORK .select2-container--default .select2-selection--single {
+	border: none;
+	border-radius: 10rem;
+	box-shadow: inset 0 0 0 1rem var(--charcoal);
+	height: 50rem;
+	overflow: hidden;
+}
+
+.JOIN-NETWORK .select2-container--default .select2-selection--single:focus {
+	outline: none;
+	box-shadow: inset 0 0 0 2rem var(--charcoal);
+}
+
+.JOIN-NETWORK .select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 52rem;
+	color: var(--charcoal);
+	padding: 0 35rem 0 10rem;
+}
+
+.JOIN-NETWORK .select2-container--default .select2-selection--single .select2-selection__arrow {
+	width: 19rem;
+	height: 11rem;
+	top: 19rem;
+	right: 10rem;
+	background: url(../../assets/images/ui-expand.svg) no-repeat center / 100%;
+}
+
+.JOIN-NETWORK .select2-container--default .select2-selection--single .select2-selection__arrow b {
+	display: none;
+}
+
+body .select2-dropdown {
+	border-radius: 10rem;
+	border-color: var(--charcoal);
+	overflow: hidden;
+}

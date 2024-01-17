@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __ } from "@wordpress/i18n";
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,8 +11,16 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText, MediaUpload, BlockControls, AlignmentToolbar, InspectorControls, ColorPalette } from '@wordpress/block-editor';
-import { Button, PanelBody } from  '@wordpress/components';
+import {
+    useBlockProps,
+    RichText,
+    MediaUpload,
+    BlockControls,
+    AlignmentToolbar,
+    InspectorControls,
+    ColorPalette,
+} from "@wordpress/block-editor";
+import { Button, PanelBody } from "@wordpress/components";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -20,7 +28,7 @@ import { Button, PanelBody } from  '@wordpress/components';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import './editor.scss';
+import "./editor.scss";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -31,54 +39,59 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-
     //always add blockProps to the root element that gets returned
     const blockProps = useBlockProps();
 
-    const { heroHeading, tagline, heroImage, heroHeadingColor, taglineColor, alignContent } = attributes; 
+    const {
+        heroHeading,
+        tagline,
+        heroImage,
+        heroHeadingColor,
+        taglineColor,
+        alignContent,
+    } = attributes;
 
-    const onChangeHeroHeading = newHeading => {
-        setAttributes({ heroHeading: newHeading })
-    }
+    const onChangeHeroHeading = (newHeading) => {
+        setAttributes({ heroHeading: newHeading });
+    };
 
-    const onChangeTagline = newTagline => {
-        setAttributes({ tagline: newTagline })
-    }
+    const onChangeTagline = (newTagline) => {
+        setAttributes({ tagline: newTagline });
+    };
 
-    const onSelectImage = newImage => {
-        setAttributes({ heroImage: newImage.sizes.full.url })
-    }
+    const onSelectImage = (newImage) => {
+        setAttributes({ heroImage: newImage.sizes.full.url });
+    };
 
-    const onChangeAlignment = newAlignment => {
-        setAttributes({ alignContent: newAlignment })
-    }
+    const onChangeAlignment = (newAlignment) => {
+        setAttributes({ alignContent: newAlignment });
+    };
 
-    const onChangeHeroHeadingColor = newHeadingColor => {
-        setAttributes({ heroHeadingColor: newHeadingColor })
-    }
+    const onChangeHeroHeadingColor = (newHeadingColor) => {
+        setAttributes({ heroHeadingColor: newHeadingColor });
+    };
 
-    const onChangeTaglineColor = newTaglineColor => {
-        setAttributes({ taglineColor: newTaglineColor })
-    }
+    const onChangeTaglineColor = (newTaglineColor) => {
+        setAttributes({ taglineColor: newTaglineColor });
+    };
 
-        return(
-            <>
+    return (
+        <>
             <InspectorControls>
-                <PanelBody title='Color Options'>
+                <PanelBody title="Color Options">
                     <div className="components-base-control">
                         <div className="components-base-control__field">
-                        
                             <label className="components-base-control__label">
                                 Heading color
                             </label>
-                            <ColorPalette 
+                            <ColorPalette
                                 onChange={onChangeHeroHeadingColor}
                                 value={heroHeadingColor}
                             />
                             <label className="components-base-control__label">
                                 Tagline color
                             </label>
-                            <ColorPalette 
+                            <ColorPalette
                                 onChange={onChangeTaglineColor}
                                 value={taglineColor}
                             />
@@ -87,46 +100,49 @@ export default function Edit({ attributes, setAttributes }) {
                 </PanelBody>
             </InspectorControls>
 
-        <div className="hero-block" style={{ backgroundImage: `url(${heroImage})`}} >
+            <div
+                className="hero-block"
+                style={{ backgroundImage: `url(${heroImage})` }}
+            >
+                <AlignmentToolbar onChange={onChangeAlignment} />
 
-            <AlignmentToolbar 
-                onChange={ onChangeAlignment }
-            />
-          
-            <MediaUpload
-                onSelect = { onSelectImage }
-                type = "image"
-                value = { heroImage }
-                render = {({open}) => {
+                <MediaUpload
+                    onSelect={onSelectImage}
+                    type="image"
+                    value={heroImage}
+                    render={({ open }) => {
+                        return (
+                            <Button
+                                onClick={open}
+                                icon="format-image"
+                                showToolTip="true"
+                                label="Add image"
+                                className="add-hero-image-btn"
+                            />
+                        );
+                    }}
+                />
 
-                    return <Button 
-                        onClick={open}
-                        icon="format-image"
-                        showToolTip = "true"
-                        label="Add image"
-                        className="add-hero-image-btn"
+                <h1>
+                    <RichText
+                        placeholder="Type your hero heading"
+                        onChange={onChangeHeroHeading}
+                        value={heroHeading}
+                        style={{
+                            textAlign: alignContent,
+                            color: heroHeadingColor,
+                        }}
                     />
-                }}
-            />
-
-            <h1>
-                <RichText 
-                    placeholder = "Type your hero heading"
-                    onChange = { onChangeHeroHeading }
-                    value = { heroHeading }
-                    style={{ textAlign: alignContent, color: heroHeadingColor }}
-                />
-            </h1>
-            <p>
-                <RichText 
-                    placeholder = "Type your tagline"
-                    onChange = { onChangeTagline }
-                    value = { tagline }
-                    style={{ textAlign: alignContent, color: taglineColor }}
-                />
-            </p>
-            
-        </div>
-    </>
+                </h1>
+                <p>
+                    <RichText
+                        placeholder="Type your tagline"
+                        onChange={onChangeTagline}
+                        value={tagline}
+                        style={{ textAlign: alignContent, color: taglineColor }}
+                    />
+                </p>
+            </div>
+        </>
     );
 }

@@ -1,0 +1,55 @@
+.GALLERY::before,
+.GALLERY::after {
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.GALLERY .image .b-img {
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	overflow: hidden;
+}
+
+.GALLERY .b-columns.alt-flickity .flickity-viewport {
+    overflow: visible;
+}
+
+.GALLERY .b-columns.alt-flickity .b-column {
+    width: 70%;
+    height: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.GALLERY .b-columns.alt-flickity .b-column .container {
+	width: 100%;
+}
+
+.GALLERY .b-columns.alt-flickity .b-column .b-img {
+	position: relative;
+	width: 80%;
+    opacity: 0.5;
+    z-index: 1;
+    margin: auto;
+    transition: 0.2s all;
+}
+
+.GALLERY .b-columns.alt-flickity .b-column.is-selected .b-img {
+    opacity: 1;
+    z-index: 2;
+}
+
+@media screen and (min-width: 961px){
+.GALLERY .b-columns.alt-flickity .flickity-prev-next-button.previous {left: 60rem;}
+.GALLERY .b-columns.alt-flickity .flickity-prev-next-button.next {right: 60rem;}
+}
+
+@media screen and (max-width: 960px){
+	.GALLERY .b-columns.alt-flickity .b-column {width: 100%;}
+	.GALLERY .b-columns.alt-flickity .flickity-viewport {margin-bottom: 70rem;}
+	.GALLERY .b-columns.alt-flickity .flickity-prev-next-button {top: unset; bottom: -70rem; transform: translateY(0);}
+}
+
+

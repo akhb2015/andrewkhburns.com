@@ -1,0 +1,13 @@
+@font-face {
+	font-family: Cern;
+	src: url(CernBook.ttf);
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Cern;
+	src: url(CernBold.ttf);
+	font-weight: 700;
+	font-display: swap;
+}

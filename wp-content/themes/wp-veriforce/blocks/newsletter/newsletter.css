@@ -1,0 +1,41 @@
+.NEWSLETTER::before,
+.NEWSLETTER::after {
+	content: '';
+	display: block;
+	overflow: hidden;
+}
+
+.NEWSLETTER {
+	background: var(--form-color);
+	border-radius: 20rem;
+	padding: 72rem;
+}
+
+.NEWSLETTER :is(h1, h2, h3, h4, h5, h6)  {
+	color: var(--blue-three);
+}
+
+.NEWSLETTER .image {
+	margin-top: 50rem;
+	border-radius: var(--radius);
+	overflow: hidden;
+}
+
+.NEWSLETTER[data-hidden="true"] * {display: none;}
+.NEWSLETTER[data-hidden="true"] {
+	background: none;
+	padding: 0;
+	margin-top: -150rem;
+}
+
+@media screen and (min-width: 961px) {
+	.NEWSLETTER .content {margin-right: -32rem;}
+	.NEWSLETTER .image {margin-right: -32rem;}
+	.NEWSLETTER .form {margin-left: 104rem;}
+}
+
+@media screen and (max-width: 960px) {
+	.NEWSLETTER {padding: 24rem;}
+	.NEWSLETTER .image {display: none;}
+	.NEWSLETTER[data-hidden="true"] {margin-top: -64rem;}
+}

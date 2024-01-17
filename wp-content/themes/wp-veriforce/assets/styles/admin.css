@@ -1,0 +1,172 @@
+/* IMPORT FONTS */
+
+@import "../fonts/fonts.css";
+
+
+
+/* EDITOR TWEAKS */
+
+.block-editor-inserter__panel-header {display: none;}
+.edit-post-meta-boxes-area .acf-postbox > .acf-fields > .acf-field {padding: 24px;}
+
+#editor .mce-btn[aria-label="Fullscreen"] {display: none;}
+#editor .edit-post-visual-editor__post-title-wrapper {margin: 1em 0;}
+#editor .editor-post-title {font-size: 24px; line-height: 1em; margin: 0; font-weight: 400;}
+#editor .editor-styles-wrapper {padding: 8px 24px !important; overflow: hidden;}
+#editor .block-list-appender {margin: 8px auto 0; width: 60px;}
+#editor .wp-block-acf-section .block-list-appender {margin: 0; width: auto; position: absolute; right: 50%; transform: translate(50%, 200%);}
+#editor .td-short .mce-edit-area iframe {height: 200px !important;}
+#editor .b-section {z-index: 0 !important;}
+#editor .b-frame {max-width: 1280px;}
+
+/* hide the block editor */
+
+#editor.block-editor-hidden .components-accessible-toolbar {display:none;}
+#editor.block-editor-hidden .edit-post-visual-editor {flex:0 0 auto;}
+#editor.block-editor-hidden .edit-post-visual-editor__post-title-wrapper {margin-bottom:0.75em;}
+#editor.block-editor-hidden .is-root-container {display:none;}
+
+/* disable inputs in editor */
+
+#editor .editor-styles-wrapper a,
+#editor .editor-styles-wrapper iframe,
+#editor .editor-styles-wrapper label,
+#editor .editor-styles-wrapper input,
+#editor .editor-styles-wrapper select,
+#editor .editor-styles-wrapper textarea {pointer-events:none;}
+#editor .editor-styles-wrapper .acf-fields a,
+#editor .editor-styles-wrapper .acf-fields iframe,
+#editor .editor-styles-wrapper .acf-fields label,
+#editor .editor-styles-wrapper .acf-fields input,
+#editor .editor-styles-wrapper .acf-fields select,
+#editor .editor-styles-wrapper .acf-fields textarea {pointer-events:all;}
+
+/* rem fixes */
+
+:root {font-size: 1px;}
+.wp-core-ui select {max-width: 100%;}
+input[type=checkbox] {width: 16rem; height: 16rem; margin: -4rem 4rem 0 0; min-width: 16rem;}
+input[type=checkbox]:checked::before {margin: -3rem 0 0 -4rem; height: 20rem; width: 20rem;}
+input[type=radio] {width: 16rem; height: 16rem; margin: -4rem 4rem 0 0; min-width: 16rem;}
+input[type=radio]:checked::before {margin: 3rem; height: 8rem; width: 8rem;}
+
+.components-modal__header .components-modal__header-heading {font-size: 16rem;}
+.edit-post-keyboard-shortcut-help-modal__section-title {font-size: 14.4rem;}
+.edit-post-keyboard-shortcut-help-modal__shortcut {padding: 9.6rem 0;}
+.edit-post-keyboard-shortcut-help-modal__shortcut-key {margin: 0 3.2rem; padding: 4rem 8rem;}
+
+.interface-preferences-modal__section-title {font-size: 14.4rem;}
+.interface-preferences-modal__section {margin: 0 0 40rem;}
+.interface-preferences-modal__option .components-base-control .components-base-control__field > label {padding: 9.6rem 0 9.6rem 10rem;}
+
+.wpseo-metabox-content h2 {font-size: 16px !important;}
+
+.postbox > .postbox-header .handle-actions .handle-order-higher,
+.postbox > .postbox-header .handle-actions .handle-order-lower {width: 22rem !important;}
+#editor .edit-post-meta-boxes-area .acf-fields > .acf-field[style*="width:"]:first-child {border-top: 1px solid #EAECF0;}
+
+/* tinymce style dropdown tweaks */
+
+.mce-menu .mce-menu-item-preview {border:none !important;}
+.mce-menu .mce-active {background:#2271b1 !important;}
+.mce-menu .mce-active .mce-text {color:#fff !important;}
+.mce-menu .mce-disabled {background:none !important;}
+.mce-menu .mce-disabled .mce-text {color:#aaa !important;}
+
+
+
+/* ONLY SHOW SPECIFIC FIELDS IN SIDEBAR VS VISUAL EDITOR */
+
+#editor .edit-post-visual-editor .acf-field-accordion[data-name="display"] .acf-accordion-title {display: none;}
+#editor .edit-post-visual-editor .acf-field-accordion[data-name="display"] .acf-accordion-content {display: block !important;}
+#editor .edit-post-sidebar .acf-field-accordion[data-name="display"] {display: none;}
+
+#editor .edit-post-visual-editor .acf-field-accordion[data-name="options"] {display: none;}
+#editor .edit-post-sidebar .acf-field-accordion[data-name="options"] .acf-accordion-title {display: none;}
+#editor .edit-post-sidebar .acf-field-accordion[data-name="options"] .acf-accordion-content {display: block !important;}
+
+
+
+/* SHOW HIDDEN ELEMENTS IN EDITOR */
+
+#editor .wp-block[data-type^="acf/"].b-hidden {display: block !important;}
+#editor .wp-block[data-type^="acf/"].b-hidden .b-hidden {display: block !important; opacity: 0.25;}
+
+
+
+/* ADMIN WP-BLOCK */
+
+.wp-block[data-type^="acf/"] {
+	margin: 0;
+	max-width: 100%;
+	min-height: 40px;
+}
+
+.wp-block[data-type^="acf/"]:hover {
+	outline: 1px dotted var(--wp-admin-theme-color);
+}
+
+.wp-block[data-type="acf/section"] {
+	overflow: hidden;
+}
+
+.wp-block[data-type="core/freeform"].is-selected {
+	max-height: calc(100vh - 320px);
+	padding-bottom: 320px;
+	box-sizing: border-box;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+
+
+/* EMPTY BLOCK */
+
+#editor .acf-block-preview [data-empty] * {
+	display: none;
+}
+
+#editor .acf-block-preview [data-empty]::before {
+	content: "";
+	display: block;
+	width: 40px;
+	margin: 0 auto;
+	border-top: 2px solid rgba(123,123,123,0.5);
+	transform: translate(0, 19px);
+}
+
+
+
+/* SPACER */
+
+#editor .b-spacer {position: relative;}
+#editor .b-spacer::before,
+#editor .b-spacer::after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 3px;
+	bottom: 3px;
+	transform: translate(-50%, 0);
+}
+
+#editor .b-spacer::before {
+	width: 10px;
+	border: 1px solid rgba(123,123,123,0.5);
+	border-width: 1px 0;
+}
+
+#editor .b-spacer::after {
+	width: 0;
+	border-right: 1px dotted rgba(123,123,123,0.5);
+}
+
+
+
+/* IFRAME EMBED FIX */
+
+#editor iframe[src^="https://www.youtube.com/embed/"],
+#editor iframe[src^="https://player.vimeo.com/video/"] {
+	aspect-ratio: 16/9;
+}

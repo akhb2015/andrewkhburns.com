@@ -214,3 +214,18 @@ add_action('parse_request', function($wp) {
     exit;
   }
 }, 9);
+
+
+
+/*add_filter( 'the_content', 'check_for_video');
+
+function check_for_video(){
+	global $post;
+	$id = $post->id;
+		$values = get_field( 'has_video', $id );
+	if ( $values ) {
+	    echo 'A value is set';exit;
+	} else {
+	    echo 'A value is not set';exit;
+	}
+}*/

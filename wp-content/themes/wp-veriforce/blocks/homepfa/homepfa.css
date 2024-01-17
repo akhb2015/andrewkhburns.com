@@ -1,0 +1,42 @@
+.HOMEPFA {
+	background: var(--blue-one-tint);
+	margin-bottom: 45rem;
+}
+
+.HOMEPFA::before,
+.HOMEPFA::after {
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.HOMEPFA .b-frame {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.HOMEPFA .content h1, 
+.HOMEPFA .content h2, 
+.HOMEPFA .content h3, 
+.HOMEPFA .content h4, 
+.HOMEPFA .content h5, 
+.HOMEPFA .content h6 {
+	color: var(--blue-three);
+}
+
+.HOMEPFA p + p:last-child .b-button:not(.alt-text) {
+	margin-top: 0.5em;
+}
+
+.HOMEPFA .images {
+	margin: -100rem -104rem -100rem 0rem;
+	overflow: hidden;
+	aspect-ratio: 960/1241;
+}
+
+.HOMEPFA .image {width: 100%;}
+
+@media screen and (max-width: 960px) {
+	.HOMEPFA {margin-bottom: 115rem;}
+	.HOMEPFA .content {padding: 40rem 0;}
+	.HOMEPFA .images {margin: -10rem -40rem -115rem 80rem;}
+}

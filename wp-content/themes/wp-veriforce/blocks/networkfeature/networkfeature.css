@@ -1,0 +1,45 @@
+.NETWORK-FEATURE .image {
+     width: 76%;
+     position: absolute;
+     bottom: 0;
+     left: -315rem;
+     z-index: 0;   
+}
+
+.NETWORK-FEATURE .image .b-img {
+     position: relative;
+     bottom: 0;
+}
+
+.NETWORK-FEATURE .content {
+     position: relative;
+}
+
+.NETWORK-FEATURE .content .b-button {
+     margin: 25px 0 180rem;
+}
+
+@media screen and (min-width: 961px) {
+     .NETWORK-FEATURE[data-reverse] .b-columns {flex-direction: row-reverse;}
+     .NETWORK-FEATURE[data-reverse] .content {padding: 100rem 0 160rem;}
+     .NETWORK-FEATURE[data-reverse] .image {left: auto;}
+}
+
+@media screen and (max-width: 960px) {
+     .NETWORK-FEATURE .b-column:first-child {order: 2; height: 200rem;}
+     .NETWORK-FEATURE .content {padding: 0;}
+     .NETWORK-FEATURE .content .b-button {margin-bottom: 0;}
+     .NETWORK-FEATURE .image {left: 0;}
+     .NETWORK-FEATURE[data-reverse] .image {left: unset; right: 0;}
+     .NETWORK-FEATURE .image {width: 60%;}
+}
+
+@media screen and (max-width: 500px) {
+     .NETWORK-FEATURE .image {width: 76%;}
+}
+
+@media screen and (max-width: 375px) {
+     .NETWORK-FEATURE .image {width: 90%;}
+}
+
+

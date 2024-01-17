@@ -5,7 +5,9 @@
 		//status = 2 success
 
 		$response = ['status' => 1];
-		$params = $request->get_json_params();
+		//$params = $request->get_json_params();
+
+		 $params = $request->get_params();
 
 		//check expected data is set
 		if(!isset( $params['email'], $params['firstname'], $params['lastname'] ) || 
@@ -13,7 +15,7 @@
 			empty( $params['firstname'] ) || 
 			empty( $params['lastname'] )) {
 
-				return $response;
+			return $response;
 		}
 
 		//sanitize values
@@ -34,6 +36,8 @@
 		}
 
 		$response['status'] = 2;
+		//header('Location: http://localhost:8888/andrewkhburns.com/education/');
+		//exit;
 
 		return $response;
 	}

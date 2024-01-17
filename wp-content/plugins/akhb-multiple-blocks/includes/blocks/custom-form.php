@@ -7,26 +7,26 @@ function akhb_form_render_cb( $atts ) {
     $textColor = esc_attr( $atts['textColor'] );
     $styleAttr = "background-color:{$bgColor}; color: {$textColor}"; //double quotes
 
-    if( $_POST ){
+    /*if( $_POST ){
 
         ob_start();
 
         echo '<h1>Thanks for submitting!</h1>';
-        echo '<p>You searched for ' . $_POST['term'] . '</p>';
+        echo '<p>You searched for ' . $_POST['firstname'] . '</p>';
 
         $output = ob_get_contents();
 
         ob_end_clean();
 
-    }else{
+    }else{*/
 
         ob_start();
 
     ?>
 
         <div style="<?php echo $styleAttr; ?>" class="wp-block-akhb-form">
-            <h1>Your Info</h1>
-            <form method="post" id="myForm">
+            <h1>Fill In Your Info</h1>
+            <form method="post" id="myForm" action="/andrewkhburns.com/wp-json/akhb/v2/endpoint">
                 <div class="form-field">
                     <input type="text" name="firstname" id="firstname" placeholder="Enter your first name" />
                     <small></small>
@@ -51,7 +51,7 @@ function akhb_form_render_cb( $atts ) {
         $output = ob_get_contents();
 
         ob_end_clean();
-    }
+    //}
 
         return $output;
 }

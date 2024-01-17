@@ -1,0 +1,11 @@
+.INDUSTRIES::before,
+.INDUSTRIES::after {
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.INDUSTRIES .image {
+	width: 80rem;
+	margin: 0 0 20rem 0;
+}

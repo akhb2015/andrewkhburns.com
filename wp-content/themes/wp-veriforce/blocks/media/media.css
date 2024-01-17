@@ -1,0 +1,110 @@
+.MEDIA .container {
+	max-width: 960rem;
+	margin: 0 auto;
+}
+
+.MEDIA .video {
+	position: relative;
+}
+
+.MEDIA .video video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.MEDIA .oembed {
+	position: relative;
+}
+
+.MEDIA .oembed iframe {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: var(--radius);
+	filter: var(--shadow-filter);
+	overflow: hidden;
+}
+
+.MEDIA .oembed-image {
+	all: unset;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: var(--radius);
+	filter: var(--shadow-filter);
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.MEDIA .oembed-image::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 110rem;
+	height: 110rem;
+	background-image: url(/wp-content/themes/wp-veriforce/assets/images/ui-play.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	transform: translate(-50%, -50%);
+	transition: all 0.25s;
+}
+
+.MEDIA .oembed-image:hover::after {
+	filter: hue-rotate(72deg) brightness(0.9) saturate(0.9); 
+/*	filter: invert(100%) sepia(70%) saturate(1245%) hue-rotate(158deg) brightness(100%) contrast(101%);*/
+}
+
+.MEDIA .image img {
+	margin: auto;
+}
+
+.MEDIA[data-width="12"] .container {max-width: 100%;}
+.MEDIA[data-width="10"] .container {max-width: 960rem;}
+.MEDIA[data-width="8"] .container {max-width: 800rem;}
+.MEDIA[data-width="6"] .container {max-width: 560rem;}
+
+.MEDIA .image:not(.alt-gif) {
+	filter: var(--shadow-filter);
+}
+
+@media screen and (max-width: 960px) {
+	.MEDIA .oembed-image::after {width: 40rem; height: 40rem;}
+}
+
+
+
+/* MEDIA-MODAL */
+
+.MEDIA-MODAL {
+	position: relative;
+	margin: 0 auto;
+}
+
+.MEDIA-MODAL .content {
+	box-sizing: border-box;
+	background: #000;
+	max-height: calc(100vh - 80rem);
+	overflow: visible;
+	aspect-ratio: 16/9;
+}
+
+.MEDIA-MODAL .content iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}

@@ -1,0 +1,55 @@
+.CONTENT .container {
+	max-width: 1008rem;
+	text-wrap: balance;
+	margin: 0 auto;
+}
+
+.CONTENT .container.alt-centered {
+	text-align: center;
+}
+
+.CONTENT .container ul:not(.b-inline-checklist) {
+	padding-left: 30rem;
+}
+
+.CONTENT :is(h1, h2, h3, h4, h5, h6)  {
+	color: var(--blue-three);
+}
+
+[data-inverted="true"] .CONTENT :is(h1, h2, h3, h4, h5, h6)  {
+	color: var(--white);
+}
+
+.CONTENT :is(h1, h2, h3, h4, h5, h6),
+.CONTENT :is(h1, h2, h3, h4, h5, h6) + p:last-child  {text-wrap: balance;}
+
+.CONTENT h3 + h4 {
+	margin-top: 0;
+	color: var(--charcoal);
+}
+
+.CONTENT blockquote h4 {
+	color: var(--charcoal);
+}
+
+.b-section[data-bg-color="dark-blue"] .CONTENT :is(h1, h2, h3, h4, h5, h6),
+.b-section[data-bg-color="testimonial-blue"] .CONTENT :is(h1, h2, h3, h4, h5, h6),
+.b-section[data-style="framed"][data-inner-bg-color="dark-blue"] .CONTENT :is(h1, h2, h3, h4, h5, h6)  {
+	color: var(--white);
+}
+
+.CONTENT[data-width="12"] .container {max-width: 100%;}
+.CONTENT[data-width="10"] .container {max-width: 1008rem;}
+.CONTENT[data-width="8"] .container {max-width: 800rem;}
+.CONTENT[data-width="6"] .container {max-width: 592rem;}
+
+.CONTENT[data-style="heading"] .container:not(.alt-centered) {margin-left: 0;}
+
+.CONTENT p + p:last-child .b-button:not(.alt-text) {
+	margin-top: 0.5em;
+}
+
+@media screen and (max-width: 960px) {
+/*	.CONTENT[data-style="heading"] .container {text-align: left;}*/
+	.CONTENT[data-style="heading"] .container br {display: none;}
+}

@@ -1,0 +1,137 @@
+.TABS::before,
+.TABS::after {
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.TABS .nav {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.TABS .nav button {
+	background-color: unset;
+    color: unset;
+    padding: unset;
+    border: none;
+    font-size: unset;
+
+    box-sizing: border-box;
+	flex: 0 0 auto;
+	width: 33.33%;
+
+	font-weight: 700;
+	text-align: center;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(0, 172, 216, 0.4);
+    cursor: pointer;
+}
+
+.TABS .content {
+	display: none;
+	margin-top: 80px;
+}
+
+.TABS .image {
+	display: none;
+}
+
+.TABS .nav button.active {
+	border-bottom: 3px solid rgba(0, 172, 216, 1);
+}
+
+.TABS .content.active {display: block;}
+.TABS .image.active {display: block;}
+
+@media screen and (max-width: 960px){
+	.TABS .nav button {width: 100%; padding-bottom: 10px; margin-bottom: 20px;}
+	.TABS .content {margin-top: 24px;}
+}
+
+
+
+/* style2 */
+
+.TABS2 {
+	margin-bottom: 40rem;
+}
+
+.TABS2::before,
+.TABS2::after {
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.TABS2 .nav {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.TABS2 .nav button {
+	background-color: unset;
+    color: unset;
+    padding: unset;
+    border: none;
+    font-size: unset;
+
+    box-sizing: border-box;
+	flex: 0 0 auto;
+	width: 20%;
+
+	font-weight: 700;
+	text-align: center;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(0, 172, 216, 0.4);
+    cursor: pointer;
+}
+
+.TABS2 .nav button.active {
+	border-bottom: 3px solid rgba(0, 172, 216, 1);
+}
+
+.TABS2 .tabs {
+	margin-top: 50px;
+}
+
+.TABS2 .tab {
+	display: none;
+}
+
+.TABS2 .tab.active {display: block;}
+
+.TABS2 .container {position: relative;}
+.TABS2 .image {width: 90rem; position: absolute; top: 0; left: 0;}
+.TABS2 .content {padding-left: 105rem;}
+
+@media screen and (max-width: 960px){
+	.TABS2 {margin-bottom: 20rem;}
+	.TABS2 .nav button {width: 100%; padding-bottom: 10px; margin-bottom: 20px;}
+	.TABS2 .tabs {margin-top: 24px;}
+	.TABS2 .container:not(:last-child) {margin-bottom: 24px;}
+}
+
+
+
+@media screen and (min-width: 961px) {
+
+	.TABS2 .image[data-animate] {
+		opacity: 0;
+		transition: all 1.2s;
+	}
+
+	.TABS2 .callout:nth-child(2n+1) .image[data-animate]{transition-delay: 0.2s;}
+	.TABS2 .callout:nth-child(2n+2) .image[data-animate]{transition-delay: 0.4s;}
+
+	.TABS2 .image[data-animate="true"]{
+		opacity: 1;
+		transform: translate(0, 0) !important;
+	}
+}
+
+
+

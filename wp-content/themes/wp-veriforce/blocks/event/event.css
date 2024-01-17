@@ -1,0 +1,58 @@
+.EVENT::before,
+.EVENT::after {
+	content: '';
+	display: block;
+	overflow: hidden;
+}
+
+.EVENT .content h1 {
+	color: var(--blue-three);
+}
+
+.EVENT .info {
+	background: var(--blue-one-tint);
+	border-radius: var(--radius);
+	padding: 72rem;
+}
+
+.EVENT .info h3 {
+	color: var(--blue-three);
+}
+
+.EVENT .info ul {
+	list-style: none;
+	margin: 50rem 0;
+	padding: 0;
+}
+
+.EVENT .info li {
+	position: relative;
+	padding: 0 0 0 120rem;
+	margin: 30rem 0;
+	min-height: 90rem;
+	display: flex;
+	align-items: center;
+	font-size: 22rem;
+	font-weight: 700;
+}
+
+.EVENT .info li::before {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 90rem;
+	height: 90rem;
+	background: no-repeat center / 100%;
+}
+
+.EVENT .info li.date::before {background-image: url(images/icon-date.svg);}
+.EVENT .info li.time::before {background-image: url(images/icon-time.svg);}
+.EVENT .info li.location::before {background-image: url(images/icon-location.svg);}
+
+@media screen and (max-width: 960px) {
+	.EVENT .info {padding: 24rem; margin-top: 32rem;}
+	.EVENT .info ul {margin: 24rem 0;}
+	.EVENT .info li {margin: 24rem 0; min-height: 48rem; padding-left: 64rem; font-size: 18rem;}
+	.EVENT .info li::before {width: 48rem; height: 48rem;}
+}

@@ -30,7 +30,7 @@ foreach( $allFiles as $filename ) {
 
 
 //hooks
-//registers URL endpoints for sending/receiving data
+//registers URL endpoint for sending/receiving data
 add_action('rest_api_init', 'akhb_rest_api_init');
 
 //for passing the data to the endpoint with Javascript

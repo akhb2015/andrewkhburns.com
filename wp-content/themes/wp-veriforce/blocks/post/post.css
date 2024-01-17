@@ -1,0 +1,155 @@
+.POST {
+	max-width: 800rem;
+	margin: 0 auto;
+	position: relative;
+}
+
+.POST .container {
+	position: relative;
+}
+
+.POST .share {
+	position: sticky;
+	top: 140rem;
+	width: 24px;
+	height: 144rem;
+	margin-left: 880rem;
+}
+
+.POST .share span {
+	display: none;
+}
+
+.POST .share a {
+	display: block;
+	width: 24rem;
+	height: 24rem;
+	margin-bottom: 24rem;
+	color: var(--blue-one);
+}
+
+.POST .share a svg {
+	fill: currentColor;
+}
+
+.POST .share a:hover {
+	color: var(--button-green);
+}
+
+.POST .meta {
+	margin-top: -144rem;
+	margin-bottom: 15rem;
+}
+
+.POST .taxonomy {
+	background: var(--light-purple);
+	border-radius: 16rem;
+	padding: 0 16rem;
+	line-height: 32rem;
+	font-size: 16rem;
+	font-weight: 700;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.POST .date {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 16rem;
+	font-size: 16rem;
+}
+
+.POST .title {
+	padding-bottom: 30rem;
+}
+
+.POST .title h1 {
+	color: var(--blue-three);
+}
+
+.POST li {
+	margin-bottom:24rem;
+}
+
+.POST .image img {
+	border-radius: var(--radius);
+	overflow: hidden;
+}
+
+.POST .content {
+	margin-top: 30rem;
+}
+
+.POST .content h3,
+.POST .content h4,
+.POST .content h5,
+.POST .content h6 {
+	color: var(--blue-three);
+	margin-bottom: 0;
+}
+
+[data-inverted="true"] .POST .content h3,
+[data-inverted="true"] .POST .content h4,
+[data-inverted="true"] .POST .content h5,
+[data-inverted="true"] .POST .content h6  {
+	color: var(--white);
+}
+
+.POST .content h3 + h4 {
+	margin-top: 0;
+}
+
+@media screen and (max-width: 960px) {
+	.POST .share {display: none;}
+	.POST .meta {margin-top: 0;}
+}
+
+
+
+/* OVERLAP */
+
+.b-page-body > .b-section:first-child > .b-frame > .POST:first-child {margin-top: -50rem;}
+.b-page-body > .b-section:first-child > .b-frame > .POST:first-child::before {
+	content: '';
+	position: absolute;
+	top: -150rem;
+	left: 0;
+	right: 0;
+	height: 200rem;
+	background: var(--blue-one-tint);
+	box-shadow: 700rem  0 var(--blue-one-tint), -700rem 0 0 var(--blue-one-tint);
+}
+
+.b-page-body > .b-section > .b-frame > .POST:first-child .title {
+	background: var(--blue-one-tint);
+	box-shadow: 700rem 0 0 var(--blue-one-tint), -700rem 0 0 var(--blue-one-tint);
+}
+
+.b-page-body > .b-section > .b-frame > .POST:first-child .title p {
+	font-weight: 600;
+}
+
+.b-page-body > .b-section > .b-frame > .POST:first-child .image {
+	border-radius: 0 0 var(--radius) var(--radius);
+	background: var(--blue-one-tint);
+	box-shadow: 500rem -100rem 0 -100rem var(--blue-one-tint),
+	            1000rem -100rem 0 -100rem var(--blue-one-tint),
+	            -500rem -100rem 0 -100rem var(--blue-one-tint),
+	            -1000rem -100rem 0 -100rem var(--blue-one-tint);
+}
+
+@media screen and (max-width: 960px) {
+	.b-page-body > .b-section:first-child > .b-frame > .POST:first-child {margin-top: 0;}
+	.b-page-body > .b-section:first-child > .b-frame > .POST:first-child::before {
+		top: -64rem;
+		box-shadow: 250rem 0 0 var(--blue-one-tint), -250rem 0 0 var(--blue-one-tint);
+	}
+	.b-page-body > .b-section > .b-frame > .POST:first-child .title {
+		box-shadow: 250rem 0 0 var(--blue-one-tint), -250rem 0 0 var(--blue-one-tint);
+	}
+	.b-page-body > .b-section > .b-frame > .POST:first-child .image {
+		box-shadow: 250rem -100rem 0 -100rem var(--blue-one-tint),
+		            -250rem -100rem 0 -100rem var(--blue-one-tint),
+		            500rem -100rem 0 -100rem var(--blue-one-tint),
+		            -500rem -100rem 0 -100rem var(--blue-one-tint);
+}

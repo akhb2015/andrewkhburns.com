@@ -1,0 +1,225 @@
+.EVENTS .filter::before,
+.EVENTS .filter::after,
+.EVENTS .posts::before,
+.EVENTS .posts::after {
+	content: '';
+	display: block;
+	overflow: hidden;
+}
+
+.EVENTS .filter,
+.EVENTS .posts {
+	position: relative;
+}
+
+.EVENTS {
+	position: relative;
+}
+
+.EVENTS .filter {
+	float: none;
+	margin: 0 0 100rem;
+	overflow: hidden;
+}
+
+.EVENTS .filter label span {
+	display: block;
+	font-size: 15rem;
+	margin-bottom: 5rem;
+}
+
+.EVENTS .filter .search input {
+	padding-right: 40rem;
+	background: #fff no-repeat right 10rem center url(../../assets/images/ui-search.svg);
+}
+
+.EVENTS .post {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	border-radius: var(--radius);
+	background: var(--white);
+	box-shadow: var(--shadow);
+	overflow: hidden;
+}
+
+.EVENTS .content {
+	flex-grow: 1;
+	padding: 24rem;
+}
+
+.EVENTS .content .taxonomy {
+	background: var(--light-purple);
+	border-radius: var(--radius);
+	padding: 0 16rem;
+	line-height: 32rem;
+	font-size: 16rem;
+	font-weight: 700;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.EVENTS .content .location {
+	display: none;
+}
+
+.EVENTS .content .date {
+	margin-top: 8rem;
+	font-size: 16rem;
+}
+
+.EVENTS .content h4 {
+	margin-top: 16rem;
+	color: var(--blue-three);
+}
+
+.EVENTS .content h4 a {
+	color: inherit;
+}
+
+.EVENTS .content a::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.EVENTS .excerpt {
+	display: none;
+}
+
+.EVENTS .buttons {
+	padding: 0 24rem 24rem;
+}
+
+.EVENTS .post:hover .b-button.alt-text {
+	color: var(--button-green);
+}
+
+.EVENTS .post:hover h4 {
+	color: var(--button-green);
+}
+
+.EVENTS .pagination {
+	margin: 100rem 0 0;
+}
+
+.EVENTS .screen-reader-text {
+	display: none;
+}
+
+/* ajax load more */
+
+.EVENTS .alm-reveal {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -25rem -16rem;
+}
+
+.EVENTS .alm-item {
+	padding: 25rem 16rem;
+	box-sizing: border-box;
+	flex: 0 0 auto;
+	align-items: stretch;
+	width: 33.333333%;
+}
+
+.EVENTS .ajax-load-more-wrap[data-total-posts="0"] .alm-listing:empty::before {content: "No results found.";}
+.EVENTS .results + .posts .ajax-load-more-wrap[data-total-posts="0"] .alm-listing:empty::before {display: none;}
+
+.EVENTS .alm-reveal + .alm-reveal {padding-top: 25rem;}
+.EVENTS .alm-btn-wrap {text-align: center; overflow: hidden;}
+.EVENTS .alm-load-more-btn {margin-top: 100rem;}
+.EVENTS .alm-load-more-btn.done {display: none;}
+
+.EVENTS .posts.alt-hide-button .alm-load-more-btn.more {display: none;}
+
+/* style variants */
+
+.EVENTS[data-style="noimg"] .post .image {display: none;}
+
+/* post variants */
+
+.EVENTS[data-type="training"] .posts .b-columns,
+.EVENTS[data-type="training"] .posts .alm-reveal {
+	margin: 0;
+	border-radius: 0 0 var(--radius) var(--radius);
+	background: var(--white);
+	box-shadow: var(--shadow);
+	overflow: hidden;}
+.EVENTS[data-type="training"] .alm-reveal + .alm-reveal {padding-top: 10rem; margin-top: -10rem;}
+.EVENTS[data-type="training"] .posts .b-column,
+.EVENTS[data-type="training"] .posts .alm-item {width: 100%; padding: 0;}
+.EVENTS[data-type="training"] .post {border-radius: 0; box-shadow: none; border-top: 2rem solid var(--blue-one);}
+.EVENTS[data-type="training"] .image {display: none;}
+.EVENTS[data-type="training"] .buttons {display: none;}
+.EVENTS[data-type="training"] .taxonomy {display: none;}
+.EVENTS[data-type="training"] .location {display: block;}
+.EVENTS[data-type="training"] .date {margin: 0;}
+.EVENTS[data-type="training"] .content {padding: 24rem; display:flex;}
+.EVENTS[data-type="training"] h4 {width: 30%; margin: 0; font-size: 18rem; flex-grow: 1;}
+.EVENTS[data-type="training"] .excerpt {display: block; width: 50%; margin: 0; padding: 0 24rem; box-sizing: border-box;}
+.EVENTS[data-type="training"] .meta {width: 20%; order: 9;}
+
+
+.EVENTS[data-type="training"] .labels {
+	padding: 24rem;
+	display:flex;
+	font-weight: 700;
+	background: var(--blue-one-tint);
+	border-radius: var(--radius) var(--radius) 0 0;}
+.EVENTS[data-type="training"] .label:nth-child(1) {width: 30%}
+.EVENTS[data-type="training"] .label:nth-child(2) {width: 50%; padding: 0 24rem; box-sizing: border-box;}
+.EVENTS[data-type="training"] .label:nth-child(3) {width: 20%}
+
+
+
+@media screen and (min-width: 961px) {
+	.EVENTS .filter .b-columns {position: relative;}
+	.EVENTS .filter .b-column:last-child {position: absolute; top: 0; right: 0;}
+	.EVENTS .b-column[data-width="6"] h4 {font-size: 36rem;}
+}
+
+@media screen and (max-width: 960px) {
+	.EVENTS .filter .b-columns {margin: -5rem;}
+	.EVENTS .filter .b-columns > .b-column {padding: 5rem;}
+	.EVENTS .post .b-button {width: auto;}
+	.EVENTS .alm-reveal {margin: -10rem -10rem -30rem;}
+	.EVENTS .alm-item {width: 100%; padding: 10rem 10rem 30rem;}
+	.EVENTS .alm-reveal + .alm-reveal {padding-top: 30rem;}
+	.EVENTS .alm-load-more-btn {margin-top: 40rem;}
+
+	.EVENTS[data-type="training"] .content {flex-direction: column;}
+	.EVENTS[data-type="training"] h4 {width: 100%;}
+	.EVENTS[data-type="training"] .excerpt {width: 100%; padding: 8rem 0 0;}
+	.EVENTS[data-type="training"] .meta {width: 100%; padding-top: 24rem;}
+	.EVENTS[data-type="training"] .label {display: none;}
+}
+
+
+
+/* OVERLAP */
+
+.b-page-body > .b-section[data-bg-color="light-blue"]:first-child + .b-section > .b-frame > .EVENTS[data-filter="false"]:first-child {margin-top: -200rem;}
+.b-page-body > .b-section[data-bg-color="light-blue"]:first-child + .b-section > .b-frame > .EVENTS[data-filter="false"]:first-child::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 150rem;
+	background: var(--blue-one-tint);
+	box-shadow: 700rem 0 0 var(--blue-one-tint), -700rem 0 0 var(--blue-one-tint);
+}
+
+@media screen and (max-width: 960px) {
+	.b-page-body > .b-section[data-bg-color="light-blue"]:first-child + .b-section > .b-frame > .EVENTS[data-filter="false"]:first-child {margin-top: -64rem;}
+	.b-page-body > .b-section[data-bg-color="light-blue"]:first-child + .b-section > .b-frame > .EVENTS[data-filter="false"]:first-child::before {
+		height: 64rem;
+		box-shadow: 250rem 0 0 var(--blue-one-tint), -250rem 0 0 var(--blue-one-tint);
+	}
+}

@@ -1,0 +1,101 @@
+.LOGOS::before,
+.LOGOS::after {
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.LOGOS .container .b-columns {
+	justify-content: space-evenly;
+}
+
+.LOGOS .container .image {
+	max-width: 200rem;
+	margin: auto;
+}
+
+.LOGOS .container img {
+	filter: grayscale(1);
+}
+
+@media screen and (max-width: 960px) {
+	.LOGOS .b-columns {margin:-10rem;}
+	.LOGOS .b-column {padding:10rem; width:50%;}
+}
+
+
+
+/* MARQUEE */
+
+.LOGOS[data-style="marquee"] .breakout {
+	margin: 0 calc(50% - 50vw);
+	position: relative;
+}
+
+.LOGOS[data-style="marquee"].hassecondrow .breakout {
+	margin: 0 calc(15% - 50vw);
+}
+
+.LOGOS[data-style="marquee"] .breakout::before {
+	content: "";
+	position: absolute;
+	background-image: linear-gradient(90deg,#FFFFFF,rgba(255,255,255,0));
+	width: 352rem;
+	height: 130rem;
+	inset: 0 auto 0 0%;
+	z-index: 10000;
+}
+.LOGOS[data-style="marquee"].hassecondrow .breakout::before {inset: 0 auto 0 15%;}
+
+.LOGOS[data-style="marquee"] .breakout::after {
+	content: "";
+	position: absolute;
+	background-image: linear-gradient(270deg,#FFFFFF,rgba(255,255,255,0));
+	width: 352rem;
+	height: 130rem;
+	inset: 0 0% auto auto;
+}
+.LOGOS[data-style="marquee"].hassecondrow .breakout::after {inset: 0 15% 0 auto;}
+
+.LOGOS[data-style="marquee"] .slide {
+	margin: 0 auto;
+	text-align: center;
+	white-space: nowrap;
+	max-width: 100%;
+}
+
+.LOGOS[data-style="marquee"] .wrapper {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.LOGOS[data-style="marquee"] .wrapper:nth-child(2) {
+	display: none;
+}
+
+.LOGOS[data-style="marquee"] .items {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.LOGOS[data-style="marquee"] .item {
+	width: 280rem;
+	flex: 0 0 auto;
+	align-items: stretch;
+	box-sizing: border-box;
+	padding: 0 45rem;
+}
+
+/* alt-anmimate */
+
+.LOGOS[data-style="marquee"].alt-animate .slide {animation: moveSlide linear infinite; text-align: left; max-width: none;}
+.LOGOS[data-style="marquee"].alt-animate .wrapper:nth-child(2) {display: inline-block;}
+
+@media screen and (max-width: 960px) {
+	.LOGOS[data-style="marquee"] .breakout::before, .LOGOS[data-style="marquee"] .breakout::after {width: 100rem;}
+	.LOGOS[data-style="marquee"] .item {width: 180rem; padding: 0 20rem;}
+}
+
+@keyframes moveSlide {
+	100% {transform: translateX(-50%);}
+}

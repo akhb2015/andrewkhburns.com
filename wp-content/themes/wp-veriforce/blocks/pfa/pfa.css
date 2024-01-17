@@ -1,0 +1,63 @@
+.PFA {
+	background: var(--blue-one-tint);
+}
+
+.PFA::before {
+	content: '';
+	display: block;
+	background: url(./deco.svg) no-repeat center / contain;
+	position: absolute;
+	top: 100rem;
+	right: -200rem;
+	width: 693rem;
+	height: 956rem;
+}
+
+.PFA .b-frame {
+	padding-top: 70rem;
+	padding-bottom: 70rem;
+}
+
+.PFA .b-frame::before,
+.PFA .b-frame::after {
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.PFA .content h1, 
+.PFA .content h2, 
+.PFA .content h3, 
+.PFA .content h4, 
+.PFA .content h5, 
+.PFA .content h6 {
+	color: var(--blue-three);
+}
+
+.PFA .content .b-eyebrow + h2 {
+	font-size: 47rem;
+}
+
+.PFA p + p:last-child .b-button:not(.alt-text) {
+	margin-top: 0.5em;
+}
+
+.PFA .image {margin-right: -180rem;}
+.PFA .image .b-img {filter: var(--shadow-filter);  max-width: 770rem;}
+
+@media screen and (max-width: 960px) {
+	.PFA .b-frame {padding-top: 64rem; padding-bottom: 64rem;}
+	.PFA .content {padding: 0 0 16rem;}
+	.PFA::before {display: none;}
+	.PFA .image {margin-right: 0;}
+	.PFA .content .b-eyebrow + h2 {font-size: 32rem;}
+}
+
+
+
+/* just for testing */
+.PFA .b-img-fallback {
+	aspect-ratio: 4/3 !important;
+}
+
+

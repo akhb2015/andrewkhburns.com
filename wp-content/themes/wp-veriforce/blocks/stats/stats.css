@@ -1,0 +1,69 @@
+.STATS::before,
+.STATS::after {
+	content: "";
+	display: block;
+	overflow: hidden;
+}
+
+.STATS .globe {
+	background: url(./images/globe.svg) no-repeat top left -50rem / contain;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -320rem;
+	right: auto;
+	z-index: 0;
+}
+
+.STATS .content {
+	position: relative;
+	z-index: 1;
+}
+
+.STATS .stats {
+	margin: 25rem -32rem 0;
+}
+
+.STATS .stats .b-column {
+	height: 100%;
+}
+
+.STATS .stat {
+	padding-left: 13rem;
+	border-left: 2rem solid var(--blue-eight);
+	margin-right: 30rem;
+}
+
+.STATS .stat p {
+	margin-top: 5rem;
+}
+
+.STATS .b-button {
+	margin-top: 50rem;
+}
+
+@media screen and (min-width: 1921px){
+	.STATS .globe {left: -385rem;}
+}
+
+@media screen and (min-width: 961px){
+	.STATS .b-column[data-width="1/2"] .stat {margin-right: 100rem;}
+}
+
+@media screen and (max-width: 960px){
+	.STATS > .b-columns > .b-column:first-child {order: 2; height: 235rem;}
+	.STATS > .b-columns > .b-column:last-child {order: 1;}
+	.STATS .globe {
+		background: url(./images/globe-mobile.svg) no-repeat bottom right / contain;
+		height: 240rem;
+		width: 334rem;
+		top: unset;
+		left: unset;
+		right: 0;
+	}
+	.STATS .stats {margin: 10rem -10rem 0;}
+	.STATS .stats .b-column[data-width="1/3"] {width: 50%; padding: 15rem 10rem;}
+	.STATS .b-button {margin-top: 25rem;}
+}

@@ -101,7 +101,7 @@ define('WP_AUTO_UPDATE_CORE', true);
 define( 'FS_METHOD', 'direct' );
 
 /** Limit the number of post revisions to 2 */
-define( 'WP_POST_REVISIONS', 2 );
+/*define( 'WP_POST_REVISIONS', 2 );*/
 
 /** Disable the file editor */
 define( 'DISALLOW_FILE_EDIT', true );
@@ -110,7 +110,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 define( 'IMAGE_EDIT_OVERWRITE', true );
 
 /** Turn off the WP core auto updater */
-define( 'WP_AUTO_UPDATE_CORE', false );
+/*define( 'WP_AUTO_UPDATE_CORE', false );*/
 
 /**
  * For developers: WordPress debugging mode.
@@ -124,7 +124,7 @@ define( 'WP_AUTO_UPDATE_CORE', false );
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 

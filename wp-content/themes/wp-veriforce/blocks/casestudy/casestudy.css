@@ -1,0 +1,88 @@
+.CASESTUDY {
+	border-radius: var(--radius);
+	background: var(--white);
+	box-shadow: var(--shadow);
+	overflow: hidden;
+	position: relative;
+}
+
+.CASESTUDY .content {
+	padding: 24rem;
+}
+
+.CASESTUDY .content .taxonomy {
+	background: var(--light-purple);
+	border-radius: 16rem;
+	padding: 0 16rem;
+	line-height: 32rem;
+	font-size: 16rem;
+	font-weight: 700;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.CASESTUDY .content h4 {
+	margin-top: 16rem;
+	color: var(--blue-three);
+	transition: color 0.25s;
+}
+
+.CASESTUDY .content a::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.CASESTUDY .content a:hover {
+	color: var(--button-green) !important;
+}
+
+.CASESTUDY .buttons {
+	padding: 0 24rem 24rem;
+}
+
+.CASESTUDY:hover .b-button.alt-text {
+	color: var(--button-green);
+}
+
+.CASESTUDY .image {
+	margin-right: -3rem;
+}
+
+@media screen and (min-width: 961px) {
+	.CASESTUDY .content h4 {font-size: 28rem;}
+}
+
+@media screen and (max-width: 960px) {
+	.CASESTUDY .b-columns {flex-direction: column-reverse; margin: 0;}
+	.CASESTUDY .b-column {padding: 0;}
+	.CASESTUDY .b-button {width: auto;}
+}
+
+
+
+/* OVERLAP */
+
+.b-page-body > .b-section[data-bg-color="light-blue"]:first-child + .b-section > .b-frame > .CASESTUDY:first-child {
+	margin-top: -200rem;
+	box-shadow: var(--shadow),
+	            500rem -100rem 0 -100rem var(--blue-one-tint),
+	            1000rem -100rem 0 -100rem var(--blue-one-tint),
+	            -500rem -100rem 0 -100rem var(--blue-one-tint),
+	            -1000rem -100rem 0 -100rem var(--blue-one-tint);
+}
+
+@media screen and (max-width: 960px) {
+	.b-page-body > .b-section[data-bg-color="light-blue"]:first-child + .b-section > .b-frame > .CASESTUDY:first-child {
+		margin-top: -64rem;
+		box-shadow: var(--shadow),
+		            250rem -64rem 0 -64rem var(--blue-one-tint),
+		            500rem -64rem 0 -64rem var(--blue-one-tint),
+		            -250rem -64rem 0 -64rem var(--blue-one-tint),
+		            -500rem -64rem 0 -64rem var(--blue-one-tint);
+	}
+}

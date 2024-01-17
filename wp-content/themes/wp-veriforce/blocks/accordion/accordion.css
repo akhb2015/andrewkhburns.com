@@ -1,0 +1,104 @@
+.ACCORDION .row {
+	max-width: 800rem;
+	margin: auto;
+	padding: 24rem;
+	background: var(--blue-one-tint);
+	border-radius: 5rem;
+}
+
+.ACCORDION .row:not(:last-child) {
+	margin-bottom: 15rem;
+}
+
+.ACCORDION .heading {
+	position: relative;
+}
+
+
+.ACCORDION .heading h4 {
+	color: var(--charcoal);
+}
+
+.ACCORDION .toggle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	text-indent: -9999rem;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	background: none;
+}
+
+.ACCORDION .toggle::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 32rem;
+	height: 32rem;
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none"><rect x="0.5" width="32" height="32" rx="5" fill="%23DCEEF4"/><line x1="24.5" y1="16" x2="8.5" y2="16" stroke="%2300567D" stroke-width="2" stroke-linejoin="round"/><line x1="16.5" y1="8" x2="16.5" y2="24" stroke="%2300567D" stroke-width="2" stroke-linejoin="round"/></svg>');
+	background-repeat: no-repeat;
+	background-size: 32rem 32rem;
+	transition: 0.25s all;
+}
+
+.ACCORDION .container {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.25s;
+}
+
+.ACCORDION .content {
+	padding: 10rem 0;
+	max-width: 634rem;
+}
+
+.ACCORDION .content a {
+	text-decoration: underline;
+	transition: ease .25s;
+}
+
+.ACCORDION .content a:hover {
+	text-decoration: none;
+}
+
+.ACCORDION .row.alt-active .toggle {width: 40rem;}
+.ACCORDION .row.alt-active .toggle::before {
+	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none"><rect width="32" height="32" rx="5" transform="matrix(-0.0064516 -0.999979 -0.999979 0.0064516 32.6016 31.9994)" fill="%23DCEEF4"/><line y1="-1" x2="16" y2="-1" transform="matrix(0.00645152 0.999979 0.999979 -0.00645152 17.4453 8.09668)" stroke="%2300567D" stroke-width="2" stroke-linejoin="round"/></svg>');
+	transform: rotate(90deg);
+}
+
+
+@media screen and (max-width: 960px) {
+	.ACCORDION .heading h4 {padding-right: 30rem;}
+}
+
+
+
+/* image */
+
+.ACCORDION[data-style="image"] .rows {
+	position: relative;
+	padding: 0 800rem 0 0;
+}
+
+.ACCORDION[data-style="image"] .image {
+	overflow: hidden;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 760rem;
+	transition: opacity 0.25s;
+}
+
+.ACCORDION[data-style="image"] .row.alt-active .image {opacity:1;}
+
+@media screen and (max-width: 960px) {
+	.ACCORDION[data-style="image"] .rows {min-height: 0 !important; padding: 0;}
+	.ACCORDION[data-style="image"] .image {position:static; width:auto; padding: 0 20rem 20rem;}
+}
